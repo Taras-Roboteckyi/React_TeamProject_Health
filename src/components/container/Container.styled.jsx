@@ -6,12 +6,12 @@ export const Div = styled.div`
   padding-right: 20px;
 
   @media screen and (min-width: 480px) {
-    width: 480px;
+    width: ${props => props.theme.breakpoints.mobile};
   }
   @media screen and (min-width: 768px) {
-    width: 768px;
+    width: ${props => props.theme.breakpoints.tablet};
   }
   @media screen and (min-width: 1280px) {
-    width: 1280px;
+    width: ${props => props.theme.breakpoints.desktop};
   }
 `;
