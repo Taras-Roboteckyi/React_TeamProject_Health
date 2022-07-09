@@ -1,7 +1,11 @@
+import { LoginForm } from "../../components/LoginForm/LoginForm";
+
+
 export const LoginPage = () => {
   return (
     <main>
-      <div>LoginPage</div>
+      <h2>SING IN</h2>
+      <LoginForm />
     </main>
   );
 };
