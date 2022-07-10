@@ -32,7 +32,7 @@ export const DiaryPage = () => {
         </CalendarStyles>
 
         {/* {isCurrentDay && width > 767 && (
-        <ProductForm
+        <DiaryAddProductForm
           productName={productName}
           productWeight={productWeight}
           productsVariants={productsVariants}
@@ -59,7 +59,7 @@ export const DiaryPage = () => {
 
       <Modal hideModal={onHandleCliсk} showModal={onHandleCliсk}>
         <div className="container">
-          <ProductForm
+          <DiaryAddProductForm
             productName={productName}
             productWeight={productWeight}
             productsVariants={productsVariants}
