@@ -1,5 +1,6 @@
 // import React, { useState } from 'react';
 import { Container } from '../../components/container';
+import { DailyCaloriesForm } from '../../components/dailyCaloriesForm/DailyCaloriesForm';
 import { BgImageStyled } from './MainPage.styled';
 
 export const MainPage = () => {
@@ -10,8 +11,8 @@ export const MainPage = () => {
     <main>
       <BgImageStyled />
       <Container>
-        {/* <DailyCaloriesForm />
-        <Modal /> */}
+        <DailyCaloriesForm />
+        {/* <Modal /> */}
       </Container>
     </main>
   );
