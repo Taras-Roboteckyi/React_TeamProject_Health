@@ -17,16 +17,23 @@ export const Section = styled.section`
     height: 100%;
     right: 0;
     bottom: 0;
-    /* z-index: -1; */
+    z-index: 1;
   }
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
-    background: url(${main_bg_desktop}) right no-repeat;
+    /* background: url(${main_bg_desktop}) right no-repeat; */
 
     /*    background-size: 50%;
     background-repeat: no-repeat;
     background-position: right;
     background-image: url(${main_bg_desktop}); */
-    background-color: ${props => props.theme.colors.$lightGrey};
+    background-image: none;
+    padding: 300px 140px 200px 100px;
+    width: 520px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    /* background-color: ${props => props.theme.colors.$lightGrey}; */
   }
 `;
 

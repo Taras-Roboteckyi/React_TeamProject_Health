@@ -13,8 +13,8 @@ export const Layout = () => {
         </Logo>
         <Sign to="signin">Sign In </Sign>
         <Link to="registration">Registration </Link>
-        {/* <Link to="diary">DiaryPage</Link>
-        <Link to="calculator">CalculatorPage</Link> */}
+        <Link to="diary">DiaryPage</Link>
+        <Link to="calculator">CalculatorPage</Link>
       </Nav>
       <Outlet />
     </Container>
