@@ -6,6 +6,9 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { CalendarStyles } from './DiaryPage.styled';
 import { useWindowWidth } from '@react-hook/window-size';
 
+import SideBar from '../../components/SideBar/SideBar';
+import { Wrapper } from './DiaryPage.styled';
+
 export const DiaryPage = () => {
   const [date, setDate] = useState(new Date());
   const windowWidth = useWindowWidth();
@@ -16,18 +19,19 @@ export const DiaryPage = () => {
 
   return (
     <main>
-      <CalendarStyles>
-        <DatePicker
-          locale="en"
-          dateFormat="dd.MM.yyyy"
-          selected={date}
-          onChange={setDate}
-          className={'calendar'}
-        />
-        <GoCalendar size={20} fill={'#9B9FAA'} className="calendar_icon" />
-      </CalendarStyles>
+      <Wrapper>
+        <CalendarStyles>
+          <DatePicker
+            locale="en"
+            dateFormat="dd.MM.yyyy"
+            selected={date}
+            onChange={setDate}
+            className={'calendar'}
+          />
+          <GoCalendar size={20} fill={'#9B9FAA'} className="calendar_icon" />
+        </CalendarStyles>
 
-      {/* {isCurrentDay && width > 767 && (
+        {/* {isCurrentDay && width > 767 && (
         <ProductForm
           productName={productName}
           productWeight={productWeight}
@@ -66,6 +70,9 @@ export const DiaryPage = () => {
           />
         </div>
       </Modal> */}
+
+        <SideBar />
+      </Wrapper>
     </main>
   );
 };
