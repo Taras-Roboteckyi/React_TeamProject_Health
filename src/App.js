@@ -53,7 +53,7 @@ function App() {
               element={<RegistrationPage />}
             />
             <Route
-              path="login"
+              path="signin"
               /*  element={
               <PublicRoute restricted redirectTo="/diary">
                 <LoginPage />
