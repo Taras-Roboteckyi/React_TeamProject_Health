@@ -3,6 +3,11 @@ import styled from 'styled-components';
 import main_bg_desktop from '../../images/sidebar_bg_desktop.png';
 
 export const CalendarStyles = styled.label`
+  width: 202px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+  padding: 0 20px;
   .calendar {
     font-family: ${({ theme: { fonts } }) => fonts.verdana};
     font-style: normal;
@@ -10,9 +15,17 @@ export const CalendarStyles = styled.label`
     font-size: 18px;
     line-height: 22px;
     border: none;
-    width: 150px;
-    text-align: center;
+    width: 140px;
     outline: none;
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+      font-size: 34px;
+      line-height: 41px;
+      width: 220px;
+    }
+  }
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    width: 300px;
+    margin-bottom: 60px;
   }
 `;
 
@@ -26,8 +39,6 @@ export const Wrapper = styled.div`
     display: block;
   } */
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
-    display: flex;
-
     background: url(${main_bg_desktop}) right no-repeat;
 
     /* background-size: 50%;
