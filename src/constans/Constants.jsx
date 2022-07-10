@@ -1,5 +1,5 @@
-const VERDANA = `'Verdana', sans-serif`;
-const GOTHAM_PRO = `'Gotham Pro', sans-serif`;
+const VERDANA = `'Verdana'`;
+const GOTHAM_PRO = `'Gotham Pro'`;
 
 export const constants = {
   fonts: {
