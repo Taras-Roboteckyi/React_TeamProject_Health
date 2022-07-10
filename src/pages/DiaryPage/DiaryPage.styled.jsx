@@ -12,6 +12,7 @@ export const CalendarStyles = styled.label`
     border: none;
     width: 150px;
     text-align: center;
+    outline: none;
   }
 `;
 
@@ -26,7 +27,7 @@ export const Wrapper = styled.div`
   } */
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     display: flex;
-    justify-content: space-between;
+
     background: url(${main_bg_desktop}) right no-repeat;
 
     /* background-size: 50%;
