@@ -1,6 +1,6 @@
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import { getUserName } from '../../redux/authorization/auth-selectors';
-// import authOperations from '../../redux/authorization/auth-operations';
+import authOperations from '../../redux/authorization/auth-operations';
 import {
   ContainerUserMenuStyled,
   ContainerTextStyled,
@@ -8,7 +8,7 @@ import {
 // import { TbArrowBack } from 'react-icons/tb';
 
 export function UserMenu() {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   //   const userName = useSelector(getUserName);
 
   return (
@@ -20,9 +20,8 @@ export function UserMenu() {
       )} */}
       <ContainerTextStyled>
         {/* <p>{ userName }</p> */}
-        {/* <button onClick={() => dispatch(authOperations.logOut())}>Exit</button> */}
         <p>Roman</p>
-        <button>Exit</button>
+        <button onClick={() => dispatch(authOperations.logOut())}>Exit</button>
       </ContainerTextStyled>
     </ContainerUserMenuStyled>
   );
