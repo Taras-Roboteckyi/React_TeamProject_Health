@@ -1,5 +1,5 @@
 import { LoginForm } from "../../components/LoginForm/LoginForm";
-import { ImageStyled } from "../LoginPage/LoginPage.styled";
+import { ImageStyled, H2 } from "../LoginPage/LoginPage.styled";
 import { Container } from "../../components/container";
 
 export const LoginPage = () => {
@@ -7,7 +7,7 @@ export const LoginPage = () => {
     <main>
       <ImageStyled />
       <Container>
-        <h2>SING IN</h2>
+        <H2>SING IN</H2>
         <LoginForm />
       </Container>  
     </main>

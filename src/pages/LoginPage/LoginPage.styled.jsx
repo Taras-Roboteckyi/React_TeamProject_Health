@@ -16,3 +16,13 @@ export const ImageStyled = styled.div`
     background: url(${login_bg_desktop}) top right no-repeat;
   }
 `;
+
+export const H2 = styled.h2`
+  font-family: ${({ theme: { fonts } }) => fonts.gothamPro};
+  font-weight: 700;
+  font-style: normal;
+  font-size: 14px;
+  line-height: ${({ theme: { lineHeight } }) => lineHeight.gothamProHeight};
+  text-transform: uppercase;
+  color: ${({ theme: { colors } }) => colors.$orange};
+`;
