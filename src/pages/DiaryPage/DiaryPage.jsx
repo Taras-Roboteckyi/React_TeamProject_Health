@@ -1,39 +1,71 @@
-import Datetime from 'react-datetime';
-import 'react-datetime/css/react-datetime.css';
 import { GoCalendar } from 'react-icons/go';
 import { useState } from 'react';
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import { CalendarStyles } from './DiaryPage.styled';
+import { useWindowWidth } from '@react-hook/window-size';
 
 export const DiaryPage = () => {
   const [date, setDate] = useState(new Date());
-  const dateReformat = format(date, 'dd/MM/yyyy');
-  console.log(dateReformat);
+  const windowWidth = useWindowWidth();
+  console.log(windowWidth);
 
-  const isCurrentDay =
-    format(date, 'dd/MM/yyyy') === format(new Date(), 'dd/MM/yyyy');
+  // const dateIsFormating = format(date, 'dd/MM/yyyy');
+  // const isCurrentDay = dateIsFormating === format(new Date(), 'dd/MM/yyyy');
 
-  console.log(isCurrentDay);
   return (
     <main>
       <CalendarStyles>
-        <Datetime
-          dateFormat="DD.MM.YYYY"
-          timeFormat={false}
-          initialValue={new Date()}
-          inputProps={{
-            className: 'calendar',
-            placeholder: format(new Date(), 'dd.MM.yyyy'),
-          }}
-          onChange={data => {
-            data._d && setDate(data._d);
-          }}
-          closeOnSelect
+        <DatePicker
+          locale="en"
+          dateFormat="dd.MM.yyyy"
+          selected={date}
+          onChange={setDate}
+          className={'calendar'}
         />
         <GoCalendar size={20} fill={'#9B9FAA'} className="calendar_icon" />
       </CalendarStyles>
 
-      <div>DiaryPage</div>
+      {/* {isCurrentDay && width > 767 && (
+        <ProductForm
+          productName={productName}
+          productWeight={productWeight}
+          productsVariants={productsVariants}
+          isSearchingProduct={isSearchingProduct}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+        />
+      )}
+
+      <EatenProductsList
+        eatenProductsList={eatenProductsList}
+        isCurrentDay={isCurrentDay}
+        handleClick={handleClick}
+      />
+
+      <Button
+        type="button"
+        isValid={true}
+        dirty={true}
+        onClick={onHandleCliсk}
+      ></Button>
+
+      <CalloriesText />
+
+      <Modal hideModal={onHandleCliсk} showModal={onHandleCliсk}>
+        <div className="container">
+          <ProductForm
+            productName={productName}
+            productWeight={productWeight}
+            productsVariants={productsVariants}
+            isSearchingProduct={isSearchingProduct}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            errorMsg={errorMsg}
+          />
+        </div>
+      </Modal> */}
     </main>
   );
 };
