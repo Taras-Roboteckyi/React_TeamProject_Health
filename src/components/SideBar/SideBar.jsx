@@ -85,7 +85,7 @@ const SideBar = () => {
                 ),
               )
             ) : (
-              <p>Your diet will be displayed here</p>
+              <TextStyle>Your diet will be displayed here</TextStyle>
             )}
 
             {/* <BgImageStyled /> */}

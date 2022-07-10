@@ -65,7 +65,7 @@ const fetchCurrentUser = createAsyncThunk(
       console.log(error.message);
       toast.error(error.message);
     }
-  }
+  },
 );
 
 const operations = {
