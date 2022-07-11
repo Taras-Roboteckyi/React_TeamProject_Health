@@ -56,8 +56,11 @@ export const Wrapper = styled.div`
 `;
 
 export const ButtonOpenModalForm = styled.button`
+  display: block;
   width: 48px;
   height: 48px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 50%;
   background: transparent;
   line-height: 0;
