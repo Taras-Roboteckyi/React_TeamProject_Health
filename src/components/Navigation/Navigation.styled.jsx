@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export const Link = styled(NavLink)`
   display: inline-block;
+
   color: ${props => props.theme.colors.text};
   text-decoration: none;
   font-size: 16px;
