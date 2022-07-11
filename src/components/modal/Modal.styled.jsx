@@ -1,57 +1,58 @@
 import styled from '@emotion/styled'
-import { AiOutlineClose } from "react-icons/ai";
+
 
 export const StyledOverlay = styled.div`
 position: fixed;
   width: 100vw;
   height: 100vh;
-  top: 120px;
+  top:0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  filter: drop-shadow(${props => props.theme.options.dropShadow});
-  z-index: 1000;
-  overflow: auto;
-   @media (min-width: 768px) {
-    top: 0;
-    background-color: rgba(33, 33, 33, 0.12);
-  }
+  background-color: rgba(33, 33, 33, 0.12);
+  
   `
 
 export const StyledModal = styled.div`
- position: absolute;
-  top: 0;
-  width: 320px;
-  height: 599px;
-  overflow: hidden;
+  min-width: 320px;
   background-color: ${props => props.theme.colors.$white};
-     @media (min-width: 768px) {
-    top: 220px;
-    width: 594px;
-    height: 580px;
-  }
-      @media (min-width: 1280px) {
-    margin-top: 120px;
-    top: 10px;
-    width: 690px;
-    height: 580px;
+  @media (min-width: 768px) {
+ position: absolute;
+   left: 50%;
+    top: 50%;
+   transform: translate(-50%, -50%);
+    width: 672px;
+    height: 573px;
+    box-shadow: 0px 22px 40px rgba(0, 0, 0, 0.1);
   }
  `
-export const StyledButton = styled.button`
-background-image: AiOutlineClose;
-display: block;
-position: absolute;
-top: 24px;
-right: 24px;
-background-color: ${props => props.theme.colors.$white};
-width: 12px;
-height: 12px;
-background-repeat: no-repeat;
-border: none;
-background-color: transparent;`
+export const StyledCloseButton = styled.button`
+  display: none;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+   border: none;
+  cursor:pointer;
+  @media only screen and (min-width: 769px) {
+    display: block;
+      left: 632px;
+  top: 20px;
+
+  }
+`
+export const StyledCloseMobileButton = styled.button`
+  text-align: left;
+  padding-left: 20px;
+  height: 12px;
+  width: 100vw;
+  border: none;
+  background:${props => props.theme.colors.$lightGrey};
+  cursor: pointer;
+
+  @media screen and(min-width: 768px) {
+    display: none;
+  }
+`
 
 
 

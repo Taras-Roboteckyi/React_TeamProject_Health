@@ -1,9 +1,9 @@
-
-
 import React from "react";
-import { useEffect } from "react";
 import ReactDom from "react-dom";
-import {StyledOverlay, StyledModal, StyledButton} from "./Modal.styled";
+import { useEffect } from "react";
+import { RiCloseFill } from "react-icons/ri";
+import arrowIcon from './arrow.svg'
+import {StyledOverlay, StyledModal, StyledCloseButton, StyledCloseMobileButton} from "./Modal.styled";
 
 
 const Modal = ({ onClose, children }) => {
@@ -44,7 +44,10 @@ const Modal = ({ onClose, children }) => {
       onClick={handleBackdropClick}
     >
       <StyledModal >
-        <StyledButton  onClick={handleButtonClick} />
+        <StyledCloseButton onClick={handleButtonClick} > <RiCloseFill size={20} /> </StyledCloseButton>
+          <StyledCloseMobileButton  onClick={handleButtonClick}>
+          <img  src={arrowIcon} alt="arrow" />
+        </StyledCloseMobileButton>
         {children}
       </StyledModal>
     </StyledOverlay>,
