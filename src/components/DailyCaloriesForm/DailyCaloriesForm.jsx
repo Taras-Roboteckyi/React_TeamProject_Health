@@ -71,10 +71,8 @@ export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
     },
     validationSchema,
     onSubmit: values => {
-      console.log(values);
-      onOpen();
-
       onFormSubmit(values);
+      onOpen();
     },
   });
 
@@ -235,4 +233,5 @@ export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
 
 DailyCaloriesForm.propTypes = {
   onFormSubmit: PropTypes.func,
+  onOpen: PropTypes.func,
 };
