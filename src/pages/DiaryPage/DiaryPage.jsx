@@ -3,18 +3,21 @@ import { useState } from 'react';
 // import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { CalendarStyles } from './DiaryPage.styled';
-import { useWindowWidth } from '@react-hook/window-size';
 
+import { useWindowWidth } from '@react-hook/window-size';
+import { BsPlusLg } from 'react-icons/bs';
 import SideBar from '../../components/SideBar/SideBar';
-import { Wrapper } from './DiaryPage.styled';
+import {
+  Wrapper,
+  CalendarStyles,
+  ButtonOpenModalForm,
+} from './DiaryPage.styled';
 import { DiaryAddProductForm } from '../../components/diaryAddProductForm';
 import { DiaryProductsList } from '../../components/diaryProductsList/DiaryProductsList';
 
 export const DiaryPage = () => {
   const [date, setDate] = useState(new Date());
   const windowWidth = useWindowWidth();
-  console.log(windowWidth);
 
   // const dateIsFormating = format(date, 'dd/MM/yyyy');
   // const isCurrentDay = dateIsFormating === format(new Date(), 'dd/MM/yyyy');
@@ -33,8 +36,14 @@ export const DiaryPage = () => {
           <GoCalendar size={20} fill={'#9B9FAA'} className="calendar_icon" />
         </CalendarStyles>
 
-        <DiaryAddProductForm />
+        {windowWidth > 767 && <DiaryAddProductForm />}
         <DiaryProductsList />
+
+        {windowWidth < 768 && (
+          <ButtonOpenModalForm type="button">
+            <BsPlusLg size={14} />
+          </ButtonOpenModalForm>
+        )}
 
         {/* {isCurrentDay && width > 767 && (
         <DiaryAddProductForm
