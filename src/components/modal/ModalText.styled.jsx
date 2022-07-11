@@ -1,5 +1,4 @@
-import styled from '@emotion/styled'
-
+import styled from 'styled-components';
 
 export const ModalTitle = styled.h2`
   font-family: ${props => props.theme.fonts.verdana};;
