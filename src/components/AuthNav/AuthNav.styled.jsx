@@ -7,7 +7,8 @@ export const Link = styled(NavLink)`
   text-decoration: none;
   font-size: 16px;
   font-weight: bold;
-  padding: 15px;
+  /* padding: 15px; */
+  margin-right: 20px;
   &.active {
     color: ${props => props.theme.colors.primary};
     transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1);

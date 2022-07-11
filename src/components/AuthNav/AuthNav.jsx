@@ -5,10 +5,10 @@ import { Link } from './AuthNav.styled';
 export default function AuthNav() {
   return (
     <div>
-      <Link to="registration">Registration</Link>
-      <Link to="signin">Sign In </Link>
-      <Link to="diary">DiaryPage</Link>
-      <Link to="calculator">CalculatorPage</Link>
+      <Link to="registration">REGISTRATION</Link>
+      <Link to="signin">SIGN IN </Link>
+      <Link to="diary">DIARY</Link>
+      <Link to="calculator">CALCULATOR</Link>
     </div>
   );
 }

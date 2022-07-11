@@ -21,6 +21,7 @@ export const Link = styled(NavLink)`
 
 export const Logo = styled(NavLink)`
   @media (max-width: 1279px) {
-    margin-left: 32px;
+    /*  margin-left: 32px; */
+    margin-right: 40px;
   }
 `;

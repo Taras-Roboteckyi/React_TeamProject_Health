@@ -11,7 +11,6 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { ListStyle } from './ContactList.styled'; */
-import UserMenu from '../userMenu/UserMenu';
 
 import {
   /* BgImageStyled, */
@@ -29,8 +28,6 @@ import {
 const SideBar = () => {
   return (
     <>
-      <UserMenu />
-
       <Section>
         <Wrapper>
           <SummaryContainer>
