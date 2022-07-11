@@ -1,6 +1,19 @@
-import {
-  /* Routes, Route, Navigate,  */
-  Outlet /* NavLink  */,
+import AppBar from '../AppBar/AppBar';
+import { Outlet } from 'react-router-dom';
+
+export const Layout = () => {
+  return (
+    <>
+      <AppBar />
+
+      <Outlet />
+    </>
+  );
+};
+
+/* import {
+  Routes, Route, Navigate, 
+  Outlet, NavLink ,
 } from 'react-router-dom';
 import { Nav, Container, Link, Logo, Sign } from './Layout.styled';
 
@@ -22,3 +35,4 @@ export const Layout = () => {
     </>
   );
 };
+ */

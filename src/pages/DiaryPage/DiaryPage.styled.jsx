@@ -34,10 +34,11 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
   }
-
+    
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     display: block;
   } */
+
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     background: url(${main_bg_desktop}) right no-repeat;
 

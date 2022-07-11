@@ -31,7 +31,7 @@ function App() {
   return (
     <>
       <Toaster toastOptions={{ duration: 5000 }} />
-      {!isFetchingCurrentUser && (
+      {!isFetchingCurrentUser && ( //Щоб не моргав інтерфейс при переході на перезагрузку
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route

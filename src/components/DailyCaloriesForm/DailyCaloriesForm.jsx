@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 import { Section } from './DailyCaloriesForm.Styled';
 import { DailyButton } from './DailyButton.Styled';
 import { useState } from 'react';
 import * as Yup from 'yup';
 
-export const DailyCaloriesForm = ({ onOpen }) => {
+export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
   const [isLabelCheked, setIsLabelCheked] = useState({
     one: true,
     two: false,
@@ -29,22 +30,35 @@ export const DailyCaloriesForm = ({ onOpen }) => {
 
   const validationSchema = Yup.object({
     height: Yup.number()
+      .typeError('Must be a number')
       .min(100, 'Too low!')
       .max(250, 'Too high!')
       .required('This field is required!'),
     age: Yup.number()
+      .typeError('Must be a number')
       .min(18, 'Too young!')
       .max(100, 'Too old!')
       .required('This field is required!'),
     currentWeight: Yup.number()
+      .typeError('Must be a number')
       .min(20, 'Too light!')
       .max(500, 'Too heavy!')
       .required('This field is required!'),
     desiredWeight: Yup.number()
+      .typeError('Must be a number')
       .min(20, 'Too light!')
       .max(500, 'Too heavy!')
+      .required('This field is required!')
+      .when('currentWeight', (currentWeight, validationSchema) => {
+        return validationSchema.test({
+          test: desiredWeight => currentWeight && desiredWeight < currentWeight,
+          message: 'The expected weight must be less than the current weight',
+        });
+      }),
+    bloodType: Yup.number()
+      .typeError('Must be a number')
+      .oneOf([1, 2, 3, 4])
       .required('This field is required!'),
-    bloodType: Yup.number().required('This field is required!'),
   });
 
   const formik = useFormik({
@@ -59,6 +73,8 @@ export const DailyCaloriesForm = ({ onOpen }) => {
     onSubmit: values => {
       console.log(values);
       onOpen();
+
+      onFormSubmit(values);
     },
   });
 
@@ -215,4 +231,8 @@ export const DailyCaloriesForm = ({ onOpen }) => {
       </form>
     </Section>
   );
+};
+
+DailyCaloriesForm.propTypes = {
+  onFormSubmit: PropTypes.func,
 };
