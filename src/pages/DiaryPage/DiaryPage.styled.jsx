@@ -62,6 +62,7 @@ export const ButtonOpenModalForm = styled.button`
   height: 48px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 60px;
   border-radius: 50%;
   background: transparent;
   line-height: 0;
