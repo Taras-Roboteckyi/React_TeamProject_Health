@@ -13,12 +13,15 @@ export const Tr = styled.tr`
   td:not(:last-child) {
     border-bottom: 2px solid ${prop => prop.theme.colors.borderColor};
 
-    padding: 8px 20px 8px 0px;
+    padding: 8px 0px 8px 0px;
+    overflow: hidden;
   }
-
+  td {
+    white-space: nowrap;
+  }
   .widthTitle {
     margin-right: 8px;
-    width: 130px;
+    max-width: 130px;
   }
   .widthGramGram {
     margin-right: 8px;
