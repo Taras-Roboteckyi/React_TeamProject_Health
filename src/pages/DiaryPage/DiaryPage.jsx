@@ -14,13 +14,19 @@ import {
 } from './DiaryPage.styled';
 import { DiaryAddProductForm } from '../../components/diaryAddProductForm';
 import { DiaryProductsList } from '../../components/diaryProductsList/DiaryProductsList';
+import { ModalForDiaryPage } from '../../components/modalForDiaryPage/modalForDiaryPage';
 
 export const DiaryPage = () => {
   const [date, setDate] = useState(new Date());
+  const [isOpenModal, setIsOpenModal] = useState(false);
   const windowWidth = useWindowWidth();
 
   // const dateIsFormating = format(date, 'dd/MM/yyyy');
   // const isCurrentDay = dateIsFormating === format(new Date(), 'dd/MM/yyyy');
+
+  const toggleModal = () => {
+    setIsOpenModal(prevValue => !prevValue);
+  };
 
   return (
     <main>
@@ -35,14 +41,18 @@ export const DiaryPage = () => {
           />
           <GoCalendar size={20} fill={'#9B9FAA'} className="calendar_icon" />
         </CalendarStyles>
-
         {windowWidth > 767 && <DiaryAddProductForm />}
         <DiaryProductsList />
-
         {windowWidth < 768 && (
-          <ButtonOpenModalForm type="button">
+          <ButtonOpenModalForm type="button" onClick={toggleModal}>
             <BsPlusLg size={14} />
           </ButtonOpenModalForm>
+        )}
+
+        {windowWidth < 768 && isOpenModal && (
+          <ModalForDiaryPage onClose={toggleModal}>
+            <DiaryAddProductForm />
+          </ModalForDiaryPage>
         )}
 
         {/* {isCurrentDay && width > 767 && (
@@ -84,7 +94,6 @@ export const DiaryPage = () => {
           />
         </div>
       </Modal> */}
-
         <SideBar />
       </Wrapper>
     </main>

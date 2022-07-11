@@ -5,7 +5,6 @@ import {
   ContainerUserMenuStyled,
   ContainerTextStyled,
 } from './UserMenu.styled';
-// import { TbArrowBack } from 'react-icons/tb';
 
 export default function UserMenu() {
   const dispatch = useDispatch();
@@ -13,11 +12,6 @@ export default function UserMenu() {
 
   return (
     <ContainerUserMenuStyled>
-      {/* {isOpenModal && (
-        <ContainerArrowStyled>
-          <TbArrowBack />
-        </ContainerArrowStyled>
-      )} */}
       <ContainerTextStyled>
         {/* <p>{ userName }</p> */}
         <p>Roman</p>

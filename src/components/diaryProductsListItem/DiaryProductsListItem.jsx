@@ -12,7 +12,9 @@ export const DiaryProductsListItem = ({
   return (
     <>
       <Tr>
-        <td className="widthTitle">{/* {product.title} */}1111111111111</td>
+        <td className="widthTitle">
+          {/* {product.title} */}1111111gfhhhhhhhhhhhhhhhhhhhh111111
+        </td>
         <td className="widthGramGram">{/* {product.weight} */}500 g</td>
         <td className="widthGramKcal">
           {/* {Math.round(product.kcal)} */}1000 kcal
