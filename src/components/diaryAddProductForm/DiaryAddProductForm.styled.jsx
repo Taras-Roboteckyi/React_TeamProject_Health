@@ -60,6 +60,7 @@ export const ButtonAdd = styled.button`
   width: 176px;
   height: 48px;
   border-radius: 24px;
+  line-height: 0;
   background: transparent;
   color: ${prop => prop.theme.colors.$orange};
   border: 3px solid ${prop => prop.theme.colors.$orange};

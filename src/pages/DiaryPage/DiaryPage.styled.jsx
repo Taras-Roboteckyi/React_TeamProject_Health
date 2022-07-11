@@ -54,3 +54,22 @@ export const Wrapper = styled.div`
     /*  z-index: 12; */
   }
 `;
+
+export const ButtonOpenModalForm = styled.button`
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  background: transparent;
+  line-height: 0;
+  color: ${prop => prop.theme.colors.$orange};
+  border: 3px solid ${prop => prop.theme.colors.$orange};
+  padding: 0;
+  :hover {
+    background: ${prop => prop.theme.colors.$orange};
+    color: ${prop => prop.theme.colors.$white};
+    border: none;
+  }
+`;
