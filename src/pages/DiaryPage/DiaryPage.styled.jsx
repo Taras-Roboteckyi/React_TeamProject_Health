@@ -60,6 +60,7 @@ export const ButtonOpenModalForm = styled.button`
   height: 48px;
   border-radius: 50%;
   background: transparent;
+  line-height: 0;
   color: ${prop => prop.theme.colors.$orange};
   border: 3px solid ${prop => prop.theme.colors.$orange};
   padding: 0;

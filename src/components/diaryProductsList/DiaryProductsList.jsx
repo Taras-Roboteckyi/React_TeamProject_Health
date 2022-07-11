@@ -11,7 +11,7 @@ export const DiaryProductsList = ({
     <DiaryProductsListStyled>
       {/* {!eatenProductsList && <p>No data is available for this period.</p>} */}
 
-      <ul className="EatenProductsList">
+      <tbody className="EatenProductsList">
         {/* {eatenProductsList.map(product => ( */}
         <DiaryProductsListItem
         // product={product}
@@ -20,7 +20,7 @@ export const DiaryProductsList = ({
         // key={product.id}
         />
         {/* ))} */}
-      </ul>
+      </tbody>
     </DiaryProductsListStyled>
   );
 };
