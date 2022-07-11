@@ -9,6 +9,7 @@ import { useWindowWidth } from '@react-hook/window-size';
 import SideBar from '../../components/SideBar/SideBar';
 import { Wrapper } from './DiaryPage.styled';
 import { DiaryAddProductForm } from '../../components/diaryAddProductForm';
+import { DiaryProductsList } from '../../components/diaryProductsList/DiaryProductsList';
 
 export const DiaryPage = () => {
   const [date, setDate] = useState(new Date());
@@ -33,6 +34,7 @@ export const DiaryPage = () => {
         </CalendarStyles>
 
         <DiaryAddProductForm />
+        <DiaryProductsList />
 
         {/* {isCurrentDay && width > 767 && (
         <DiaryAddProductForm
