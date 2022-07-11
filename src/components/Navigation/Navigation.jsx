@@ -1,22 +1,19 @@
 import React from 'react';
+import { useWindowWidth } from '@react-hook/window-size';
 
-import { useSelector } from 'react-redux';
-import { authSelectors } from '../../redux/authorization';
-
-import { Link, Logo } from './Navigation.styled';
+import { Logo } from './Navigation.styled';
 
 import LogoDesktop from '../../images/LogoDesktop.svg';
-// import LogoMobile from '../../images/logoMobile.svg';
+import LogoMobile from '../../images/logoMobile.svg';
 
 const Navigation = () => {
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  const windowWidth = useWindowWidth();
   return (
     <nav>
       <Logo to="/">
-        <img src={LogoDesktop} alt="Logo" />
+        {windowWidth >= 768 && <img src={LogoDesktop} alt="Logo" />}
+        {windowWidth < 768 && <img src={LogoMobile} alt="Logo" />}
       </Logo>
-
-      {isLoggedIn /* true */ && <Link to="diary">DiaryPage</Link>}
     </nav>
   );
 };

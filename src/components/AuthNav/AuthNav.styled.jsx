@@ -2,7 +2,12 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
-  margin-top: 40px;
+  @media (max-width: 767px) {
+    margin-top: 20px;
+  }
+  @media (min-width: 768px) {
+    margin-top: 45px;
+  }
 `;
 
 export const Link = styled(NavLink)`
@@ -15,14 +20,6 @@ export const Link = styled(NavLink)`
   color: #9b9faa;
   text-decoration: none;
   padding-top: 20px;
-  &.active {
-    color: red;
-
-    transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  :hover {
-    color: blue;
-  }
 `;
 
 export const Sign = styled(NavLink)`
@@ -38,14 +35,6 @@ export const Sign = styled(NavLink)`
   color: #212121;
   text-decoration: none;
   text-align: right;
-  &.active {
-    color: red;
-
-    transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  :hover {
-    color: blue;
-  }
 `;
 
 export const Diary = styled(NavLink)`
@@ -60,16 +49,8 @@ export const Diary = styled(NavLink)`
 
   color: #212121;
   text-decoration: none;
-  padding-top: 20px;
-  text-align: right;
-  &.active {
-    color: red;
 
-    transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  :hover {
-    color: blue;
-  }
+  text-align: right;
 `;
 
 export const Calc = styled(NavLink)`
@@ -81,12 +62,4 @@ export const Calc = styled(NavLink)`
   }
   color: #9b9faa;
   text-decoration: none;
-  &.active {
-    color: red;
-
-    transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  :hover {
-    color: blue;
-  }
 `;

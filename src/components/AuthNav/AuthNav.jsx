@@ -7,6 +7,7 @@ export default function AuthNav() {
     <Container>
       <Sign to="signin">SIGN IN </Sign>
       <Link to="registration">REGISTRATION</Link>
+
       <Diary to="diary">DIARY</Diary>
       <Calc to="calculator">CALCULATOR</Calc>
     </Container>
