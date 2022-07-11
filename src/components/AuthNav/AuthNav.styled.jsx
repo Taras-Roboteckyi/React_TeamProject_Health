@@ -10,6 +10,15 @@ export const Container = styled.div`
   }
 `;
 
+export const Cont = styled.div`
+  @media (max-width: 767px) {
+    margin-top: 20px;
+  }
+  @media (min-width: 768px) {
+    margin-top: 70px;
+  }
+`;
+
 export const Link = styled(NavLink)`
   @media (max-width: 1279px) {
     margin-left: 16px;
@@ -49,7 +58,7 @@ export const Diary = styled(NavLink)`
 
   color: #212121;
   text-decoration: none;
-
+  margin-right: 20px;
   text-align: right;
 `;
 
