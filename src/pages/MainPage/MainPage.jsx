@@ -20,6 +20,7 @@ export const MainPage = () => {
   const toggleModal = () => {
     setIsOpenModal(prevValue => !prevValue);
   };
+
   return (
     <main>
       <BgImageStyled />

@@ -1,6 +1,7 @@
 // import { useState } from 'react';
 // import { useDispatch } from 'react-redux';
 // import authOperations from '../../redux/auth/auth-operations';
+import { LoginBtn,RegisterBtn } from "./LoginForm.styled";
 
 export const LoginForm = () => {
   // const dispatch = useDispatch();
@@ -35,8 +36,8 @@ export const LoginForm = () => {
           /* minlength="6" */ placeholder="Password *"
           required
         />
-        <button type="submit">Login</button>
-        <button type="submit">Register</button>
+        <LoginBtn type="submit">Login</LoginBtn>
+        <RegisterBtn type="submit">Register</RegisterBtn>
       </form>
     </>
   );
