@@ -7,7 +7,7 @@ import {
 } from './UserMenu.styled';
 // import { TbArrowBack } from 'react-icons/tb';
 
-export function UserMenu() {
+export default function UserMenu() {
   const dispatch = useDispatch();
   //   const userName = useSelector(getUserName);
 

@@ -17,7 +17,7 @@ export const Section = styled.section`
     height: 100%;
     right: 0;
     bottom: 0;
-    z-index: 1;
+    z-index: -1;
   }
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     /* background: url(${main_bg_desktop}) right no-repeat; */
