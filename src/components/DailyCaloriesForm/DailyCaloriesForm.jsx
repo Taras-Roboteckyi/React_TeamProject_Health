@@ -4,7 +4,7 @@ import { DailyButton } from './DailyButton.Styled';
 import { useState } from 'react';
 import * as Yup from 'yup';
 
-export const DailyCaloriesForm = () => {
+export const DailyCaloriesForm = ({ onOpen }) => {
   const [isLabelCheked, setIsLabelCheked] = useState({
     one: true,
     two: false,
@@ -58,6 +58,7 @@ export const DailyCaloriesForm = () => {
     validationSchema,
     onSubmit: values => {
       console.log(values);
+      onOpen();
     },
   });
 

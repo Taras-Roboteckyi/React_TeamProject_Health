@@ -1,57 +1,61 @@
-import React from "react";
-import ReactDom from "react-dom";
-import { useEffect } from "react";
-import { RiCloseFill } from "react-icons/ri";
-import arrowIcon from './arrow.svg'
-import {StyledOverlay, StyledModal, StyledCloseButton, StyledCloseMobileButton} from "./Modal.styled";
-
+import React from 'react';
+import ReactDom from 'react-dom';
+import { useEffect } from 'react';
+import { RiCloseFill } from 'react-icons/ri';
+import arrowIcon from './arrow.svg';
+import {
+  StyledOverlay,
+  StyledModal,
+  StyledCloseButton,
+  StyledCloseMobileButton,
+} from './Modal.styled';
 
 const Modal = ({ onClose, children }) => {
   useEffect(() => {
-    window.addEventListener("keydown", handleEscape);
-    const body = document.querySelector("body");
-    body.style.overflow = "hidden";
+    window.addEventListener('keydown', handleEscape);
+    const body = document.querySelector('body');
+    body.style.overflow = 'hidden';
 
     return () => {
-      window.removeEventListener("keydown", handleEscape);
-      window.removeEventListener("click", handleButtonClick);
-      const body = document.querySelector("body");
-      body.style.overflow = "auto";
+      window.removeEventListener('keydown', handleEscape);
+      window.removeEventListener('click', handleButtonClick);
+      const body = document.querySelector('body');
+      body.style.overflow = 'auto';
     };
   });
 
-  const handleEscape = (event) => {
-    if (event.code === "Escape") {
+  const handleEscape = event => {
+    if (event.code === 'Escape') {
       onClose();
     }
   };
 
-  const handleBackdropClick = (event) => {
+  const handleBackdropClick = event => {
     if (event.target === event.currentTarget) {
       onClose();
     }
   };
 
-  const handleButtonClick = (event) => {
-    if (event.target.tagName === "BUTTON") {
+  const handleButtonClick = event => {
+    if (event.currentTarget.tagName === 'BUTTON') {
       console.log(event.target.tagName);
       onClose();
     }
   };
 
   return ReactDom.createPortal(
-    <StyledOverlay
-      onClick={handleBackdropClick}
-    >
-      <StyledModal >
-        <StyledCloseButton onClick={handleButtonClick} > <RiCloseFill size={20} /> </StyledCloseButton>
-          <StyledCloseMobileButton  onClick={handleButtonClick}>
-          <img  src={arrowIcon} alt="arrow" />
+    <StyledOverlay onClick={handleBackdropClick}>
+      <StyledModal>
+        <StyledCloseButton onClick={handleButtonClick}>
+          <RiCloseFill size={20} />
+        </StyledCloseButton>
+        <StyledCloseMobileButton onClick={handleButtonClick}>
+          <img src={arrowIcon} alt="arrow" />
         </StyledCloseMobileButton>
         {children}
       </StyledModal>
     </StyledOverlay>,
-    document.getElementById("modal-root")
+    document.getElementById('modal-root'),
   );
 };
 
