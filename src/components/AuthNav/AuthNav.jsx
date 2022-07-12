@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container, Link, Sign, Diary, Calc } from './AuthNav.styled';
+import { Container, Link, Sign } from './AuthNav.styled';
 
 export default function AuthNav() {
   return (
