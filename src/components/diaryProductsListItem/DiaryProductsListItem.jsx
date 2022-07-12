@@ -20,11 +20,11 @@ export const DiaryProductsListItem = ({
           {/* {Math.round(product.kcal)} */}1000 kcal
         </td>
         <td>
-          {/* {isCurrentDay && ( */}
-          <button type="button" onClick={onClick}>
-            <IoCloseSharp size={24} fill="#9B9FAA" />
-          </button>
-          {/* )} */}
+          {isCurrentDay && (
+            <button type="button" onClick={onClick}>
+              <IoCloseSharp size={24} fill="#9B9FAA" />
+            </button>
+          )}
         </td>
       </Tr>
     </>
