@@ -1,7 +1,10 @@
+import { DailyCaloriesForm } from "../../components/DailyCaloriesForm/DailyCaloriesForm";
+import {StyledWrapper} from './CalculatorPage.styled'
+
 export const CalculatorPage = () => {
   return (
-    <main>
-      <div>CalculatorPage</div>
-    </main>
+   <StyledWrapper>
+      <DailyCaloriesForm/>
+    </StyledWrapper>
   );
 };
