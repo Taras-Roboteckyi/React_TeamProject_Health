@@ -55,6 +55,7 @@ export const Sign = styled(NavLink)`
 
   color: #212121;
   text-decoration: none;
+  padding-top: 20px;
   text-align: right;
   &.active {
     color: red;

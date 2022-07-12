@@ -1,14 +1,12 @@
 import React from 'react';
 
-import { Link } from './AuthNav.styled';
+import { Container, Link, Sign, Diary, Calc } from './AuthNav.styled';
 
 export default function AuthNav() {
   return (
-    <div>
+    <Container>
+      <Sign to="signin">SIGN IN </Sign>
       <Link to="registration">REGISTRATION</Link>
-      <Link to="signin">SIGN IN </Link>
-      <Link to="diary">DIARY</Link>
-      <Link to="calculator">CALCULATOR</Link>
-    </div>
+    </Container>
   );
 }
