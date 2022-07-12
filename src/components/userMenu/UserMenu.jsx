@@ -6,12 +6,23 @@ import {
   ContainerTextStyled,
 } from './UserMenu.styled';
 
+import AuthNavLogined from '../AuthNav/AuthNavLogined';
+
+// import { TbArrowBack } from 'react-icons/tb';
+
 export default function UserMenu() {
   const dispatch = useDispatch();
   //   const userName = useSelector(getUserName);
 
   return (
     <ContainerUserMenuStyled>
+      <AuthNavLogined />
+      {/* {isOpenModal && (
+        <ContainerArrowStyled>
+          <TbArrowBack />
+        </ContainerArrowStyled>
+      )} */}
+
       <ContainerTextStyled>
         {/* <p>{ userName }</p> */}
         <p>Roman</p>
