@@ -62,14 +62,19 @@ export const ButtonAdd = styled.button`
   border-radius: 24px;
   line-height: 0;
   background: transparent;
-  color: ${prop => prop.theme.colors.$orange};
-  border: 3px solid ${prop => prop.theme.colors.$orange};
+  color: ${prop =>
+    prop.disabled ? prop.theme.colors.$grey : prop.theme.colors.$orange};
+  border: ${prop =>
+    prop.disabled
+      ? `3px solid${prop.theme.colors.$grey}`
+      : `3px solid${prop.theme.colors.$orange}`};
+
   padding: 0;
   cursor: pointer;
+
   :hover {
-    background: ${prop => prop.theme.colors.$orange};
-    color: ${prop => prop.theme.colors.$white};
-    border: none;
+    background: ${prop => !prop.disabled && prop.theme.colors.$orange};
+    color: ${prop => !prop.disabled && prop.theme.colors.$white};
   }
   @media screen and (min-width: 768px) {
     width: 48px;

@@ -63,7 +63,7 @@ export const DiaryAddProductForm = ({
         />
       </div>
 
-      <ButtonAdd type="submit" disabled={!productName && !productWeight}>
+      <ButtonAdd type="submit" disabled={!productName || !productWeight}>
         {windowWidth < 768 ? 'Add' : <BsPlusLg size={14} />}
       </ButtonAdd>
     </ProductFormStyled>
