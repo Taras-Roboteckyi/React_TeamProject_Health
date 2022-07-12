@@ -65,6 +65,7 @@ export const ButtonAdd = styled.button`
   color: ${prop => prop.theme.colors.$orange};
   border: 3px solid ${prop => prop.theme.colors.$orange};
   padding: 0;
+  cursor: pointer;
   :hover {
     background: ${prop => prop.theme.colors.$orange};
     color: ${prop => prop.theme.colors.$white};

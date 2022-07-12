@@ -16,18 +16,21 @@ export const Tr = styled.tr`
     padding: 8px 0px 8px 0px;
     overflow: hidden;
   }
-  td {
-    white-space: nowrap;
-  }
+
   .widthTitle {
     margin-right: 8px;
     max-width: 130px;
   }
   .widthGramGram {
     margin-right: 8px;
+    white-space: nowrap;
+    text-align: right;
   }
   .widthGramKcal {
     margin-right: 17px;
+    white-space: nowrap;
+    text-align: right;
+    width: 60px;
   }
   button {
     background: inherit;

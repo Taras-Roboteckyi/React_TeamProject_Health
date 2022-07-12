@@ -24,9 +24,7 @@ const register = createAsyncThunk(
       return data;
     } catch (error) {
       if (error) {
-        toast.error('Not the correct password or email', {
-          position: toast.POSITION.TOP_CENTER,
-        });
+        toast.error('Not the correct password or email');
       }
       return rejectWithValue(error);
     }
@@ -43,9 +41,7 @@ const logIn = createAsyncThunk(
       return data;
     } catch (error) {
       if (error) {
-        toast.error('Not the correct email or password ', {
-          position: toast.POSITION.TOP_CENTER,
-        });
+        toast.error('Not the correct email or password ');
       }
       return rejectWithValue(error);
     }

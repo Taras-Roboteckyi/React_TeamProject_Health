@@ -10,7 +10,7 @@ export const DiaryProductsListStyled = styled.table`
   @media screen and (min-width: 768px) {
     margin-top: 0px;
     margin-bottom: 40px;
-    width: 610px;
+    width: 800px;
     border-spacing: 20px;
   }
 `;

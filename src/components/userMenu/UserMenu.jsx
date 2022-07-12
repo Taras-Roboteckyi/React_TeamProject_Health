@@ -5,6 +5,7 @@ import {
   ContainerUserMenuStyled,
   ContainerTextStyled,
 } from './UserMenu.styled';
+
 import AuthNavLogined from '../AuthNav/AuthNavLogined';
 
 // import { TbArrowBack } from 'react-icons/tb';
@@ -21,6 +22,7 @@ export default function UserMenu() {
           <TbArrowBack />
         </ContainerArrowStyled>
       )} */}
+
       <ContainerTextStyled>
         {/* <p>{ userName }</p> */}
         <p>Roman</p>

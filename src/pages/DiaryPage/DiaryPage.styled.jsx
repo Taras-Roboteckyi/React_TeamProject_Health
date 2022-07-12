@@ -62,12 +62,14 @@ export const ButtonOpenModalForm = styled.button`
   height: 48px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 60px;
   border-radius: 50%;
   background: transparent;
   line-height: 0;
   color: ${prop => prop.theme.colors.$orange};
   border: 3px solid ${prop => prop.theme.colors.$orange};
   padding: 0;
+  cursor: pointer;
   :hover {
     background: ${prop => prop.theme.colors.$orange};
     color: ${prop => prop.theme.colors.$white};
