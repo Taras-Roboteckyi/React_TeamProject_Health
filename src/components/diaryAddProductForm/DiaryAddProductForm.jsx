@@ -33,30 +33,20 @@ export const DiaryAddProductForm = ({
           name="productName"
           type="text"
           list="productSearch"
-          placeholder="Enter product name"
+          placeholder="Введіть назву продукту"
           className="productForm-form__input"
           value={productName}
           onChange={onChange}
           autoComplete="off"
         />
-        {isSearchingProduct ? (
-          'loading...'
-        ) : (
-          <datalist className="datalist" id="productSearch">
-            {productsVariants &&
-              productsVariants.map(product => (
-                <option value={product.title.ru} key={product._id} />
-              ))}
-          </datalist>
-        )}
 
         <input
           autoComplete="off"
           name="productWeight"
           type="text"
-          pattern="[0-9]{1,3}"
-          placeholder="Grams"
-          title="The value of the weight of the product must be from 0 to 999"
+          pattern="[0-9]{1,4}"
+          placeholder="Грами"
+          title="Значення ваги товару повинно бути від 0 до 9999г"
           className="productForm-form__input productForm-form__input--width"
           value={productWeight}
           onChange={onChange}
@@ -64,8 +54,19 @@ export const DiaryAddProductForm = ({
       </div>
 
       <ButtonAdd type="submit" disabled={!productName || !productWeight}>
-        {windowWidth < 768 ? 'Add' : <BsPlusLg size={14} />}
+        {windowWidth < 768 ? 'Додати' : <BsPlusLg size={14} />}
       </ButtonAdd>
+
+      {isSearchingProduct ? (
+        <span>Завантажую...</span>
+      ) : (
+        <datalist className="datalist" id="productSearch">
+          {productsVariants &&
+            productsVariants.map(product => (
+              <option value={product.title.ua} key={product._id} />
+            ))}
+        </datalist>
+      )}
     </ProductFormStyled>
   );
 };
