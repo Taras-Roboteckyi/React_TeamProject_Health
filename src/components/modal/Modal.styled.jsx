@@ -23,6 +23,7 @@ export const StyledModal = styled.div`
     position: absolute;
     left: 50%;
     top: 50%;
+    margin-top: 0;
     transform: translate(-50%, -50%);
     width: 672px;
     height: 573px;
