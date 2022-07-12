@@ -16,7 +16,12 @@ export const DiaryProductsListStyled = styled.table`
 `;
 
 export const Div = styled.div`
+  max-width: 350px;
   max-height: 300px;
   overflow-y: auto;
   overflow-x: hidden;
+
+  @media screen and (min-width: 768px) {
+    max-width: 740px;
+  }
 `;
