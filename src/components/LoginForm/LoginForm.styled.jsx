@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const LoginBtn = styled.button`
+  width: 182px;
   font-family: ${({ theme: { fonts } }) => fonts.verdana};
   font-weight: 700;
   font-size: 14px;
@@ -11,14 +12,15 @@ export const LoginBtn = styled.button`
   background: ${({ theme: { colors } }) => colors.$orange};
   color: ${({ theme: { colors } }) => colors.$white};
   box-shadow: ${({ theme: { options } }) => options.buttonShadow};
+  border: 2px solid #FC842D;
   border-radius: ${({ theme: { options } }) => options.radius};
-  border: none;
   cursor: pointer;
   align-self: center;
   padding: 10px 55px;
 `;
 
 export const RegisterBtn = styled.button`
+  width: 182px;
   font-family: ${({ theme: { fonts } }) => fonts.verdana};
   font-weight: 700;
   font-size: 14px;
