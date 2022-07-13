@@ -16,7 +16,7 @@ export const fetchProductSearch = async productName => {
     const { data } = await axios(
       `https://health-projectbackend.herokuapp.com/api/products/search/${correctProdName}`,
     );
-    console.log(data);
+
     const variantsList = data.slice(0, 20);
     return variantsList;
   } catch (error) {
