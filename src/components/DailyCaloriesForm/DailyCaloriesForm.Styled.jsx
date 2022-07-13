@@ -2,9 +2,16 @@ import styled from 'styled-components';
 
 export const Section = styled.section`
   width: 280px;
+  padding-top: 32px;
 
   @media screen and (min-width: 768px) {
     width: 512px;
+    padding-top: 100px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    /* padding-top: 140px; */
+    padding-top: 0px;
   }
 
   .form-label {
@@ -96,7 +103,7 @@ export const Section = styled.section`
       color: ${prop => prop.theme.colors.$grey};
 
       @media screen and (min-width: 768px) {
-        padding-bottom: 20px;
+        padding-bottom: 14px;
         margin-top: 40px;
         padding-top: 3.5px;
         border-bottom: 1px solid #e0e0e0;

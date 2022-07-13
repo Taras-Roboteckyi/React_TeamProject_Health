@@ -21,17 +21,17 @@ export const DailyCalorieIntake = ({ data, onClose }) => {
   return (
     <Section>
       <h3 className="daily-calorie-title">
-        Your recommended daily calorie intake is
+        Ваша рекомендована добова норма споживання калорій становить
       </h3>
 
       <div className="daily-calorie-box">
         <p>
           {data.calories}
-          <span>kcal</span>
+          <span>ккал</span>
         </p>
       </div>
 
-      <p className="daily-calorie-text">Foods you should not eat</p>
+      <p className="daily-calorie-text">Продукти, які вам краще не їсти</p>
 
       <ul className="daily-calorie-list">
         {data.products.map((product, index) => {
@@ -45,7 +45,7 @@ export const DailyCalorieIntake = ({ data, onClose }) => {
       </ul>
 
       <div className="daily-calorie-button">
-        <DailyButton onClick={onClick}>Start losing weight</DailyButton>
+        <DailyButton onClick={onClick}>Почати худнути</DailyButton>
       </div>
     </Section>
   );
