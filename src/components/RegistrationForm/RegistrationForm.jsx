@@ -1,12 +1,11 @@
 import { useNavigate } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Section } from './RegistrationForm.Styled';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../../redux/authorization';
 
-export const RegistrationForm = ({ onFormSubmit }) => {
+export const RegistrationForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -16,22 +15,22 @@ export const RegistrationForm = ({ onFormSubmit }) => {
 
   const validationSchema = Yup.object({
     name: Yup.string()
-      .min(3, 'Too short!')
-      .max(254, 'Too long!')
-      .required('This field is required!'),
+      .min(3, 'Має містити мінімум 3 символи!')
+      .max(254, 'Не може містити більше 254 символів!')
+      .required("Це поле обов'язкове!"),
     email: Yup.string()
-      .email('Not a proper email')
-      .min(3, 'Too short!')
-      .max(254, 'Too long!')
-      .required('This field is required!'),
+      .email('Не валідний імейл')
+      .min(3, 'Має містити мінімум 3 символи!')
+      .max(254, 'Не може містити більше 254 символів!')
+      .required("Це поле обов'язкове!"),
     password: Yup.string()
       .matches(
         /^(?=.*[a-z])(?=.*[0-9])(?!.*[^a-zA-Z0-9])/,
-        'Must contain at least one Latin letter and one number, without special case characters',
+        'Має містити мініму одну латинську літеру, одну цифру, без спеціальних символів',
       )
-      .min(8, 'Too short!')
-      .max(100, 'Too long!')
-      .required('This field is required!'),
+      .min(8, 'Має містити мінімум 8 символів!')
+      .max(100, 'Не може містити більше 100 символів!')
+      .required("Це поле обов'язкове!"),
   });
 
   const formik = useFormik({
@@ -41,21 +40,21 @@ export const RegistrationForm = ({ onFormSubmit }) => {
       password: '',
     },
     validationSchema,
-    onSubmit: values => {
-      // onFormSubmit(values);
-      dispatch(authOperations.register(values));
+    onSubmit: async values => {
+      await dispatch(authOperations.register(values));
+      navigate('/diary');
     },
   });
 
   return (
     <Section>
-      <h3 className="form-title">Register</h3>
+      <h3 className="form-title">Реєстрація</h3>
 
       <form onSubmit={formik.handleSubmit} className="form">
         <input
           name="name"
           className="form-input"
-          placeholder="Name *"
+          placeholder="Ім'я *"
           type="text"
           autoComplete="off"
           onChange={formik.handleChange}
@@ -69,7 +68,7 @@ export const RegistrationForm = ({ onFormSubmit }) => {
         <input
           name="email"
           className="form-input"
-          placeholder="Email *"
+          placeholder="Імейл *"
           type="email"
           autoComplete="off"
           onChange={formik.handleChange}
@@ -83,7 +82,7 @@ export const RegistrationForm = ({ onFormSubmit }) => {
         <input
           name="password"
           className="form-input"
-          placeholder="Password *"
+          placeholder="Пароль *"
           type="password"
           autoComplete="off"
           onChange={formik.handleChange}
@@ -96,17 +95,13 @@ export const RegistrationForm = ({ onFormSubmit }) => {
 
         <div className="buttons">
           <button className="login-button" type="button" onClick={onLoginClick}>
-            Login
+            Ввійти
           </button>
           <button className="register-button" type="submit">
-            Register
+            Реєстрація
           </button>
         </div>
       </form>
     </Section>
   );
-};
-
-RegistrationForm.propTypes = {
-  onFormSubmit: PropTypes.func,
 };

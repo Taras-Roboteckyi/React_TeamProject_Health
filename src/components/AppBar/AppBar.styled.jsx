@@ -11,6 +11,7 @@ export const Header = styled.header`
 `;
 export const Wrapper = styled.div`
   display: flex;
+  align-items: center;
   @media (max-width: 1279px) {
     padding-top: 37px;
     border-bottom: 2px solid #9b9faa;
@@ -20,5 +21,6 @@ export const Wrapper = styled.div`
   align-items: center; */
   padding-top: 80px;
   padding-bottom: 150px;
+
   width: 100%;
 `;

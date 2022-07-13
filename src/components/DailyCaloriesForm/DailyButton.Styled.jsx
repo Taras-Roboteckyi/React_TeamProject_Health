@@ -15,4 +15,9 @@ export const DailyButton = styled.button`
   color: ${prop => prop.theme.colors.$white};
 
   cursor: pointer;
+
+  &:hover {
+    background: ${prop => prop.theme.colors.$white};
+    color: ${prop => prop.theme.colors.$orange};
+  }
 `;

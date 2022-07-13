@@ -29,7 +29,7 @@ export const Section = styled.section`
     background-image: none;
     padding: 300px 140px 200px 100px;
     width: 520px;
-    height: 100%;
+    height: 900px;
     position: absolute;
     right: 0;
     top: 0;

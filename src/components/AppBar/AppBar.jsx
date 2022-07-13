@@ -4,12 +4,11 @@ import Navigation from '../Navigation/Navigation';
 import UserMenu from '../userMenu/UserMenu';
 import AuthNav from '../AuthNav/AuthNav';
 import { authSelectors } from '../../redux/authorization';
-
+import AuthNavLogined from '../AuthNav/AuthNavLogined';
 import { Header, Wrapper } from './AppBar.styled';
 import { Container } from '../container';
 import { useWindowWidth } from '@react-hook/window-size';
 import { useDispatch } from 'react-redux';
-import AuthNavLogined from '../AuthNav/AuthNavLogined';
 
 export default function AppBar() {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
@@ -21,8 +20,14 @@ export default function AppBar() {
       <Container>
         <Wrapper>
           <Navigation />
-          {isLoggedIn && <AuthNavLogined />}
-          {isLoggedIn /* true */ ? <UserMenu /> : <AuthNav />}
+          {isLoggedIn ? (
+            <>
+              {windowWidth > 1280 && <AuthNavLogined />}
+              <UserMenu />
+            </>
+          ) : (
+            <AuthNav />
+          )}
           {windowWidth < 1280 && <button onClick={() => dispatch()}></button>}
         </Wrapper>
       </Container>

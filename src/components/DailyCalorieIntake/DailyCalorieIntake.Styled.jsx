@@ -2,6 +2,12 @@ import styled from 'styled-components';
 
 export const Section = styled.section`
   margin: 0 auto;
+  padding: 40px 0px;
+
+  @media screen and (min-width: 768px) {
+    padding: 64px 0px 0px 0px;
+    margin-bottom: 100px;
+  }
 
   display: flex;
   flex-direction: column;
