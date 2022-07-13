@@ -24,6 +24,7 @@ export const H2 = styled.h2`
 
   @media screen and (min-width: 768px) {
     text-align: start;
+  }
 `;
 
 export const Input = styled.input`
@@ -100,7 +101,7 @@ export const LoginBtn = styled.button`
   background: ${({ theme: { colors } }) => colors.$orange};
   color: ${({ theme: { colors } }) => colors.$white};
   box-shadow: ${({ theme: { options } }) => options.buttonShadow};
-  border: 2px solid #FC842D;
+  border: 2px solid #fc842d;
   border-radius: ${({ theme: { options } }) => options.radius};
   cursor: pointer;
   align-self: center;
@@ -119,9 +120,9 @@ export const RegisterBtn = styled.button`
   background: ${({ theme: { colors } }) => colors.$white};
   color: ${({ theme: { colors } }) => colors.$orange};
   box-shadow: ${({ theme: { options } }) => options.buttonShadow};
-  border: 2px solid #FC842D;
+  border: 2px solid #fc842d;
   border-radius: ${({ theme: { options } }) => options.radius};
   cursor: pointer;
   align-self: center;
   padding: 10px 55px;
-`
+`;
