@@ -19,6 +19,16 @@ import { NavLink } from 'react-router-dom';
 //   }
 // `;
 
+export const Con = styled.nav`
+  @media (max-width: 767px) {
+    width: 47px;
+    height: 44px;
+  }
+  @media (max-width: 1279px) {
+    margin-right: auto;
+  }
+`;
+
 export const Logo = styled(NavLink)`
   @media (max-width: 767px) {
     height: 44px;

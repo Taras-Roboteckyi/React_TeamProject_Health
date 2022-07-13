@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { LoginBtn, RegisterBtn } from './LoginForm.styled';
+import { Section, H2, Input, InputError, BoxButtons, LoginBtn, RegisterBtn } from './LoginForm.styled';
 
 export const LoginForm = () => {
   const navigate = useNavigate();
@@ -44,9 +44,10 @@ export const LoginForm = () => {
   });
 
   return (
-    <>
+    <Section>
+      <H2>SING IN</H2>
       <form onSubmit={formik.handleSubmit}>
-        <input
+        <Input
           type="email"
           name="email"
           placeholder="Email *"
@@ -56,9 +57,9 @@ export const LoginForm = () => {
           value={formik.values.email}
         />
         {formik.errors.email && formik.touched.email && (
-          <div>{formik.errors.email}</div>
+          <InputError>{formik.errors.email}</InputError>
         )}
-        <input
+        <Input
           type="password"
           name="password"
           placeholder="Password *"
@@ -67,15 +68,15 @@ export const LoginForm = () => {
           value={formik.values.password}
         />
         {formik.errors.password && formik.touched.password && (
-          <div>{formik.errors.password}</div>
+          <InputError>{formik.errors.password}</InputError>
         )}
-        <div>
+        <BoxButtons>
           <LoginBtn type="submit">Login</LoginBtn>
           <RegisterBtn type="button" onClick={onRegisterClick}>
             Register
           </RegisterBtn>
-        </div>
+        </BoxButtons>
       </form>
-    </>
+    </Section>
   );
 };

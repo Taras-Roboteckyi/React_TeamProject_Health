@@ -8,8 +8,8 @@ export default function AuthNavLogined() {
 
   return (
     <Cont>
-      {windowWidth >= 1280 && <Diary to="diary">DIARY</Diary>}
-      {windowWidth >= 1280 && <Calc to="calculator">CALCULATOR</Calc>}
+      {windowWidth >= 1280 && <Diary to="diary">Щоденник</Diary>}
+      {windowWidth >= 1280 && <Calc to="calculator">Калькулятор</Calc>}
     </Cont>
   );
 }
