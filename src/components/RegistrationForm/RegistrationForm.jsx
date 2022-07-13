@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Section } from './RegistrationForm.Styled';
 import { useDispatch } from 'react-redux';
-import authOperations from '../../redux/authorization/auth-operations';
+import { authOperations } from '../../redux/authorization';
 
 export const RegistrationForm = ({ onFormSubmit }) => {
   const navigate = useNavigate();
@@ -43,7 +43,7 @@ export const RegistrationForm = ({ onFormSubmit }) => {
     validationSchema,
     onSubmit: values => {
       // onFormSubmit(values);
-      dispatch(authOperations.register({ values }));
+      dispatch(authOperations.register(values));
     },
   });
 

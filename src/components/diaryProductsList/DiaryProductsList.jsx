@@ -15,10 +15,10 @@ export const DiaryProductsList = ({
         <tbody className="EatenProductsList">
           {/* {eatenProductsList.map(product => ( */}
           <DiaryProductsListItem
-          // product={product}
-          // handleClick={handleClick}
-          // isCurrentDay={isCurrentDay}
-          // key={product.id}
+            // product={product}
+            // handleClick={handleClick}
+            isCurrentDay={isCurrentDay}
+            // key={product.id}
           />
           {/* ))} */}
         </tbody>

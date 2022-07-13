@@ -6,19 +6,20 @@ import { ProductFormStyled, ButtonAdd } from './DiaryAddProductForm.styled';
 import { useWindowWidth } from '@react-hook/window-size';
 import { BsPlusLg } from 'react-icons/bs';
 
-export const DiaryAddProductForm = (
+export const DiaryAddProductForm = ({
   productName,
   productWeight,
   productsVariants,
+  isSearchingProduct,
   handleChange,
   handleSubmit,
-) => {
+}) => {
   const windowWidth = useWindowWidth();
 
-  // const onChange = e => {
-  //   const { name, value } = e.target;
-  //   handleChange({ name, value });
-  // };
+  const onChange = e => {
+    const { name, value } = e.target;
+    handleChange({ name, value });
+  };
 
   const onSubmit = e => {
     e.preventDefault();
@@ -34,17 +35,20 @@ export const DiaryAddProductForm = (
           list="productSearch"
           placeholder="Enter product name"
           className="productForm-form__input"
-          // value={productName}
-          // onChange={onChange}
+          value={productName}
+          onChange={onChange}
           autoComplete="off"
         />
-
-        <datalist className="datalist" id="productSearch">
-          {productsVariants &&
-            productsVariants.map(product => (
-              <option value={product.title} key={product._id} />
-            ))}
-        </datalist>
+        {isSearchingProduct ? (
+          'loading...'
+        ) : (
+          <datalist className="datalist" id="productSearch">
+            {productsVariants &&
+              productsVariants.map(product => (
+                <option value={product.title.ru} key={product._id} />
+              ))}
+          </datalist>
+        )}
 
         <input
           autoComplete="off"
@@ -53,13 +57,13 @@ export const DiaryAddProductForm = (
           pattern="[0-9]{1,3}"
           placeholder="Grams"
           title="The value of the weight of the product must be from 0 to 999"
-          // value={productWeight}
           className="productForm-form__input productForm-form__input--width"
-          // onChange={onChange}
+          value={productWeight}
+          onChange={onChange}
         />
       </div>
 
-      <ButtonAdd type="submit" disabled={!productName && !productWeight}>
+      <ButtonAdd type="submit" disabled={!productName || !productWeight}>
         {windowWidth < 768 ? 'Add' : <BsPlusLg size={14} />}
       </ButtonAdd>
     </ProductFormStyled>
