@@ -1,7 +1,16 @@
+import { DailyCaloriesForm } from "../../components/DailyCaloriesForm/DailyCaloriesForm";
+import SideBar from '../../components/SideBar/SideBar';
+import {StyledWrapper} from './CalculatorPage.styled'
+
 export const CalculatorPage = () => {
   return (
-    <main>
-      <div>CalculatorPage</div>
-    </main>
+    <> 
+   <StyledWrapper>
+      <DailyCaloriesForm />
+      
+      </StyledWrapper>
+        <SideBar />
+
+      </>
   );
 };

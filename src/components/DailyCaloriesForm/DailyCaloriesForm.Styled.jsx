@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  max-width: 280px;
+  width: 280px;
 
   @media screen and (min-width: 768px) {
-    max-width: 512px;
+    width: 512px;
   }
 
   .form-label {
@@ -36,7 +36,9 @@ export const Section = styled.section`
     }
 
     .form-part {
-      max-width: 240px;
+      @media screen and (min-width: 768px) {
+        width: 240px;
+      }
     }
 
     .form-input {
@@ -76,6 +78,8 @@ export const Section = styled.section`
     }
 
     .form-input-error {
+      width: 240px;
+      word-break: break-all;
       color: red;
       font-size: 12px;
     }
