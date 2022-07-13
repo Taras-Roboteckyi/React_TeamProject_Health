@@ -11,8 +11,8 @@ import { RegistrationPage } from './pages/RegistrationPage/RegistrationPage';
 import { LoginPage } from './pages/LoginPage/LoginPage';
 import { DiaryPage } from './pages/DiaryPage/DiaryPage';
 import { CalculatorPage } from './pages/CalculatorPage/CalculatorPage';
-import { getIsFetchingCurrent } from './redux/authorization/auth-selectors';
-import authOperations from './redux/authorization/auth-operations';
+/* import { getIsFetchingCurrent } from './redux/authorization/auth-selectors'; */
+import { authOperations, authSelectors } from './redux/authorization';
 
 /* const MainPage = CreateLazyChunk('MainPage');
 const LoginPage = CreateLazyChunk('LoginPage');
@@ -22,7 +22,7 @@ const CalculatorPage = CreateLazyChunk('CalculatorPage'); */
 
 function App() {
   const dispatch = useDispatch();
-  const isFetchingCurrentUser = useSelector(getIsFetchingCurrent);
+  const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
