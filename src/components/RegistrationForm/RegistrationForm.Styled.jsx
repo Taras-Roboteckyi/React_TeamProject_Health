@@ -116,6 +116,11 @@ export const Section = styled.section`
 
       color: ${prop => prop.theme.colors.$white};
       cursor: pointer;
+
+      &:hover {
+        background: ${prop => prop.theme.colors.$white};
+        color: ${prop => prop.theme.colors.$orange};
+      }
     }
 
     .register-button {
@@ -138,6 +143,11 @@ export const Section = styled.section`
 
       color: ${prop => prop.theme.colors.$orange};
       cursor: pointer;
+
+      &:hover {
+        background: ${prop => prop.theme.colors.$orange};
+        color: ${prop => prop.theme.colors.$white};
+      }
     }
   }
 `;

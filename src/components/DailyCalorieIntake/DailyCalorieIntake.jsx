@@ -1,10 +1,21 @@
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { Section } from './DailyCalorieIntake.Styled';
 import { DailyButton } from '../DailyCaloriesForm/DailyButton.Styled';
 
-export const DailyCalorieIntake = ({ data }) => {
+import { useDispatch } from 'react-redux';
+import { authOperations } from '../../redux/authorization';
+import { getIsLoggedIn } from '../../redux/authorization/auth-selectors';
+
+export const DailyCalorieIntake = ({ data, onClose }) => {
+  const isLoggedIn = useSelector(getIsLoggedIn);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const onClick = () => {
     console.log('Start losing weight clicked');
+    onClose();
   };
 
   return (
@@ -42,4 +53,5 @@ export const DailyCalorieIntake = ({ data }) => {
 
 DailyCalorieIntake.propTypes = {
   data: PropTypes.object,
+  onClose: PropTypes.func,
 };
