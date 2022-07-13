@@ -13,6 +13,7 @@ import { DiaryPage } from './pages/DiaryPage/DiaryPage';
 import { CalculatorPage } from './pages/CalculatorPage/CalculatorPage';
 /* import { getIsFetchingCurrent } from './redux/authorization/auth-selectors'; */
 import { authOperations, authSelectors } from './redux/authorization';
+import AppLoader from './components/Loader/Loader';
 
 /* const MainPage = CreateLazyChunk('MainPage');
 const LoginPage = CreateLazyChunk('LoginPage');
@@ -30,9 +31,8 @@ function App() {
 
   return (
     <>
-      <Toaster toastOptions={{ duration: 3000 }} />
-      {!isFetchingCurrentUser && ( //Щоб не моргав інтерфейс при переході на перезагрузку
-        <Suspense fallback={<p>Download...</p>}>
+      <Suspense fallback={<AppLoader />}>
+        {!isFetchingCurrentUser && ( //Щоб не моргав інтерфейс при переході на перезагрузку
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route
@@ -84,8 +84,9 @@ function App() {
 
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
-        </Suspense>
-      )}
+        )}
+      </Suspense>
+      <Toaster toastOptions={{ duration: 3000 }} />
     </>
   );
 }
