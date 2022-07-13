@@ -9,7 +9,7 @@ export const Contain = styled.div`
     width: auto;
   }
   @media (min-width: 768px) {
-    margin-top: 30px;
+    margin-top: 45px;
   }
 `;
 
@@ -66,7 +66,7 @@ export const Cont = styled.div`
     width: auto;
   }
   @media (min-width: 768px) {
-    margin-top: 70px;
+    margin-top: 45px;
   }
 `;
 
