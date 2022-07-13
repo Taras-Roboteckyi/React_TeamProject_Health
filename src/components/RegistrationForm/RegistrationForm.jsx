@@ -1,12 +1,11 @@
 import { useNavigate } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Section } from './RegistrationForm.Styled';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../../redux/authorization';
 
-export const RegistrationForm = ({ onFormSubmit }) => {
+export const RegistrationForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -41,9 +40,9 @@ export const RegistrationForm = ({ onFormSubmit }) => {
       password: '',
     },
     validationSchema,
-    onSubmit: values => {
-      // onFormSubmit(values);
-      dispatch(authOperations.register(values));
+    onSubmit: async values => {
+      await dispatch(authOperations.register(values));
+      navigate('/diary');
     },
   });
 
@@ -105,8 +104,4 @@ export const RegistrationForm = ({ onFormSubmit }) => {
       </form>
     </Section>
   );
-};
-
-RegistrationForm.propTypes = {
-  onFormSubmit: PropTypes.func,
 };
