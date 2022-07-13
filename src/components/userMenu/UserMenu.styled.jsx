@@ -21,7 +21,7 @@ export const ContainerUserMenuStyled = styled.div`
 export const ContainerTextStyled = styled.div`
   margin-top: 70px;
   justify-content: flex-end;
-  margin-left: 300px;
+
   font-size: 14px;
   line-height: 13px;
 

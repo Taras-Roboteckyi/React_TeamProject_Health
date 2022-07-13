@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
   align-items: center; */
   padding-top: 80px;
   padding-bottom: 150px;
-  min-width: 1024px;
+  /* min-width: 1024px; */
   padding-left: 20px;
   padding-right: 20px;
 `;
