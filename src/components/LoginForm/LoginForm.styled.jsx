@@ -3,16 +3,22 @@ import styled from 'styled-components';
 export const Section = styled.section`
   width: 280px;
   margin: 0 auto;
+  padding-top: 40px;
   padding-bottom: 20px;
 
   @media screen and (min-width: 768px) {
     margin: 0;
+    padding-top: 160px;
     width: 400px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-top: 10px;
   }
 `;
 
 export const H2 = styled.h2`
-  font-family: ${({ theme: { fonts } }) => fonts.gothamPro};
+  font-family: ${({ theme: { fonts } }) => fonts.$gothamPro};
   font-weight: 700;
   font-style: normal;
   font-size: 14px;
@@ -90,12 +96,14 @@ export const BoxButtons = styled.div`
 `;
 
 export const LoginBtn = styled.button`
+  display: flex;
   width: 182px;
   font-family: ${({ theme: { fonts } }) => fonts.verdana};
   font-weight: 700;
   font-size: 14px;
   line-height: ${({ theme: { lineHeight } }) => lineHeight.verdana};
   align-items: center;
+  justify-content: center;
   text-align: center;
   letter-spacing: 0.04em;
   background: ${({ theme: { colors } }) => colors.$orange};
@@ -106,9 +114,16 @@ export const LoginBtn = styled.button`
   cursor: pointer;
   align-self: center;
   padding: 10px 55px;
+
+  &:hover {
+    background: ${prop => prop.theme.colors.$white};
+    color: ${prop => prop.theme.colors.$orange};
+  }
 `;
 
 export const RegisterBtn = styled.button`
+  display: flex;
+  justify-content: center;
   width: 182px;
   font-family: ${({ theme: { fonts } }) => fonts.verdana};
   font-weight: 700;
@@ -125,4 +140,9 @@ export const RegisterBtn = styled.button`
   cursor: pointer;
   align-self: center;
   padding: 10px 55px;
+
+  &:hover {
+    background: ${prop => prop.theme.colors.$orange};
+    color: ${prop => prop.theme.colors.$white};
+  }
 `;
