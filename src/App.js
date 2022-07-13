@@ -1,10 +1,10 @@
 /* import { CreateLazyChunk } from './helpers/CreateLazyChunk'; */
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
-// import PublicRoute from './components/publicRoute/PublicRoute';
-// import PrivateRoute from './components/privateRoute/PrivateRoute';
+import PublicRoute from './components/publicRoute/PublicRoute';
+import PrivateRoute from './components/privateRoute/PrivateRoute';
 import { Layout } from './components/Layout/Layout';
 import { MainPage } from './pages/MainPage/MainPage';
 import { RegistrationPage } from './pages/RegistrationPage/RegistrationPage';
@@ -32,57 +32,59 @@ function App() {
     <>
       <Toaster toastOptions={{ duration: 3000 }} />
       {!isFetchingCurrentUser && ( //Щоб не моргав інтерфейс при переході на перезагрузку
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route
-              index
-              /* element={
-              <PublicRoute restricted redirectTo="/diary">
-                <MainPage />
-              </PublicRoute>
-            } */
-              element={<MainPage />}
-            />
-            <Route
-              path="registration"
-              /*  element={
-              <PublicRoute restricted redirectTo="/diary">
-                <RegistrationPage />
-              </PublicRoute>
-            } */
-              element={<RegistrationPage />}
-            />
-            <Route
-              path="signin"
-              /*  element={
-              <PublicRoute restricted redirectTo="/diary">
-                <LoginPage />
-              </PublicRoute>
-            } */
-              element={<LoginPage />}
-            />
-            <Route
-              path="diary"
-              /* element={
-              <PrivateRoute redirectTo="/login">
-                <DiaryPage />
-              </PrivateRoute>
-            } */
-              element={<DiaryPage />}
-            />
-            <Route
-              path="calculator"
-              /*  element={
-              <PrivateRoute redirectTo="/login">
-                <CalculatorPage />
-              </PrivateRoute>
-            } */
-              element={<CalculatorPage />}
-            />
-          </Route>
+        <Suspense fallback={<p>Download...</p>}>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route
+                index
+                element={
+                  <PublicRoute restricted redirectTo="diary">
+                    <MainPage />
+                  </PublicRoute>
+                }
+                /* element={<MainPage />} */
+              />
+              <Route
+                path="registration"
+                element={
+                  <PublicRoute restricted redirectTo="diary">
+                    <RegistrationPage />
+                  </PublicRoute>
+                }
+                /* element={<RegistrationPage />} */
+              />
+              <Route
+                path="signin"
+                element={
+                  <PublicRoute restricted redirectTo="diary">
+                    <LoginPage />
+                  </PublicRoute>
+                }
+                /*  element={<LoginPage />} */
+              />
+              <Route
+                path="diary"
+                element={
+                  <PrivateRoute redirectTo="/signin">
+                    <DiaryPage />
+                  </PrivateRoute>
+                }
+                /* element={<DiaryPage />} */
+              />
+              <Route
+                path="calculator"
+                element={
+                  <PrivateRoute redirectTo="/signin">
+                    <CalculatorPage />
+                  </PrivateRoute>
+                }
+                /* element={<CalculatorPage />} */
+              />
+            </Route>
 
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </Suspense>
       )}
     </>
   );
