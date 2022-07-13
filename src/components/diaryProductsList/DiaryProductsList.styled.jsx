@@ -5,7 +5,9 @@ export const DiaryProductsListStyled = styled.table`
   margin-bottom: 60px;
   border-spacing: 8px;
   border-collapse: separate;
-  width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+  /* width: 280px; */
 
   @media screen and (min-width: 768px) {
     margin-top: 0px;
@@ -16,10 +18,11 @@ export const DiaryProductsListStyled = styled.table`
 `;
 
 export const Div = styled.div`
-  max-width: 350px;
+  /* min-width: 350px; */
   max-height: 300px;
   overflow-y: auto;
   overflow-x: hidden;
+  margin-bottom: 50px;
 
   @media screen and (min-width: 768px) {
     max-width: 740px;

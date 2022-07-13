@@ -2,7 +2,9 @@ import { GoCalendar } from 'react-icons/go';
 import { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import toast from 'react-hot-toast';
-import DatePicker from 'react-datepicker';
+import DatePicker, { registerLocale } from 'react-datepicker';
+import uk from 'date-fns/locale/uk';
+import { useDebounce } from 'use-debounce';
 import 'react-datepicker/dist/react-datepicker.css';
 import { fetchProductSearch } from '../../services/fetchProductSeach';
 import { useWindowWidth } from '@react-hook/window-size';
@@ -23,10 +25,16 @@ export const DiaryPage = () => {
   const [productName, setProductName] = useState('');
   const [productWeight, setProductWeight] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
+  const [debouncedErrorMsg] = useDebounce(errorMsg, 1000);
   const [isSearchingProduct, setIsSearchingProduct] = useState(false);
   const [productsVariants, setProductsVariants] = useState([]);
 
   const windowWidth = useWindowWidth();
+  registerLocale('uk', uk); // для укр мови в календарі
+
+  const isAlreadyInProdVariants = productsVariants.some(
+    prod => prod.title.ua === productName,
+  );
 
   const isCurrentDay =
     format(date, 'dd/MM/yyyy') === format(new Date(), 'dd/MM/yyyy');
@@ -37,28 +45,30 @@ export const DiaryPage = () => {
 
   useEffect(() => {
     setErrorMsg('');
-    if (!productName) return;
-    const isAlreadyInProdVariants = productsVariants.some(
-      prod => prod.title.ru === productName,
-    );
-    if (isAlreadyInProdVariants) return;
+    if (!productName) {
+      return;
+    }
+    if (isAlreadyInProdVariants) {
+      return;
+    }
     setIsSearchingProduct(true);
     fetchProductSearch(productName).then(searchData => {
       typeof searchData === 'string'
         ? setErrorMsg(searchData)
         : setProductsVariants(searchData);
       setIsSearchingProduct(false);
+      console.log(searchData);
     });
-  }, [productName, productsVariants]);
+  }, [isAlreadyInProdVariants, productName]);
 
   useEffect(() => {
-    errorMsg && toast.error(errorMsg);
+    debouncedErrorMsg && toast.error(debouncedErrorMsg);
     setErrorMsg('');
-  }, [errorMsg]);
+  }, [debouncedErrorMsg]);
 
   const handleChange = ({ name, value }) => {
-    if (name === 'productWeight' && value > 999) {
-      setErrorMsg('Product weight value must be between 0 and 999');
+    if (name === 'productWeight' && value > 99999) {
+      // setErrorMsg('Значення ваги продукту має бути від 0 до 999г');
       return;
     }
     name === 'productName' && setProductName(value);
@@ -66,18 +76,9 @@ export const DiaryPage = () => {
   };
 
   const handleSubmit = () => {
-    const curProd = productsVariants.find(
-      prod => prod.title.ru === productName,
-    );
-    if (!curProd) {
-      setErrorMsg('Укажите название продукта.');
-      return;
-    }
-    if (!productWeight) {
-      setErrorMsg('Укажите вес продукта.');
-      return;
-    }
-
+    // const curProd = productsVariants.find(
+    //   prod => prod.title.ua === productName,
+    // );
     // const productId = curProd._id;
     // const weight = productWeight;
     // const dateIsFormatting = format(date, 'dd/MM/yyyy');
@@ -90,7 +91,7 @@ export const DiaryPage = () => {
       <Wrapper>
         <CalendarStyles>
           <DatePicker
-            locale="en"
+            locale="uk"
             dateFormat="dd.MM.yyyy"
             selected={date}
             onChange={setDate}
@@ -112,7 +113,7 @@ export const DiaryPage = () => {
 
         <DiaryProductsList isCurrentDay={isCurrentDay} />
 
-        {windowWidth < 768 && (
+        {isCurrentDay && windowWidth < 768 && (
           <ButtonOpenModalForm type="button" onClick={toggleModal}>
             <BsPlusLg size={14} />
           </ButtonOpenModalForm>

@@ -20,5 +20,7 @@ export const Wrapper = styled.div`
   align-items: center; */
   padding-top: 80px;
   padding-bottom: 150px;
+
   width: 100%;
+
 `;

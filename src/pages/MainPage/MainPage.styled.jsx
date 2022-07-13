@@ -7,12 +7,15 @@ export const BgImageStyled = styled.div`
     background: url(${main_bg_tablet}) bottom right no-repeat;
     position: absolute;
     width: 100%;
-    height: 100%;
-    right: 0;
-    bottom: 0;
+    height: 850px;
+
     z-index: -1;
   }
   @media (min-width: 1280px) {
     background: url(${main_bg_desktop}) top right no-repeat;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 850px;
   }
 `;
