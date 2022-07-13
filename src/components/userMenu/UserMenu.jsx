@@ -1,12 +1,8 @@
-import { useDispatch } from 'react-redux';
-// import { getUserName } from '../../redux/authorization/auth-selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserName } from '../../redux/authorization/auth-selectors';
 import authOperations from '../../redux/authorization/auth-operations';
-import {
-  ContainerUserMenuStyled,
-  ContainerTextStyled,
-} from './UserMenu.styled';
+import { ContainerTextStyled } from './UserMenu.styled';
 
-import AuthNavLogined from '../AuthNav/AuthNavLogined';
 /* import BurgerIcon from '../../images/BurgerIcon.svg'; */
 import { useWindowWidth } from '@react-hook/window-size';
 
@@ -16,21 +12,13 @@ export default function UserMenu() {
   const windowWidth = useWindowWidth();
 
   const dispatch = useDispatch();
-  //   const userName = useSelector(getUserName);
+  const userName = useSelector(getUserName);
 
   return (
-    <ContainerUserMenuStyled>
-      <AuthNavLogined />
-      {/* {isOpenModal && (
-        <ContainerArrowStyled>
-          <TbArrowBack />
-        </ContainerArrowStyled>
-      )} */}
-
+    <>
       {/* {windowWidth <= 767 && <img src={BurgerIcon} alt="Меню" width={18} />} */}
       <ContainerTextStyled>
-        {/* <p>{ userName }</p> */}
-        <p>Роман</p>
+        <p>{userName}</p>
         <button onClick={() => dispatch(authOperations.logOut())}>Вихід</button>
         {windowWidth >= 768 && (
           <button onClick={() => dispatch()}>
@@ -38,6 +26,6 @@ export default function UserMenu() {
           </button>
         )}
       </ContainerTextStyled>
-    </ContainerUserMenuStyled>
+    </>
   );
 }

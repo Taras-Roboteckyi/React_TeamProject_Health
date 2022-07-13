@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Section = styled.section`
   width: 280px;
   margin: 0 auto;
+  padding: 40px 0px;
 
   font-family: ${prop => prop.theme.fonts.$verdana};
   font-style: normal;
@@ -13,6 +14,7 @@ export const Section = styled.section`
 
   @media screen and (min-width: 768px) {
     margin: 0;
+    padding: 160px 0px;
     width: 400px;
   }
 

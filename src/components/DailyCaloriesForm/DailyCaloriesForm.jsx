@@ -30,35 +30,35 @@ export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
 
   const validationSchema = Yup.object({
     height: Yup.number()
-      .typeError('Must be a number')
-      .min(100, 'Too low!')
-      .max(250, 'Too high!')
-      .required('This field is required!'),
+      .typeError('Має бути число!')
+      .min(100, 'Мінімальна висота 100 см!')
+      .max(250, 'Максимальна висота 250 см!')
+      .required("Це поле обов'язкове!"),
     age: Yup.number()
-      .typeError('Must be a number')
-      .min(18, 'Too young!')
-      .max(100, 'Too old!')
-      .required('This field is required!'),
+      .typeError('Має бути число!')
+      .min(18, 'Мінімальний вік 18 років!')
+      .max(100, 'Максимальний вік 100 років')
+      .required("Це поле обов'язкове!"),
     currentWeight: Yup.number()
-      .typeError('Must be a number')
-      .min(20, 'Too light!')
-      .max(500, 'Too heavy!')
-      .required('This field is required!'),
+      .typeError('Має бути число!')
+      .min(20, 'Мінімальна вага 20 кг!')
+      .max(500, 'Максимальна вага 500 кг!')
+      .required("Це поле обов'язкове!"),
     desiredWeight: Yup.number()
-      .typeError('Must be a number')
-      .min(20, 'Too light!')
-      .max(500, 'Too heavy!')
-      .required('This field is required!')
+      .typeError('Має бути число!')
+      .min(20, 'Мінімальна вага 20 кг!')
+      .max(500, 'Максимальна вага 500 кг!')
+      .required("Це поле обов'язкове!")
       .when('currentWeight', (currentWeight, validationSchema) => {
         return validationSchema.test({
           test: desiredWeight => currentWeight && desiredWeight < currentWeight,
-          message: 'The expected weight must be less than the current weight',
+          message: 'Очікувана вага має бути меншою за поточну!',
         });
       }),
     bloodType: Yup.number()
-      .typeError('Must be a number')
+      .typeError('Має бути число!')
       .oneOf([1, 2, 3, 4])
-      .required('This field is required!'),
+      .required("Це поле обов'язкове!"),
   });
 
   const formik = useFormik({
@@ -79,7 +79,7 @@ export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
   return (
     <Section>
       <h3 className="form-label">
-        Calculate your daily calorie intake right now
+        Розрахуйте свою денну норму калорій прямо зараз
       </h3>
 
       <form onSubmit={formik.handleSubmit}>
@@ -88,7 +88,7 @@ export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
             <input
               name="height"
               className="form-input"
-              placeholder="height *"
+              placeholder="Висота *"
               type="text"
               autoComplete="off"
               onChange={formik.handleChange}
@@ -102,7 +102,7 @@ export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
             <input
               name="age"
               className="form-input"
-              placeholder="age *"
+              placeholder="Вік *"
               type="text"
               autoComplete="off"
               onChange={formik.handleChange}
@@ -116,7 +116,7 @@ export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
             <input
               name="currentWeight"
               className="form-input"
-              placeholder="Current weight *"
+              placeholder="Поточна вага *"
               type="text"
               autoComplete="off"
               onChange={formik.handleChange}
@@ -128,11 +128,11 @@ export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
             ) : null}
           </div>
 
-          <div>
+          <div className="form-part">
             <input
               name="desiredWeight"
               className="form-input"
-              placeholder="Desired weight *"
+              placeholder="Очікувана вага *"
               type="text"
               autoComplete="off"
               onChange={formik.handleChange}
@@ -144,7 +144,7 @@ export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
             ) : null}
 
             <div>
-              <p className="radio-buttons-title">Blood type *</p>
+              <p className="radio-buttons-title">Група крові *</p>
               <div className="radio-buttons">
                 <label
                   className="radio-buttons-label"
@@ -224,7 +224,7 @@ export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
         </div>
 
         <div className="button">
-          <DailyButton type="submit">Start losing weight</DailyButton>
+          <DailyButton type="submit">Почати худнути</DailyButton>
         </div>
       </form>
     </Section>

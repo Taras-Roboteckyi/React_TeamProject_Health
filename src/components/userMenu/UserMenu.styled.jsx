@@ -1,25 +1,6 @@
 import styled from 'styled-components';
 
-export const ContainerUserMenuStyled = styled.div`
-  display: flex;
-  align-items: center;
-
-  height: 40px;
-  padding: 0 15px;
-
-  /* @media screen and (min-width: 768px) {
-    margin-right: 35px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    align-items: flex-end;
-    margin-left: auto;
-    margin-right: 0;
-  }  */
-`;
-
 export const ContainerTextStyled = styled.div`
-  margin-top: 70px;
   justify-content: flex-end;
 
   font-size: 14px;
@@ -45,5 +26,9 @@ export const ContainerTextStyled = styled.div`
     &:hover {
       color: ${({ theme: { colors } }) => colors.$orange};
     }
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-left: auto;
   }
 `;
