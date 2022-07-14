@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const CalendarStyles = styled.label`
-  width: 202px;
+  width: 160px;
   display: flex;
   align-items: center;
   margin-bottom: 32px;
-  padding: 0 20px;
+
   .calendar {
     font-family: ${({ theme: { fonts } }) => fonts.verdana};
     font-style: normal;
@@ -22,7 +22,7 @@ export const CalendarStyles = styled.label`
     }
   }
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    width: 300px;
+    width: 270px;
     margin-bottom: 60px;
   }
 
@@ -61,13 +61,5 @@ export const ButtonOpenModalForm = styled.button`
     background: ${prop => prop.theme.colors.$orange};
     color: ${prop => prop.theme.colors.$white};
     border: none;
-  }
-`;
-
-export const Div = styled.div`
-  @media (max-width: 767px) {
-    width: 370px;
-    margin-left: auto;
-    margin-right: auto;
   }
 `;
