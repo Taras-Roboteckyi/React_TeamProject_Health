@@ -7,7 +7,7 @@ export const ImageStyled = styled.div`
     background: url(${login_bg_tablet}) bottom right no-repeat;
     position: absolute;
     width: 100%;
-    height: 850px;
+    height: 950px;
     z-index: -1;
   }
   @media (min-width: 1280px) {

@@ -38,7 +38,6 @@ export const LoginForm = () => {
     validationSchema,
     onSubmit: values => {
       dispatch(authOperations.logIn(values));
-      console.log('Form', values);
       formik.resetForm({ name: '', email: '' });
     },
   });
@@ -73,7 +72,7 @@ export const LoginForm = () => {
         <BoxButtons>
           <LoginBtn type="submit">Ввійти</LoginBtn>
           <RegisterBtn type="button" onClick={onRegisterClick}>
-            Реєстрация
+            Реєстрація
           </RegisterBtn>
         </BoxButtons>
       </form>
