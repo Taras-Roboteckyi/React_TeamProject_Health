@@ -9,6 +9,9 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: 0.04em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  ::-webkit-scrollbar {
+  display: none;
+}
 }
 h1, h2, h3, h4, h5, h6, p, ul {
 margin: 0;

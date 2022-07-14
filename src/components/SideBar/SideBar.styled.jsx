@@ -39,6 +39,12 @@ export const Section = styled.section`
 `;
 
 export const Wrapper = styled.div`
+  @media (max-width: 767px) {
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     display: flex;
     justify-content: space-between;

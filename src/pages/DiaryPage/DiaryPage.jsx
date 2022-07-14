@@ -14,6 +14,7 @@ import {
   Wrapper,
   CalendarStyles,
   ButtonOpenModalForm,
+  Div,
 } from './DiaryPage.styled';
 import { DiaryAddProductForm } from '../../components/diaryAddProductForm';
 import { DiaryProductsList } from '../../components/diaryProductsList/DiaryProductsList';
@@ -89,16 +90,18 @@ export const DiaryPage = () => {
   return (
     <main>
       <Wrapper>
-        <CalendarStyles>
-          <DatePicker
-            locale="uk"
-            dateFormat="dd.MM.yyyy"
-            selected={date}
-            onChange={setDate}
-            className={'calendar'}
-          />
-          <GoCalendar size={20} fill={'#9B9FAA'} className="calendar_icon" />
-        </CalendarStyles>
+        <Div>
+          <CalendarStyles>
+            <DatePicker
+              locale="uk"
+              dateFormat="dd.MM.yyyy"
+              selected={date}
+              onChange={setDate}
+              className={'calendar'}
+            />
+            <GoCalendar size={20} fill={'#9B9FAA'} className="calendar_icon" />
+          </CalendarStyles>
+        </Div>
 
         {isCurrentDay && windowWidth > 767 && (
           <DiaryAddProductForm
