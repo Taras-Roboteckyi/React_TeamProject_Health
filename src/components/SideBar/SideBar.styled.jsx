@@ -40,7 +40,7 @@ export const Section = styled.section`
 
 export const Wrapper = styled.div`
   margin: 0 auto;
-  padding-left: 20px;
+  /* padding-left: 20px; */
   padding-right: 20px;
   max-width: 480px;
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
@@ -92,7 +92,8 @@ export const ListItemStyle = styled.li`
 
 export const TextStyle = styled.p`
   font-size: 14px;
-  line-height: ${props => props.theme.lineHeight.verdanaHeight};
+  line-height: 1.6;
+  /* line-height: ${props => props.theme.lineHeight.verdanaHeight}; */
   color: ${props => props.theme.colors.$grey};
 `;
 
@@ -118,4 +119,5 @@ export const ProductStyle = styled.span`
 
 export const FoodContainer = styled.div`
   /*  padding-bottom: 80px; */
+  width: 270px;
 `;
