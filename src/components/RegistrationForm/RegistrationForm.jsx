@@ -68,7 +68,7 @@ export const RegistrationForm = () => {
         <input
           name="email"
           className="form-input"
-          placeholder="Імейл *"
+          placeholder="Ел. пошта *"
           type="email"
           autoComplete="off"
           onChange={formik.handleChange}
