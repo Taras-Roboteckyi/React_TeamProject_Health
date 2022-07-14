@@ -39,19 +39,21 @@ export const Section = styled.section`
 `;
 
 export const Wrapper = styled.div`
-  @media (max-width: 767px) {
-    width: 350px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 480px;
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    max-width: 768px;
     display: flex;
     justify-content: space-between;
   }
 
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+    padding: 0;
+    margin: 0;
     display: block;
+    width: 100%;
   }
 `;
 

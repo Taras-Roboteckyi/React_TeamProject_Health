@@ -14,11 +14,11 @@ import {
   Wrapper,
   CalendarStyles,
   ButtonOpenModalForm,
-  Div,
 } from './DiaryPage.styled';
 import { DiaryAddProductForm } from '../../components/diaryAddProductForm';
 import { DiaryProductsList } from '../../components/diaryProductsList/DiaryProductsList';
 import { ModalForDiaryPage } from '../../components/modalForDiaryPage/modalForDiaryPage';
+import { Container } from '../../components/container/Container';
 
 export const DiaryPage = () => {
   const [date, setDate] = useState(new Date());
@@ -90,7 +90,7 @@ export const DiaryPage = () => {
   return (
     <main>
       <Wrapper>
-        <Div>
+        <Container>
           <CalendarStyles>
             <DatePicker
               locale="uk"
@@ -101,20 +101,22 @@ export const DiaryPage = () => {
             />
             <GoCalendar size={20} fill={'#9B9FAA'} className="calendar_icon" />
           </CalendarStyles>
-        </Div>
+        </Container>
 
-        {isCurrentDay && windowWidth > 767 && (
-          <DiaryAddProductForm
-            productName={productName}
-            productWeight={productWeight}
-            productsVariants={productsVariants}
-            isSearchingProduct={isSearchingProduct}
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
-          />
-        )}
+        <Container>
+          {isCurrentDay && windowWidth > 767 && (
+            <DiaryAddProductForm
+              productName={productName}
+              productWeight={productWeight}
+              productsVariants={productsVariants}
+              isSearchingProduct={isSearchingProduct}
+              handleChange={handleChange}
+              handleSubmit={handleSubmit}
+            />
+          )}
 
-        <DiaryProductsList isCurrentDay={isCurrentDay} />
+          <DiaryProductsList isCurrentDay={isCurrentDay} />
+        </Container>
 
         {isCurrentDay && windowWidth < 768 && (
           <ButtonOpenModalForm type="button" onClick={toggleModal}>
