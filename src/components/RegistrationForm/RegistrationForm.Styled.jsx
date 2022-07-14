@@ -75,7 +75,6 @@ export const Section = styled.section`
 
   .form-input-error {
     width: 280px;
-    word-break: break-all;
     color: red;
     font-size: 12px;
 

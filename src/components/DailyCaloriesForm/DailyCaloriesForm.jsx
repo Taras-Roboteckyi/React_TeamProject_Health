@@ -31,8 +31,8 @@ export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
   const validationSchema = Yup.object({
     height: Yup.number()
       .typeError('Має бути число!')
-      .min(100, 'Мінімальна висота 100 см!')
-      .max(250, 'Максимальна висота 250 см!')
+      .min(100, 'Мінімальний зріст 100 см!')
+      .max(250, 'Максимальний зріст 250 см!')
       .required("Це поле обов'язкове!"),
     age: Yup.number()
       .typeError('Має бути число!')
@@ -78,9 +78,7 @@ export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
 
   return (
     <Section>
-      <h3 className="form-label">
-        Розрахуйте свою денну норму калорій прямо зараз
-      </h3>
+      <h3 className="form-label">Розрахуйте свою денну норму калорій</h3>
 
       <form onSubmit={formik.handleSubmit}>
         <div className="form">
@@ -88,7 +86,7 @@ export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
             <input
               name="height"
               className="form-input"
-              placeholder="Висота *"
+              placeholder="Зріст *"
               type="text"
               autoComplete="off"
               onChange={formik.handleChange}
