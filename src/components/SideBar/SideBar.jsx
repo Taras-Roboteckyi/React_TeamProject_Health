@@ -31,55 +31,55 @@ const SideBar = () => {
       <Section>
         <Wrapper>
           <SummaryContainer>
-            <SummaryText>Summary for {'06 / 12 / 2002'}</SummaryText>
+            <SummaryText>Відомості за {'06 / 12 / 2002'}</SummaryText>
             {true ? (
               <ListStyle>
                 <ListItemStyle>
-                  Left
+                  Залишилось
                   <TextStyle>{1404 + ' kcal'}</TextStyle>
                 </ListItemStyle>
 
                 <ListItemStyle>
-                  Consumed
+                  Спожито
                   <TextStyle>{1004 + ' kcal'}</TextStyle>
                 </ListItemStyle>
 
                 <ListItemStyle>
-                  Daily rate
+                  Добова норма
                   <TextStyle>{3000 + ' kcal'}</TextStyle>
                 </ListItemStyle>
 
                 <ListItemStyle>
-                  n% of normal
-                  <TextStyle>{4 + ' kcal'}</TextStyle>
+                  Відсоток від норми
+                  <TextStyle>{4 + ' %'}</TextStyle>
                 </ListItemStyle>
               </ListStyle>
             ) : (
               <ListStyle>
                 <ListItemStyle>
-                  Left
+                  Залишилось
                   <TextStyle>0 ккал</TextStyle>
                 </ListItemStyle>
                 <ListItemStyle>
-                  Consumed
+                  Спожито
                   <TextStyle>0 ккал</TextStyle>
                 </ListItemStyle>
                 <ListItemStyle>
-                  Daily rate
+                  Добова норма
                   <TextStyle>0 ккал</TextStyle>
                 </ListItemStyle>
                 <ListItemStyle>
-                  n% of normal
-                  <TextStyle>0 ккал</TextStyle>
+                  Відсоток від норми
+                  <TextStyle>0 %</TextStyle>
                 </ListItemStyle>
               </ListStyle>
             )}
           </SummaryContainer>
           <FoodContainer>
-            <SummaryText>Food not recommended</SummaryText>
+            <SummaryText>Не рекомендовані продукти для вас</SummaryText>
 
             {true ? (
-              ['milk', 'cofee', 'tea', 'musroms', 'bread', 'button']?.map(
+              ['молоко', 'кава', 'чай', 'гречка', 'хліб', 'масло']?.map(
                 (product, index) => (
                   <ProductStyle key={index}>{product + ', '}</ProductStyle>
                 ),
