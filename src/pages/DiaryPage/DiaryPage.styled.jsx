@@ -1,5 +1,25 @@
 import styled from 'styled-components';
 
+export const Wrapper = styled.div`
+  padding-top: 40px;
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    padding-top: 100px;
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+    padding-top: 0;
+  }
+`;
+
+export const DivUserMenu = styled.div`
+  text-align: end;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+  max-width: 480px;
+  background-color: #eff1f3;
+`;
+
 export const CalendarStyles = styled.label`
   width: 160px;
   display: flex;
@@ -29,17 +49,6 @@ export const CalendarStyles = styled.label`
   .calendar_icon:hover {
     cursor: pointer;
     fill: ${prop => prop.theme.colors.$orange};
-  }
-`;
-
-export const Wrapper = styled.div`
-  padding-top: 40px;
-  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    padding-top: 100px;
-  }
-
-  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
-    padding-top: 0;
   }
 `;
 

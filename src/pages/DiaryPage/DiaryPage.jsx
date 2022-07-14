@@ -9,11 +9,13 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { fetchProductSearch } from '../../services/fetchProductSeach';
 import { useWindowWidth } from '@react-hook/window-size';
 import { BsPlusLg } from 'react-icons/bs';
+import { UserMenu } from '../../components/userMenu';
 import SideBar from '../../components/SideBar/SideBar';
 import {
   Wrapper,
   CalendarStyles,
   ButtonOpenModalForm,
+  DivUserMenu,
 } from './DiaryPage.styled';
 import { DiaryAddProductForm } from '../../components/diaryAddProductForm';
 import { DiaryProductsList } from '../../components/diaryProductsList/DiaryProductsList';
@@ -89,6 +91,11 @@ export const DiaryPage = () => {
 
   return (
     <main>
+      {windowWidth < 768 && (
+        <DivUserMenu>
+          <UserMenu />
+        </DivUserMenu>
+      )}
       <Wrapper>
         <Container>
           <CalendarStyles>
