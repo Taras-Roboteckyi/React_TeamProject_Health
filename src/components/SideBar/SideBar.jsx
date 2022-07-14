@@ -93,7 +93,7 @@ const SideBar = () => {
           <FoodContainer>
             <SummaryText>Не рекомендовані продукти для вас</SummaryText>
 
-            {false ? (
+            {true ? (
               <ProductStyle>
                 <ReactTypingEffect
                   typingDelay={1000}
