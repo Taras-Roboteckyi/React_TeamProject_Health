@@ -18,7 +18,9 @@ const Navigation = () => {
         {windowWidth < 1280 && windowWidth > 768 && (
           <img src={LogoTablet} alt="Logo" width={167} height={66} />
         )}
-        {windowWidth < 768 && <img src={LogoMobile} alt="Logo" />}
+        {windowWidth < 768 && (
+          <img src={LogoMobile} alt="Logo" width={167} height={66} />
+        )}
       </Logo>
     </Con>
   );
