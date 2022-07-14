@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import main_bg_desktop from '../../images/sidebar_bg_desktop.png';
-
 export const CalendarStyles = styled.label`
   width: 202px;
   display: flex;
@@ -27,32 +25,21 @@ export const CalendarStyles = styled.label`
     width: 300px;
     margin-bottom: 60px;
   }
+
+  .calendar_icon:hover {
+    cursor: pointer;
+    fill: ${prop => prop.theme.colors.$orange};
+  }
 `;
 
 export const Wrapper = styled.div`
-  /* @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    display: flex;
-    justify-content: space-between;
+  padding-top: 40px;
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    padding-top: 100px;
   }
-    
-  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
-    display: block;
-  } */
 
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
-    /* background: url(${main_bg_desktop}) right no-repeat; */
-
-    /* background-size: 50%;
-    background-repeat: no-repeat;
-    background-position: right;
-    background-image: url(${main_bg_desktop}); */
-    /*  width: 100%;
-    height: 100%; */
-    /* position: absolute; */
-    /*  right: 0;
-    top: 0; */
-
-    /*  z-index: 12; */
+    padding-top: 0;
   }
 `;
 
@@ -74,5 +61,13 @@ export const ButtonOpenModalForm = styled.button`
     background: ${prop => prop.theme.colors.$orange};
     color: ${prop => prop.theme.colors.$white};
     border: none;
+  }
+`;
+
+export const Div = styled.div`
+  @media (max-width: 767px) {
+    width: 370px;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
