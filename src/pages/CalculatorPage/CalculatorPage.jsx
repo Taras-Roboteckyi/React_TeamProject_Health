@@ -33,8 +33,8 @@ export const CalculatorPage = () => {
             </Modal>
           )}
         </StyledWrapper>
-        <SideBar />
       </Container>
+      <SideBar />
     </main>
   );
 };

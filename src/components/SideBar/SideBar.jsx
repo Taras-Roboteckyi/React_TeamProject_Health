@@ -1,19 +1,16 @@
 /* import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react'; */
 
-/* import {
-  ItemsSelectors,
-  fetchContacts,
-  deleteContacts,
-} from '../../redux/items';
-import ContactListItem from '../ContactListItem/ContactListItem';
+/* 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { ListStyle } from './ContactList.styled'; */
+ */
+import ReactTypingEffect from 'react-typing-effect';
+
+import arrayRandom from '../../utility/arrayRandom';
 
 import {
-  /* BgImageStyled, */
   Section,
   SummaryText,
   ListStyle,
@@ -26,6 +23,24 @@ import {
 } from './SideBar.styled';
 
 const SideBar = () => {
+  const array = [
+    'молоко',
+    'кава',
+    'чай',
+    'гречка',
+    'хліб',
+    'масло',
+    'крупа',
+    'ячмінь',
+  ];
+
+  const random = arrayRandom(array);
+  console.log('result:', random);
+  /* const arraySlice = random.slice(0, 7); //////Обрізає масив до 7 значень
+  console.log(arraySlice); */
+  const arrayString = [random.join(', ')];
+  console.log(arrayString);
+
   return (
     <>
       <Section>
@@ -78,14 +93,19 @@ const SideBar = () => {
           <FoodContainer>
             <SummaryText>Не рекомендовані продукти для вас</SummaryText>
 
-            {true ? (
-              ['молоко', 'кава', 'чай', 'гречка', 'хліб', 'масло']?.map(
-                (product, index) => (
-                  <ProductStyle key={index}>{product + ', '}</ProductStyle>
-                ),
-              )
+            {false ? (
+              <ProductStyle>
+                <ReactTypingEffect
+                  typingDelay={1000}
+                  speed={100}
+                  eraseSpeed={20}
+                  text={arrayString}
+                />
+              </ProductStyle>
             ) : (
-              <TextStyle>Your diet will be displayed here</TextStyle>
+              <TextStyle>
+                Тут відображатимуться продукти які не рекомендовані для вас
+              </TextStyle>
             )}
 
             {/* <BgImageStyled /> */}
