@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
+ 
+
 export const StyledOverlay = styled.div`
   @media (min-width: 768px) {
     position: fixed;
+    overflow-y: auto;
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -13,10 +16,9 @@ export const StyledOverlay = styled.div`
 `;
 
 export const StyledModal = styled.div`
-  overflow: auto;
   position: absolute;
   min-width: 320px;
-  margin-top: 150px;
+  margin-top: 112px;
   height: 648px;
   background-color: ${props => props.theme.colors.$white};
 
@@ -29,6 +31,7 @@ export const StyledModal = styled.div`
     width: 672px;
     height: 573px;
     box-shadow: 0px 22px 40px rgba(0, 0, 0, 0.1);
+    
   }
 `;
 export const StyledCloseButton = styled.button`
