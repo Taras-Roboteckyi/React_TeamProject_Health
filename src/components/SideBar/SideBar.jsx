@@ -1,19 +1,16 @@
 /* import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react'; */
 
-/* import {
-  ItemsSelectors,
-  fetchContacts,
-  deleteContacts,
-} from '../../redux/items';
-import ContactListItem from '../ContactListItem/ContactListItem';
+/* 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { ListStyle } from './ContactList.styled'; */
+ */
+import ReactTypingEffect from 'react-typing-effect';
+
+import arrayRandom from '../../utility/arrayRandom';
 
 import {
-  /* BgImageStyled, */
   Section,
   SummaryText,
   ListStyle,
@@ -26,66 +23,89 @@ import {
 } from './SideBar.styled';
 
 const SideBar = () => {
+  const array = [
+    'молоко',
+    'кава',
+    'чай',
+    'гречка',
+    'хліб',
+    'масло',
+    'крупа',
+    'ячмінь',
+  ];
+
+  const random = arrayRandom(array);
+  console.log('result:', random);
+  /* const arraySlice = random.slice(0, 7); //////Обрізає масив до 7 значень
+  console.log(arraySlice); */
+  const arrayString = [random.join(', ')];
+  console.log(arrayString);
+
   return (
     <>
       <Section>
         <Wrapper>
           <SummaryContainer>
-            <SummaryText>Summary for {'06 / 12 / 2002'}</SummaryText>
+            <SummaryText>Відомості за {'06 / 12 / 2002'}</SummaryText>
             {true ? (
               <ListStyle>
                 <ListItemStyle>
-                  Left
+                  Залишилось
                   <TextStyle>{1404 + ' kcal'}</TextStyle>
                 </ListItemStyle>
 
                 <ListItemStyle>
-                  Consumed
+                  Спожито
                   <TextStyle>{1004 + ' kcal'}</TextStyle>
                 </ListItemStyle>
 
                 <ListItemStyle>
-                  Daily rate
+                  Добова норма
                   <TextStyle>{3000 + ' kcal'}</TextStyle>
                 </ListItemStyle>
 
                 <ListItemStyle>
-                  n% of normal
-                  <TextStyle>{4 + ' kcal'}</TextStyle>
+                  Відсоток від норми
+                  <TextStyle>{4 + ' %'}</TextStyle>
                 </ListItemStyle>
               </ListStyle>
             ) : (
               <ListStyle>
                 <ListItemStyle>
-                  Left
+                  Залишилось
                   <TextStyle>0 ккал</TextStyle>
                 </ListItemStyle>
                 <ListItemStyle>
-                  Consumed
+                  Спожито
                   <TextStyle>0 ккал</TextStyle>
                 </ListItemStyle>
                 <ListItemStyle>
-                  Daily rate
+                  Добова норма
                   <TextStyle>0 ккал</TextStyle>
                 </ListItemStyle>
                 <ListItemStyle>
-                  n% of normal
-                  <TextStyle>0 ккал</TextStyle>
+                  Відсоток від норми
+                  <TextStyle>0 %</TextStyle>
                 </ListItemStyle>
               </ListStyle>
             )}
           </SummaryContainer>
           <FoodContainer>
-            <SummaryText>Food not recommended</SummaryText>
+            <SummaryText>Не рекомендовані продукти для вас</SummaryText>
 
             {true ? (
-              ['milk', 'cofee', 'tea', 'musroms', 'bread', 'button']?.map(
-                (product, index) => (
-                  <ProductStyle key={index}>{product + ', '}</ProductStyle>
-                ),
-              )
+              <ProductStyle>
+                <ReactTypingEffect
+                  typingDelay={1000}
+                  speed={100}
+                  eraseSpeed={20}
+                  text={arrayString}
+                />
+              </ProductStyle>
             ) : (
-              <TextStyle>Your diet will be displayed here</TextStyle>
+              <TextStyle>
+                Тут відображатимуться продукти які не рекомендовані для вас
+              </TextStyle>
             )}
 
             {/* <BgImageStyled /> */}

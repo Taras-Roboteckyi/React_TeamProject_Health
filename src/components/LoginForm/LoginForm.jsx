@@ -16,18 +16,18 @@ export const LoginForm = () => {
 
   const validationSchema = Yup.object({
     email: Yup.string()
-      .email('Not a proper email')
-      .min(3, 'Too short!')
-      .max(254, 'Too long!')
-      .required('This field is required!'),
+      .email('Неналежна назва ел. пошти')
+      .min(3, 'Занадто короткий!')
+      .max(254, 'Занадто довгий!')
+      .required(`Це поле є обов'язковим!`),
     password: Yup.string()
       .matches(
         /^(?=.*[a-z])(?=.*[0-9])(?!.*[^a-zA-Z0-9])/,
-        'Must contain at least one Latin letter and one number, without special case characters',
+        'Повинен містити принаймні одну латинську літеру та одну цифру без спеціальних символів',
       )
-      .min(8, 'Too short!')
-      .max(100, 'Too long!')
-      .required('This field is required!'),
+      .min(8, 'Занадто короткий!')
+      .max(100, 'Занадто довгий!')
+      .required(`Це поле є обов'язковим!`),
   });
 
   const formik = useFormik({
@@ -38,19 +38,18 @@ export const LoginForm = () => {
     validationSchema,
     onSubmit: values => {
       dispatch(authOperations.logIn(values));
-      console.log('Form', values);
       formik.resetForm({ name: '', email: '' });
     },
   });
 
   return (
     <Section>
-      <H2>SING IN</H2>
+      <H2>Ввійти</H2>
       <form onSubmit={formik.handleSubmit}>
         <Input
           type="email"
           name="email"
-          placeholder="Email *"
+          placeholder="Ел. пошта *"
           autoComplete="off"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur('email')}
@@ -62,7 +61,7 @@ export const LoginForm = () => {
         <Input
           type="password"
           name="password"
-          placeholder="Password *"
+          placeholder="Пароль *"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur('password')}
           value={formik.values.password}
@@ -71,9 +70,9 @@ export const LoginForm = () => {
           <InputError>{formik.errors.password}</InputError>
         )}
         <BoxButtons>
-          <LoginBtn type="submit">Login</LoginBtn>
+          <LoginBtn type="submit">Ввійти</LoginBtn>
           <RegisterBtn type="button" onClick={onRegisterClick}>
-            Register
+            Реєстрація
           </RegisterBtn>
         </BoxButtons>
       </form>

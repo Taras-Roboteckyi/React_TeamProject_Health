@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types';
+// import { useSelector } from 'react-redux';
+// import { getIsLoggedIn } from '../../redux/authorization/auth-selectors';
 import { useFormik } from 'formik';
 import { Section } from './DailyCaloriesForm.Styled';
 import { DailyButton } from './DailyButton.Styled';
 import { useState } from 'react';
 import * as Yup from 'yup';
+// import { getPublicProducts } from '../../services/getNotRecommendedProducts';
 
-export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
+export const DailyCaloriesForm = ({ onFormSubmit }) => {
+  // const isLoggedIn = useSelector(getIsLoggedIn);
   const [isLabelCheked, setIsLabelCheked] = useState({
     one: true,
     two: false,
@@ -31,8 +35,8 @@ export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
   const validationSchema = Yup.object({
     height: Yup.number()
       .typeError('Має бути число!')
-      .min(100, 'Мінімальна висота 100 см!')
-      .max(250, 'Максимальна висота 250 см!')
+      .min(100, 'Мінімальний зріст 100 см!')
+      .max(250, 'Максимальний зріст 250 см!')
       .required("Це поле обов'язкове!"),
     age: Yup.number()
       .typeError('Має бути число!')
@@ -70,17 +74,27 @@ export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
       bloodType: '1',
     },
     validationSchema,
-    onSubmit: values => {
+    onSubmit: async values => {
+      // console.log('values', values);
+
+      // if (isLoggedIn) {
+      //   console.log('+++');
+      // } else {
+      //   console.log('---');
+      //   try {
+      //     const products = await getPublicProducts(values);
+      //     console.log(products);
+      //   } catch (error) {
+      //     console.log(error);
+      //   }
+      // }
       onFormSubmit(values);
-      onOpen();
     },
   });
 
   return (
     <Section>
-      <h3 className="form-label">
-        Розрахуйте свою денну норму калорій прямо зараз
-      </h3>
+      <h3 className="form-label">Розрахуйте свою денну норму калорій</h3>
 
       <form onSubmit={formik.handleSubmit}>
         <div className="form">
@@ -88,7 +102,7 @@ export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
             <input
               name="height"
               className="form-input"
-              placeholder="Висота *"
+              placeholder="Зріст * см"
               type="text"
               autoComplete="off"
               onChange={formik.handleChange}
@@ -102,7 +116,7 @@ export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
             <input
               name="age"
               className="form-input"
-              placeholder="Вік *"
+              placeholder="Вік * років"
               type="text"
               autoComplete="off"
               onChange={formik.handleChange}
@@ -116,7 +130,7 @@ export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
             <input
               name="currentWeight"
               className="form-input"
-              placeholder="Поточна вага *"
+              placeholder="Поточна вага * кг"
               type="text"
               autoComplete="off"
               onChange={formik.handleChange}
@@ -132,7 +146,7 @@ export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
             <input
               name="desiredWeight"
               className="form-input"
-              placeholder="Очікувана вага *"
+              placeholder="Очікувана вага * кг"
               type="text"
               autoComplete="off"
               onChange={formik.handleChange}
@@ -233,5 +247,4 @@ export const DailyCaloriesForm = ({ onFormSubmit, onOpen }) => {
 
 DailyCaloriesForm.propTypes = {
   onFormSubmit: PropTypes.func,
-  onOpen: PropTypes.func,
 };

@@ -30,6 +30,7 @@ export const Con = styled.nav`
 `;
 
 export const Logo = styled(NavLink)`
+  max-width: 100%;
   @media (max-width: 767px) {
     height: 44px;
   }
@@ -37,4 +38,14 @@ export const Logo = styled(NavLink)`
     /*  margin-left: 32px; */
     margin-right: 40px;
   }
+`;
+export const LogoImage = styled.img`
+  max-width: 100%;
+  /* @media (max-width: 767px) {
+    height: 44px;
+  }
+  @media (max-width: 1279px) {
+    
+    margin-right: 40px;
+  } */
 `;

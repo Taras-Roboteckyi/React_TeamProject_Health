@@ -22,29 +22,38 @@ export const Section = styled.section`
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     /* background: url(${main_bg_desktop}) right no-repeat; */
 
-    /*    background-size: 50%;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: right;
-    background-image: url(${main_bg_desktop}); */
-    background-image: none;
+    background-image: url(${main_bg_desktop});
+    /* background-image: none; */
     padding: 300px 140px 200px 100px;
     width: 520px;
     height: 900px;
     position: absolute;
     right: 0;
     top: 0;
+    z-index: -2;
     /* background-color: ${props => props.theme.colors.$lightGrey}; */
   }
 `;
 
 export const Wrapper = styled.div`
+  margin: 0 auto;
+  /* padding-left: 20px; */
+  padding-right: 20px;
+  max-width: 480px;
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    max-width: 768px;
     display: flex;
     justify-content: space-between;
   }
 
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+    padding: 0;
+    margin: 0;
     display: block;
+    width: 100%;
   }
 `;
 
@@ -71,7 +80,7 @@ export const ListItemStyle = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  width: 270px;
   font-size: 14px;
   line-height: ${props => props.theme.lineHeight.verdanaHeight};
   color: ${props => props.theme.colors.$grey};
@@ -83,7 +92,8 @@ export const ListItemStyle = styled.li`
 
 export const TextStyle = styled.p`
   font-size: 14px;
-  line-height: ${props => props.theme.lineHeight.verdanaHeight};
+  line-height: 1.6;
+  /* line-height: ${props => props.theme.lineHeight.verdanaHeight}; */
   color: ${props => props.theme.colors.$grey};
 `;
 
@@ -109,4 +119,5 @@ export const ProductStyle = styled.span`
 
 export const FoodContainer = styled.div`
   /*  padding-bottom: 80px; */
+  width: 270px;
 `;

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const ProductFormStyled = styled.form`
   text-align: center;
-  padding: 0 20px;
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -29,7 +28,7 @@ export const ProductFormStyled = styled.form`
     outline: none;
 
     @media screen and (min-width: 768px) {
-      width: 240px;
+      width: 325px;
       display: inline-block;
       margin-right: 22px;
       margin-bottom: 0;

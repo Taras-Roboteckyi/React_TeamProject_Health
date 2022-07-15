@@ -9,15 +9,18 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { fetchProductSearch } from '../../services/fetchProductSeach';
 import { useWindowWidth } from '@react-hook/window-size';
 import { BsPlusLg } from 'react-icons/bs';
+import { UserMenu } from '../../components/userMenu';
 import SideBar from '../../components/SideBar/SideBar';
 import {
   Wrapper,
   CalendarStyles,
   ButtonOpenModalForm,
+  DivUserMenu,
 } from './DiaryPage.styled';
 import { DiaryAddProductForm } from '../../components/diaryAddProductForm';
 import { DiaryProductsList } from '../../components/diaryProductsList/DiaryProductsList';
 import { ModalForDiaryPage } from '../../components/modalForDiaryPage/modalForDiaryPage';
+import { Container } from '../../components/container/Container';
 
 export const DiaryPage = () => {
   const [date, setDate] = useState(new Date());
@@ -88,30 +91,39 @@ export const DiaryPage = () => {
 
   return (
     <main>
+      {windowWidth < 768 && (
+        <DivUserMenu>
+          <UserMenu />
+        </DivUserMenu>
+      )}
       <Wrapper>
-        <CalendarStyles>
-          <DatePicker
-            locale="uk"
-            dateFormat="dd.MM.yyyy"
-            selected={date}
-            onChange={setDate}
-            className={'calendar'}
-          />
-          <GoCalendar size={20} fill={'#9B9FAA'} className="calendar_icon" />
-        </CalendarStyles>
+        <Container>
+          <CalendarStyles>
+            <DatePicker
+              locale="uk"
+              dateFormat="dd.MM.yyyy"
+              selected={date}
+              onChange={setDate}
+              className={'calendar'}
+            />
+            <GoCalendar size={20} fill={'#9B9FAA'} className="calendar_icon" />
+          </CalendarStyles>
+        </Container>
 
-        {isCurrentDay && windowWidth > 767 && (
-          <DiaryAddProductForm
-            productName={productName}
-            productWeight={productWeight}
-            productsVariants={productsVariants}
-            isSearchingProduct={isSearchingProduct}
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
-          />
-        )}
+        <Container>
+          {isCurrentDay && windowWidth > 767 && (
+            <DiaryAddProductForm
+              productName={productName}
+              productWeight={productWeight}
+              productsVariants={productsVariants}
+              isSearchingProduct={isSearchingProduct}
+              handleChange={handleChange}
+              handleSubmit={handleSubmit}
+            />
+          )}
 
-        <DiaryProductsList isCurrentDay={isCurrentDay} />
+          <DiaryProductsList isCurrentDay={isCurrentDay} />
+        </Container>
 
         {isCurrentDay && windowWidth < 768 && (
           <ButtonOpenModalForm type="button" onClick={toggleModal}>

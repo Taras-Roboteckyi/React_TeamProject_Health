@@ -7,7 +7,7 @@ export const BgImageStyled = styled.div`
     background: url(${main_bg_tablet}) bottom right no-repeat;
     position: absolute;
     width: 100%;
-    height: 850px;
+    height: 940px;
 
     z-index: -1;
   }

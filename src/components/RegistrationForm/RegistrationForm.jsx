@@ -19,7 +19,10 @@ export const RegistrationForm = () => {
       .max(254, 'Не може містити більше 254 символів!')
       .required("Це поле обов'язкове!"),
     email: Yup.string()
-      .email('Не валідний імейл')
+      .matches(
+        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+        'Неналежна назва ел. пошти',
+      )
       .min(3, 'Має містити мінімум 3 символи!')
       .max(254, 'Не може містити більше 254 символів!')
       .required("Це поле обов'язкове!"),
@@ -68,7 +71,7 @@ export const RegistrationForm = () => {
         <input
           name="email"
           className="form-input"
-          placeholder="Імейл *"
+          placeholder="Ел. пошта *"
           type="email"
           autoComplete="off"
           onChange={formik.handleChange}

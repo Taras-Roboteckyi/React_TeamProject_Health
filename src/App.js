@@ -31,14 +31,14 @@ function App() {
 
   return (
     <>
-      <Suspense fallback={<AppLoader />}>
-        {!isFetchingCurrentUser && ( //Щоб не моргав інтерфейс при переході на перезагрузку
+      {!isFetchingCurrentUser && ( //Щоб не моргав інтерфейс при переході на перезагрузку
+        <Suspense fallback={<AppLoader />}>
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route
                 index
                 element={
-                  <PublicRoute restricted redirectTo="diary">
+                  <PublicRoute restricted redirectTo="/diary">
                     <MainPage />
                   </PublicRoute>
                 }
@@ -47,7 +47,7 @@ function App() {
               <Route
                 path="registration"
                 element={
-                  <PublicRoute restricted redirectTo="diary">
+                  <PublicRoute restricted redirectTo="/diary">
                     <RegistrationPage />
                   </PublicRoute>
                 }
@@ -56,7 +56,7 @@ function App() {
               <Route
                 path="signin"
                 element={
-                  <PublicRoute restricted redirectTo="diary">
+                  <PublicRoute restricted redirectTo="/diary">
                     <LoginPage />
                   </PublicRoute>
                 }
@@ -84,8 +84,9 @@ function App() {
 
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
-        )}
-      </Suspense>
+        </Suspense>
+      )}
+
       <Toaster toastOptions={{ duration: 3000 }} />
     </>
   );

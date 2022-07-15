@@ -1,23 +1,26 @@
 import styled from 'styled-components';
 
+export const Div = styled.div`
+  display: flex;
+  justify-content: space-between;
+  background-color: #eff1f3;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+  max-width: 480px;
+`;
+
 export const Overlay = styled.div`
   position: fixed;
   top: 80px;
   left: 0;
+
   width: 100vw;
   height: 100vh;
-  /* display: flex; */
-  padding-top: 40px;
-  /* justify-content: center;
-  align-items: center; */
+
   background-color: transparent;
 
   z-index: 5500;
-  svg {
-    position: absolute;
-    top: 8px;
-    left: 15px;
-  }
 `;
 
 export const ModalStyle = styled.div`

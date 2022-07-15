@@ -6,7 +6,7 @@ export const Div = styled.div`
   padding-right: 20px;
 
   @media screen and (min-width: 480px) {
-    width: ${props => props.theme.breakpoints.mobile};
+    width: 480px;
   }
   @media screen and (min-width: 768px) {
     width: ${props => props.theme.breakpoints.tablet};

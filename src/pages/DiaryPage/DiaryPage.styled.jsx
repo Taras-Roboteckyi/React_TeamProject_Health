@@ -1,13 +1,31 @@
 import styled from 'styled-components';
 
-import main_bg_desktop from '../../images/sidebar_bg_desktop.png';
+export const Wrapper = styled.div`
+  padding-top: 40px;
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    padding-top: 100px;
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+    padding-top: 0;
+  }
+`;
+
+export const DivUserMenu = styled.div`
+  text-align: end;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+  max-width: 480px;
+  background-color: #eff1f3;
+`;
 
 export const CalendarStyles = styled.label`
-  width: 202px;
+  width: 160px;
   display: flex;
   align-items: center;
   margin-bottom: 32px;
-  padding: 0 20px;
+
   .calendar {
     font-family: ${({ theme: { fonts } }) => fonts.verdana};
     font-style: normal;
@@ -24,35 +42,13 @@ export const CalendarStyles = styled.label`
     }
   }
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    width: 300px;
+    width: 270px;
     margin-bottom: 60px;
   }
-`;
 
-export const Wrapper = styled.div`
-  /* @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    display: flex;
-    justify-content: space-between;
-  }
-    
-  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
-    display: block;
-  } */
-
-  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
-    background: url(${main_bg_desktop}) right no-repeat;
-
-    /* background-size: 50%;
-    background-repeat: no-repeat;
-    background-position: right;
-    background-image: url(${main_bg_desktop}); */
-    width: 100%;
-    height: 100%;
-    /* position: absolute; */
-    right: 0;
-    top: 0;
-
-    /*  z-index: 12; */
+  .calendar_icon:hover {
+    cursor: pointer;
+    fill: ${prop => prop.theme.colors.$orange};
   }
 `;
 

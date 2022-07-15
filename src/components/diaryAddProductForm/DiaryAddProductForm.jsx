@@ -5,6 +5,7 @@ import { ProductFormStyled, ButtonAdd } from './DiaryAddProductForm.styled';
 // import { getDaySummary } from '../../redux/user/userSelectors';
 import { useWindowWidth } from '@react-hook/window-size';
 import { BsPlusLg } from 'react-icons/bs';
+import AppLoader from '../Loader/Loader';
 
 export const DiaryAddProductForm = ({
   productName,
@@ -57,16 +58,14 @@ export const DiaryAddProductForm = ({
         {windowWidth < 768 ? 'Додати' : <BsPlusLg size={14} />}
       </ButtonAdd>
 
-      {isSearchingProduct ? (
-        <span>Завантажую...</span>
-      ) : (
-        <datalist className="datalist" id="productSearch">
-          {productsVariants &&
-            productsVariants.map(product => (
-              <option value={product.title.ua} key={product._id} />
-            ))}
-        </datalist>
-      )}
+      {isSearchingProduct && <AppLoader />}
+
+      <datalist className="datalist" id="productSearch">
+        {productsVariants &&
+          productsVariants.map(product => (
+            <option value={product.title.ua} key={product._id} />
+          ))}
+      </datalist>
     </ProductFormStyled>
   );
 };
