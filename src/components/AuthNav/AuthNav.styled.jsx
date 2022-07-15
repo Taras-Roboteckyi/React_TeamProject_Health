@@ -8,7 +8,7 @@ export const Contain = styled.div`
 
     width: auto;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 1280px) {
     margin-top: 45px;
   }
 `;

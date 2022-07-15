@@ -27,13 +27,13 @@ export default function AppBar() {
                   <UserMenu />
                 </>
               )}
-              {windowWidth < 1280 && windowWidth > 768 && (
+              {windowWidth < 1280 && windowWidth > 767 && (
                 <>
                   <UserMenu />
                   <BurgerInfo />
                 </>
               )}
-              {windowWidth < 768 && <BurgerInfo />}
+              {windowWidth < 767 && <BurgerInfo />}
             </>
           ) : (
             <AuthNav />
