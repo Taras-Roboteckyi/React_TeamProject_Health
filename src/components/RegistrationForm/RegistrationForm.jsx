@@ -45,7 +45,7 @@ export const RegistrationForm = () => {
     validationSchema,
     onSubmit: async values => {
       await dispatch(authOperations.register(values));
-      navigate('/diary');
+      /* navigate('/diary'); */
     },
   });
 
