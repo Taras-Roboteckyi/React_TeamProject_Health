@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { Overlay, ModalStyle } from './modalForDiaryPage.styled';
+import { UserMenu } from '../userMenu';
+import { Overlay, ModalStyle, Div } from './modalForDiaryPage.styled';
 import { TbArrowBack } from 'react-icons/tb';
-
 export const ModalForDiaryPage = ({ onClose, children }) => {
   const handleBackdropClick = event => {
     if (event.currentTarget === event.target) {
@@ -33,7 +33,11 @@ export const ModalForDiaryPage = ({ onClose, children }) => {
 
   return (
     <Overlay onClick={handleBackdropClick}>
-      <TbArrowBack size={25} className="svg" onClick={onClose} />
+      <Div>
+        <TbArrowBack size={25} className="svg" onClick={onClose} />
+        <UserMenu />
+      </Div>
+
       <ModalStyle>{children}</ModalStyle>
     </Overlay>
   );

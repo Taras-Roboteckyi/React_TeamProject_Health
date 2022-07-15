@@ -19,7 +19,7 @@ export const Tr = styled.tr`
 
   .widthTitle {
     margin-right: 8px;
-    max-width: 130px;
+    max-width: 115px;
   }
   .widthGramGram {
     margin-right: 8px;
@@ -33,6 +33,7 @@ export const Tr = styled.tr`
     width: 60px;
   }
   button {
+    padding: 0;
     background: inherit;
     border: none;
     cursor: pointer;
