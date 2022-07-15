@@ -8,14 +8,21 @@ export const Header = styled.header`
   /* background-color: #e6e6e6; */
 
   position: relative;
+
+  @media (max-width: 1279px) {
+    border-bottom: 2px solid #9b9faa;
+  }
 `;
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   @media (max-width: 1279px) {
-    padding-top: 37px;
-    border-bottom: 2px solid #9b9faa;
-    padding-bottom: 32px;
+    padding-top: 20px;
+    /* border-bottom: 2px solid #9b9faa; */
+    padding-bottom: 20px;
+  }
+  @media (min-width: 1280px) {
+    align-items: baseline;
   }
   /* justify-content: space-between;
   align-items: center; */
