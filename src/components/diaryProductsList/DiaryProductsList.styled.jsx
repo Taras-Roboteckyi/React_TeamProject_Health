@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const Div = styled.div`
-  /* min-width: 350px; */
-  max-height: 300px;
+  max-width: 300px;
+  max-height: 400px;
   overflow-y: auto;
   overflow-x: hidden;
-  margin-bottom: 50px;
+  margin-bottom: 15px;
   @media screen and (max-width: 767px) {
     ::-webkit-scrollbar {
       display: none;
@@ -20,11 +20,16 @@ export const Div = styled.div`
 export const DiaryProductsListStyled = styled.table`
   margin-top: 31px;
   margin-bottom: 60px;
-  border-spacing: 5px;
   border-collapse: separate;
-  margin-left: auto;
-  margin-right: auto;
+  border-spacing: 32px;
+  margin-left: -32px;
+  margin-top: -32px;
 
+  @media screen and (max-width: 767px) {
+    border-spacing: 5px;
+    margin-left: -5px;
+    margin-top: -5px;
+  }
   @media screen and (min-width: 768px) {
     margin-top: 0px;
     margin-bottom: 40px;
