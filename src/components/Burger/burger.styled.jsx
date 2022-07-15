@@ -1,18 +1,25 @@
 import styled from 'styled-components';
 
 export const Overlay = styled.div`
-  position: fixed;
-  top: 100px;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 100;
+  @media (min-width: 320px) {
+    position: fixed;
+    top: 85px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
 
-  background-color: #264061;
+    background-color: #264061;
+  }
+  @media (min-width: 767px) {
+    top: 110px;
+  }
 `;
 
 export const ModalContent = styled.div`
   position: absolute;
+  display: flex;
+  flex-direction: column;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
