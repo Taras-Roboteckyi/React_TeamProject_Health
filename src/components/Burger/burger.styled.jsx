@@ -25,7 +25,7 @@ export const ModalContent = styled.div`
 export const Button = styled.button`
   width: 20px;
   height: 15px;
-  margin-left: 200px;
+  margin-left: 53px;
   margin-right: 20px;
   background-color: #fff;
   border: 0px;
