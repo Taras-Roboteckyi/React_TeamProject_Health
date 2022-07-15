@@ -6,6 +6,7 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isFetchingCurrentUser: false,
+  isReducerSpinner: false,
 };
 
 const authSlice = createSlice({
@@ -23,10 +24,17 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
+    [authOperations.logOut.pending](state) {
+      state.isReducerSpinner = true;
+    },
     [authOperations.logOut.fulfilled](state) {
       state.user = { name: null, email: null, id: null };
       state.token = null;
       state.isLoggedIn = false;
+      state.isReducerSpinner = false;
+    },
+    [authOperations.logOut.rejected](state) {
+      state.isReducerSpinner = false;
     },
     [authOperations.fetchCurrentUser.pending](state) {
       state.isFetchingCurrentUser = true;

@@ -35,11 +35,11 @@ const SideBar = () => {
   ];
 
   const random = arrayRandom(array);
-  console.log('result:', random);
+  /* console.log('result:', random); */
   /* const arraySlice = random.slice(0, 7); //////Обрізає масив до 7 значень
   console.log(arraySlice); */
   const arrayString = [random.join(', ')];
-  console.log(arrayString);
+  /*  console.log(arrayString); */
 
   return (
     <>

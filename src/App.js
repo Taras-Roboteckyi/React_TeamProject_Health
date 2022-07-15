@@ -1,4 +1,3 @@
-/* import { CreateLazyChunk } from './helpers/CreateLazyChunk'; */
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, Suspense } from 'react';
@@ -6,20 +5,24 @@ import { Toaster } from 'react-hot-toast';
 import PublicRoute from './components/publicRoute/PublicRoute';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
 import { Layout } from './components/Layout/Layout';
-import { MainPage } from './pages/MainPage/MainPage';
-import { RegistrationPage } from './pages/RegistrationPage/RegistrationPage';
-import { LoginPage } from './pages/LoginPage/LoginPage';
-import { DiaryPage } from './pages/DiaryPage/DiaryPage';
-import { CalculatorPage } from './pages/CalculatorPage/CalculatorPage';
+
 /* import { getIsFetchingCurrent } from './redux/authorization/auth-selectors'; */
 import { authOperations, authSelectors } from './redux/authorization';
 import AppLoader from './components/Loader/Loader';
+import { CreateLazyChunk } from './helpers/CreateLazyChunk';
 
-/* const MainPage = CreateLazyChunk('MainPage');
-const LoginPage = CreateLazyChunk('LoginPage');
-const RegistrationPage = CreateLazyChunk('RegistrationPage');
-const DiaryPage = CreateLazyChunk('DiaryPage');
-const CalculatorPage = CreateLazyChunk('CalculatorPage'); */
+const MainPage = CreateLazyChunk('MainPage', 'MainPage/MainPage');
+const RegistrationPage = CreateLazyChunk(
+  'RegistrationPage',
+  'RegistrationPage/RegistrationPage',
+);
+const LoginPage = CreateLazyChunk('LoginPage', 'LoginPage/LoginPage');
+
+const DiaryPage = CreateLazyChunk('DiaryPage', 'DiaryPage/DiaryPage');
+const CalculatorPage = CreateLazyChunk(
+  'CalculatorPage',
+  'CalculatorPage/CalculatorPage',
+);
 
 function App() {
   const dispatch = useDispatch();
