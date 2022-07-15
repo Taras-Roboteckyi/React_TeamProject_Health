@@ -102,7 +102,7 @@ export const DailyCaloriesForm = ({ onFormSubmit }) => {
             <input
               name="height"
               className="form-input"
-              placeholder="Зріст * см"
+              placeholder="Зріст, см *"
               type="text"
               autoComplete="off"
               onChange={formik.handleChange}
@@ -116,7 +116,7 @@ export const DailyCaloriesForm = ({ onFormSubmit }) => {
             <input
               name="age"
               className="form-input"
-              placeholder="Вік * років"
+              placeholder="Вік, років *"
               type="text"
               autoComplete="off"
               onChange={formik.handleChange}
@@ -130,7 +130,7 @@ export const DailyCaloriesForm = ({ onFormSubmit }) => {
             <input
               name="currentWeight"
               className="form-input"
-              placeholder="Поточна вага * кг"
+              placeholder="Поточна вага, кг *"
               type="text"
               autoComplete="off"
               onChange={formik.handleChange}
@@ -146,7 +146,7 @@ export const DailyCaloriesForm = ({ onFormSubmit }) => {
             <input
               name="desiredWeight"
               className="form-input"
-              placeholder="Очікувана вага * кг"
+              placeholder="Очікувана вага, кг * "
               type="text"
               autoComplete="off"
               onChange={formik.handleChange}

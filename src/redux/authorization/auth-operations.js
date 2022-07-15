@@ -30,17 +30,19 @@ const register = createAsyncThunk(
       };
       /* console.log(data); */
       token.set(data.dataLog.token);
-      toast.success('You have successfully registered');
+      toast.success('Ви успішно зареєструвалися');
 
       return data;
     } catch (error) {
       if (error) {
         /* console.log(error, error.response); */
         if (error.response && error.response.status === 400) {
-          toast.error('Not the correct password or email');
+          toast.error('Неправильна електронна адреса чи пароль');
         }
         if (error.response && error.response.status === 409) {
-          toast.error('User with this email already registered');
+          toast.error(
+            'Користувач із цією електронною адресою вже зареєстрований',
+          );
         }
       }
       return rejectWithValue(error);
@@ -56,11 +58,11 @@ const logIn = createAsyncThunk(
       /* console.log(data); */
 
       token.set(data.data.token);
-      toast.success('You are logged in');
+      toast.success('Вітаємо, Ви увійшли в додаток');
       return data.data; /////Приходить з бека data: {user: name:dsfdfd,email:fdfdfdf}
     } catch (error) {
       if (error) {
-        toast.error('Not the correct email or password ');
+        toast.error('Неправильна електронна адреса чи пароль');
       }
       return rejectWithValue(error);
     }
@@ -73,7 +75,7 @@ const logOut = createAsyncThunk('auth/logout', async () => {
     token.unset();
   } catch (error) {
     console.log(error.message);
-    toast.error(error.message);
+    /* toast.error(error.message); */
   }
 });
 

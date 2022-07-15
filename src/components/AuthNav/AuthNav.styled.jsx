@@ -59,24 +59,27 @@ export const Link = styled(NavLink)`
 `;
 
 export const Cont = styled.div`
-  @media (max-width: 767px) {
+  @media (max-width: 1279px) {
     margin-top: 20px;
-    display: inline;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
 
     width: auto;
   }
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     margin-top: 45px;
-  }
+  } */
 `;
 
 export const Diary = styled(NavLink)`
   @media (max-width: 767px) {
     width: 60px;
   }
-  @media (max-width: 1279px) {
+  /* @media (max-width: 1279px) {
     margin-left: auto;
-  }
+  } */
   @media (min-width: 1280px) {
     margin-left: 20px;
     padding-left: 20px;
@@ -98,9 +101,9 @@ export const Calc = styled(NavLink)`
     width: 117px;
     height: 12px;
   }
-  @media (max-width: 1279px) {
+  /* @media (max-width: 1279px) {
     margin-left: 16px;
-  }
+  } */
   @media (min-width: 1280px) {
     margin-left: 16px;
   }

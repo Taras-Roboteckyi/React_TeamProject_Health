@@ -13,8 +13,12 @@ import {
 const Modal = ({ onClose, children }) => {
   useEffect(() => {
     window.addEventListener('keydown', handleEscape);
-    const body = document.querySelector('body');
-    body.style.overflow = 'hidden';
+    if (window.matchMedia("(max-width: 767px)").matches) {
+      document.body.style.overflow = "auto";
+
+} else {
+  document.body.style.overflow = "hidden";
+}
 
     return () => {
       window.removeEventListener('keydown', handleEscape);
@@ -24,6 +28,8 @@ const Modal = ({ onClose, children }) => {
     };
   });
 
+
+  
   const handleEscape = event => {
     if (event.code === 'Escape') {
       onClose();
@@ -38,12 +44,12 @@ const Modal = ({ onClose, children }) => {
 
   const handleButtonClick = event => {
     if (event.currentTarget.tagName === 'BUTTON') {
-      console.log(event.target.tagName);
       onClose();
     }
   };
 
   return ReactDom.createPortal(
+ 
     <StyledOverlay onClick={handleBackdropClick}>
       <StyledModal>
         <StyledCloseButton onClick={handleButtonClick}>
@@ -54,7 +60,8 @@ const Modal = ({ onClose, children }) => {
         </StyledCloseMobileButton>
         {children}
       </StyledModal>
-    </StyledOverlay>,
+      </StyledOverlay>
+  ,
     document.getElementById('modal-root'),
   );
 };
