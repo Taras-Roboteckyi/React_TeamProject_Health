@@ -32,7 +32,4 @@ export const Wrapper = styled.div`
   width: 100%;
 `;
 
-// export const BurgerContainer = styled.div`
-//   display: block;
-//   flex-direction: column;
-// `;
+

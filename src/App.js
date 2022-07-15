@@ -6,7 +6,6 @@ import PublicRoute from './components/publicRoute/PublicRoute';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
 import { Layout } from './components/Layout/Layout';
 
-/* import { getIsFetchingCurrent } from './redux/authorization/auth-selectors'; */
 import { authOperations, authSelectors } from './redux/authorization';
 import AppLoader from './components/Loader/Loader';
 import { CreateLazyChunk } from './helpers/CreateLazyChunk';
