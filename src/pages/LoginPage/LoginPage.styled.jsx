@@ -18,4 +18,3 @@ export const ImageStyled = styled.div`
     height: 850px;
   }
 `;
-
