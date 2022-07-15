@@ -3,9 +3,9 @@ import { DiaryProductsListItem } from '../diaryProductsListItem/DiaryProductsLis
 import { DiaryProductsListStyled, Div } from './DiaryProductsList.styled';
 
 export const DiaryProductsList = ({
-  eatenProductsList,
+  /* eatenProductsList, */
   isCurrentDay,
-  handleClick,
+  /* handleClick, */
 }) => {
   return (
     <Div>
@@ -15,10 +15,10 @@ export const DiaryProductsList = ({
         <tbody className="EatenProductsList">
           {/* {eatenProductsList.map(product => ( */}
           <DiaryProductsListItem
-            // product={product}
-            // handleClick={handleClick}
+            /* product={product}
+             handleClick={handleClick} */
             isCurrentDay={isCurrentDay}
-            // key={product.id}
+            /* key={product.id} */
           />
           {/* ))} */}
         </tbody>

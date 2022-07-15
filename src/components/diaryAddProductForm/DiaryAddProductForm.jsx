@@ -1,8 +1,7 @@
 import React from 'react';
-// import { ButtonAdd } from '../button/Button';
+
 import { ProductFormStyled, ButtonAdd } from './DiaryAddProductForm.styled';
-// import { useSelector } from 'react-redux';
-// import { getDaySummary } from '../../redux/user/userSelectors';
+
 import { useWindowWidth } from '@react-hook/window-size';
 import { BsPlusLg } from 'react-icons/bs';
 import AppLoader from '../Loader/Loader';

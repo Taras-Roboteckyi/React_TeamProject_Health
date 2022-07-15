@@ -71,7 +71,7 @@ export const DiaryPage = () => {
 
   const handleChange = ({ name, value }) => {
     if (name === 'productWeight' && value > 99999) {
-      // setErrorMsg('Значення ваги продукту має бути від 0 до 999г');
+      /*  setErrorMsg('Значення ваги продукту має бути від 0 до 999г'); */
       return;
     }
     name === 'productName' && setProductName(value);
@@ -79,14 +79,14 @@ export const DiaryPage = () => {
   };
 
   const handleSubmit = () => {
-    // const curProd = productsVariants.find(
-    //   prod => prod.title.ua === productName,
-    // );
-    // const productId = curProd._id;
-    // const weight = productWeight;
-    // const dateIsFormatting = format(date, 'dd/MM/yyyy');
-    // dispatch(addEatenProduct({ dateIsFormatting, productId, weight }));
-    //  isModalOpen && onHandleCliсk();
+    /*   const curProd = productsVariants.find(
+       prod => prod.title.ua === productName,
+     );
+     const productId = curProd._id;
+     const weight = productWeight;
+     const dateIsFormatting = format(date, 'dd/MM/yyyy');
+     dispatch(addEatenProduct({ dateIsFormatting, productId, weight }));
+      isModalOpen && onHandleCliсk(); */
   };
 
   return (
