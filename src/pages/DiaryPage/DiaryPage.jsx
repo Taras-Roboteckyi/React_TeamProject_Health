@@ -106,6 +106,7 @@ export const DiaryPage = () => {
               dateFormat="dd.MM.yyyy"
               selected={date}
               onChange={setDate}
+              maxDate={new Date()}
               className={'calendar'}
             />
             <GoCalendar size={20} fill={'#9B9FAA'} className="calendar_icon" />
