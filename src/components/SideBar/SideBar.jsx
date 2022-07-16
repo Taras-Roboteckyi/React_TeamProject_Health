@@ -51,17 +51,17 @@ const SideBar = () => {
               <ListStyle>
                 <ListItemStyle>
                   Залишилось
-                  <TextStyle>{1404 + ' kcal'}</TextStyle>
+                  <TextStyle>{1404 + ' ккал'}</TextStyle>
                 </ListItemStyle>
 
                 <ListItemStyle>
                   Спожито
-                  <TextStyle>{1004 + ' kcal'}</TextStyle>
+                  <TextStyle>{1004 + ' ккал'}</TextStyle>
                 </ListItemStyle>
 
                 <ListItemStyle>
                   Добова норма
-                  <TextStyle>{3000 + ' kcal'}</TextStyle>
+                  <TextStyle>{3000 + ' ккал'}</TextStyle>
                 </ListItemStyle>
 
                 <ListItemStyle>
