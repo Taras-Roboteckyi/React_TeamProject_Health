@@ -93,7 +93,9 @@ export const DiaryPage = () => {
     <main>
       {windowWidth < 768 && (
         <DivUserMenu>
-          <UserMenu />
+          <Container>
+            <UserMenu />
+          </Container>
         </DivUserMenu>
       )}
       <Wrapper>

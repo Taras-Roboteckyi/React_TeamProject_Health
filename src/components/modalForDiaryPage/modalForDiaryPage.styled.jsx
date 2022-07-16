@@ -12,7 +12,7 @@ export const Div = styled.div`
 
 export const Overlay = styled.div`
   position: fixed;
-  top: 80px;
+  top: 86px;
   left: 0;
 
   width: 100vw;
