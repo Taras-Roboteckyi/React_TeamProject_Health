@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   width: 100%;
-  /* background-color: #e6e6e6; */
 
   position: relative;
 
@@ -16,20 +12,28 @@ export const Header = styled.header`
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
+
   @media (max-width: 1279px) {
     padding-top: 20px;
-    /* border-bottom: 2px solid #9b9faa; */
     padding-bottom: 20px;
   }
+
   @media (min-width: 1280px) {
-    align-items: baseline;
+    padding-top: 80px;
+    padding-bottom: 150px;
   }
-  /* justify-content: space-between;
-  align-items: center; */
-  padding-top: 80px;
-  padding-bottom: 150px;
 
   width: 100%;
 `;
 
+export const DesktopBlock = styled.div`
+  @media (min-width: 1280px) {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+  }
+`;
 
+export const UserCost = styled.div`
+  margin-left: 600px;
+`;
