@@ -23,7 +23,9 @@ export const Sign = styled(NavLink)`
   @media (min-width: 1280px) {
     margin-left: 20px;
     padding-left: 20px;
-    border-left: #9b9faa solid 2px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-left: 2px solid ${({ theme: { colors } }) => colors.borderColor};
   }
   &.active {
     color: #212121;
@@ -81,7 +83,9 @@ export const Diary = styled(NavLink)`
   @media (min-width: 1280px) {
     margin-left: 20px;
     padding-left: 20px;
-    border-left: #9b9faa solid 2px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-left: 2px solid ${({ theme: { colors } }) => colors.borderColor};
   }
   &.active {
     color: #212121;
