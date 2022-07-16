@@ -68,10 +68,13 @@ export const Cont = styled.div`
 
     width: auto;
   }
+  @media (min-width: 1280px) {
+    /* margin-right: 600px; */
+  }
 `;
 
 export const Diary = styled(NavLink)`
-  @media (max-width: 767px) {
+  @media (max-width: 1279px) {
     width: 100%;
   }
 
@@ -92,7 +95,7 @@ export const Diary = styled(NavLink)`
 `;
 
 export const Calc = styled(NavLink)`
-  @media (max-width: 767px) {
+  @media (max-width: 1279px) {
     width: 117px;
     height: 12px;
   }
