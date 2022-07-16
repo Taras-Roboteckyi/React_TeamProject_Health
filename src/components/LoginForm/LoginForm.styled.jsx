@@ -114,10 +114,16 @@ export const LoginBtn = styled.button`
   cursor: pointer;
   align-self: center;
   padding: 10px 55px;
+  transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    border 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    background: ${prop => prop.theme.colors.$white};
-    color: ${prop => prop.theme.colors.$orange};
+    background: #ff6b08;
+    border-radius: #ff6b08;
+    color: ${prop => prop.theme.colors.$white};
+    box-shadow: 0 8px 43px rgb(255 107 1 / 60%);
   }
 `;
 
@@ -140,9 +146,15 @@ export const RegisterBtn = styled.button`
   cursor: pointer;
   align-self: center;
   padding: 10px 55px;
+  transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    border 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    background: ${prop => prop.theme.colors.$orange};
+    background: #ff6b08;
+    border-radius: #ff6b08;
     color: ${prop => prop.theme.colors.$white};
+    box-shadow: 0 8px 43px rgb(255 107 1 / 60%);
   }
 `;
