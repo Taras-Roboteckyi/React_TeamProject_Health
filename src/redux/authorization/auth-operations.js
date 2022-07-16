@@ -30,6 +30,8 @@ const register = createAsyncThunk(
       };
       /* console.log(data); */
       token.set(data.dataLog.token);
+
+      toast.success('Введіть будь-ласка дані в форму.', { duration: 6000 });
       toast.success('Ви успішно зареєструвалися');
 
       return data;
