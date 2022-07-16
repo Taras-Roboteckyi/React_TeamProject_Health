@@ -17,7 +17,7 @@ const Navigation = () => {
         {windowWidth >= 1280 && (
           <LogoImage src={LogoDesktop} alt="Logo" width={167} height={66} />
         )}
-        {windowWidth <= 1280 && windowWidth > 767 && (
+        {windowWidth < 1280 && windowWidth > 767 && (
           <LogoImage src={LogoTablet} alt="Logo" width={167} height={66} />
         )}
         {isLoggedIn ? (
