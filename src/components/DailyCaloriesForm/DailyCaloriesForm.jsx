@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
-
+import { useSelector } from 'react-redux';
+import { getIsLoggedIn } from '../../redux/authorization/auth-selectors';
 import { useFormik } from 'formik';
 import { Section } from './DailyCaloriesForm.Styled';
 import { DailyButton } from './DailyButton.Styled';
 import { useState } from 'react';
 import * as Yup from 'yup';
-
+import { getPublicProducts } from '../../services/getNotRecommendedProducts';
 
 export const DailyCaloriesForm = ({ onFormSubmit }) => {
-  /*  const isLoggedIn = useSelector(getIsLoggedIn); */
+  const isLoggedIn = useSelector(getIsLoggedIn);
   const [isLabelCheked, setIsLabelCheked] = useState({
     one: true,
     two: false,
@@ -74,8 +75,16 @@ export const DailyCaloriesForm = ({ onFormSubmit }) => {
     },
     validationSchema,
     onSubmit: async values => {
-     
-      onFormSubmit(values);
+      if (isLoggedIn) {
+        console.log('isLoggedIn');
+      } else {
+        try {
+          const result = await getPublicProducts(values);
+          onFormSubmit(result.data);
+        } catch (error) {
+          console.log(error);
+        }
+      }
     },
   });
 

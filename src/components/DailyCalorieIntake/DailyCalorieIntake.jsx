@@ -14,7 +14,6 @@ export const DailyCalorieIntake = ({ data, onClose }) => {
   /*  const dispatch = useDispatch(); */
 
   const onClick = () => {
-    console.log('Start losing weight clicked');
     onClose();
     navigate('/registration');
   };
@@ -35,11 +34,11 @@ export const DailyCalorieIntake = ({ data, onClose }) => {
       <p className="daily-calorie-text">Продукти, які вам краще не їсти</p>
 
       <ul className="daily-calorie-list">
-        {data.products.map((product, index) => {
+        {data.notAllowedProducts.map((product, index) => {
           return (
-            <li key={product}>
+            <li key={product._id}>
               <span>{index + 1}.</span>
-              <span>{product}</span>
+              <span>{product.title.ua}</span>
             </li>
           );
         })}
