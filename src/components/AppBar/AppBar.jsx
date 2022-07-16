@@ -21,7 +21,7 @@ export default function AppBar() {
           <Navigation />
           {isLoggedIn ? (
             <>
-              {windowWidth > 1280 && (
+              {windowWidth >= 1280 && (
                 <DesktopBlock>
                   <AuthNavLogined />
                   <UserCost>

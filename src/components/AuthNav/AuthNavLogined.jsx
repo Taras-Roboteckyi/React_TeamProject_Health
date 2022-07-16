@@ -11,10 +11,10 @@ export default function AuthNavLogined({ onClick }) {
 
   return (
     <Cont>
-      <Diary to="diary" onClick={handleBackdropClick}>
+      <Diary to="diary" onClick={onClick}>
         Щоденник
       </Diary>
-      <Calc to="calculator" onClick={handleBackdropClick}>
+      <Calc to="calculator" onClick={onClick}>
         Калькулятор
       </Calc>
     </Cont>
