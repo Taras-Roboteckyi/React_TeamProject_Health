@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
     padding-bottom: 20px;
   }
   @media (min-width: 1280px) {
-    align-items: baseline;
+    align-items: flex-end;
   }
   /* justify-content: space-between;
   align-items: center; */
@@ -31,5 +31,3 @@ export const Wrapper = styled.div`
 
   width: 100%;
 `;
-
-
