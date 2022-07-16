@@ -9,7 +9,7 @@ export const Contain = styled.div`
     width: auto;
   }
   @media (min-width: 1280px) {
-    margin-top: 45px;
+    margin-top: 40px;
   }
 `;
 
@@ -68,18 +68,13 @@ export const Cont = styled.div`
 
     width: auto;
   }
-  /* @media (min-width: 768px) {
-    margin-top: 45px;
-  } */
 `;
 
 export const Diary = styled(NavLink)`
   @media (max-width: 767px) {
-    width: 60px;
+    width: 100%;
   }
-  /* @media (max-width: 1279px) {
-    margin-left: auto;
-  } */
+
   @media (min-width: 1280px) {
     margin-left: 20px;
     padding-left: 20px;
@@ -101,9 +96,7 @@ export const Calc = styled(NavLink)`
     width: 117px;
     height: 12px;
   }
-  /* @media (max-width: 1279px) {
-    margin-left: 16px;
-  } */
+
   @media (min-width: 1280px) {
     margin-left: 16px;
   }
