@@ -1,5 +1,5 @@
-/* import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react'; */
+import { useSelector /* , useDispatch  */ } from 'react-redux';
+/* import { useEffect } from 'react'; */
 
 /* 
 import { toast } from 'react-toastify';
@@ -7,6 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
  */
 import ReactTypingEffect from 'react-typing-effect';
+
+import { authSelectors } from '../../redux/authorization';
 
 import arrayRandom from '../../utility/arrayRandom';
 
@@ -33,6 +35,7 @@ const SideBar = () => {
     'крупа',
     'ячмінь',
   ];
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   const random = arrayRandom(array);
   /* console.log('result:', random); */
@@ -47,7 +50,7 @@ const SideBar = () => {
         <Wrapper>
           <SummaryContainer>
             <SummaryText>Відомості за {'06 / 12 / 2002'}</SummaryText>
-            {true ? (
+            {isLoggedIn ? (
               <ListStyle>
                 <ListItemStyle>
                   Залишилось
@@ -93,7 +96,7 @@ const SideBar = () => {
           <FoodContainer>
             <SummaryText>Не рекомендовані продукти для вас</SummaryText>
 
-            {true ? (
+            {isLoggedIn ? (
               <ProductStyle>
                 <ReactTypingEffect
                   typingDelay={1000}

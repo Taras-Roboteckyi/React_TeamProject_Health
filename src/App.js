@@ -49,7 +49,7 @@ function App() {
               <Route
                 path="registration"
                 element={
-                  <PublicRoute restricted redirectTo="/diary">
+                  <PublicRoute restricted redirectTo="/calculator">
                     <RegistrationPage />
                   </PublicRoute>
                 }
