@@ -8,17 +8,17 @@ import {
   StyledModal,
   StyledCloseButton,
   StyledCloseMobileButton,
+  CloseMobileButtonContainer,
 } from './Modal.styled';
 
 const Modal = ({ onClose, children }) => {
   useEffect(() => {
     window.addEventListener('keydown', handleEscape);
-    if (window.matchMedia("(max-width: 767px)").matches) {
-      document.body.style.overflow = "auto";
-
-} else {
-  document.body.style.overflow = "hidden";
-}
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      document.body.style.overflow = 'auto';
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
 
     return () => {
       window.removeEventListener('keydown', handleEscape);
@@ -28,8 +28,6 @@ const Modal = ({ onClose, children }) => {
     };
   });
 
-
-  
   const handleEscape = event => {
     if (event.code === 'Escape') {
       onClose();
@@ -49,19 +47,21 @@ const Modal = ({ onClose, children }) => {
   };
 
   return ReactDom.createPortal(
- 
     <StyledOverlay onClick={handleBackdropClick}>
       <StyledModal>
         <StyledCloseButton onClick={handleButtonClick}>
           <RiCloseFill size={20} />
         </StyledCloseButton>
+
         <StyledCloseMobileButton onClick={handleButtonClick}>
-          <img src={arrowIcon} alt="arrow" />
+          <CloseMobileButtonContainer>
+            <img src={arrowIcon} alt="arrow" />
+          </CloseMobileButtonContainer>
         </StyledCloseMobileButton>
+
         {children}
       </StyledModal>
-      </StyledOverlay>
-  ,
+    </StyledOverlay>,
     document.getElementById('modal-root'),
   );
 };

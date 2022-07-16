@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
- 
-
 export const StyledOverlay = styled.div`
   @media (min-width: 768px) {
     position: fixed;
@@ -22,6 +20,8 @@ export const StyledModal = styled.div`
   height: 648px;
   background-color: ${props => props.theme.colors.$white};
 
+  overflow: auto;
+
   @media (min-width: 768px) {
     position: absolute;
     left: 50%;
@@ -31,7 +31,6 @@ export const StyledModal = styled.div`
     width: 672px;
     height: 573px;
     box-shadow: 0px 22px 40px rgba(0, 0, 0, 0.1);
-    
   }
 `;
 export const StyledCloseButton = styled.button`
@@ -63,4 +62,12 @@ export const StyledCloseMobileButton = styled.button`
   @media (min-width: 768px) {
     display: none;
   }
+`;
+
+export const CloseMobileButtonContainer = styled.div`
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 480px;
 `;
