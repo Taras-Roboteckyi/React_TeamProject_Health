@@ -15,11 +15,7 @@ export const CalculatorPage = () => {
   };
 
   const onFormSubmit = data => {
-    const exampleData = {
-      calories: 2800,
-      products: ['Борошняні вироби', 'Молоко', "Червоне м'ясо", 'Копченості'],
-    };
-    setModalData(exampleData);
+    setModalData(data);
     toggleModal();
   };
 
