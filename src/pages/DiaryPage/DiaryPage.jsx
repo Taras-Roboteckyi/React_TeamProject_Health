@@ -26,7 +26,7 @@ import { DiaryAddProductForm } from '../../components/diaryAddProductForm';
 import { DiaryProductsList } from '../../components/diaryProductsList/DiaryProductsList';
 import { ModalForDiaryPage } from '../../components/modalForDiaryPage/modalForDiaryPage';
 import { Container } from '../../components/container/Container';
-// import { useSelector } from 'react-redux';
+import AppLoader from '../../components/Loader/Loader';
 
 export const DiaryPage = () => {
   const [date, setDate] = useState(new Date());
@@ -45,11 +45,7 @@ export const DiaryPage = () => {
     isFetching,
   } = useFetchUserDayInfoQuery(format(date, 'yyyy-MM-dd'));
 
-  // const a = useSelector(state => state.auth.user);
-  // console.log(a);
-
-  const [createProduct, { isLoading, isError: errorAddProduct }] =
-    useAddProductMutation();
+  const [createProduct, { isLoading }] = useAddProductMutation();
 
   const windowWidth = useWindowWidth();
   registerLocale('uk', uk); // для укр мови в календарі
@@ -117,6 +113,8 @@ export const DiaryPage = () => {
 
   return (
     <main>
+      {(isLoading || isFetching) && <AppLoader />}
+
       {windowWidth < 768 && (
         <DivUserMenu>
           <Container>
