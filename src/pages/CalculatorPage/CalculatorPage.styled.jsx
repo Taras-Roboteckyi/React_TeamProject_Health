@@ -9,3 +9,8 @@ export const StyledWrapper = styled.div`
     margin-bottom: 48px;
   }
 `;
+
+export const DivUserMenu = styled.div`
+  text-align: end;
+  background-color: #eff1f3;
+`;

@@ -2,21 +2,20 @@ import PropTypes from 'prop-types';
 import { Section } from './DailyCalorieIntake.Styled';
 import { DailyButton } from '../DailyCaloriesForm/DailyButton.Styled';
 import { useNavigate } from 'react-router-dom';
-
-/*  import { useSelector } from 'react-redux';
- import { useDispatch } from 'react-redux';
- import { authOperations } from '../../redux/authorization';
- import { getIsLoggedIn } from '../../redux/authorization/auth-selectors'; */
+import { useSelector } from 'react-redux';
+import { getIsLoggedIn } from '../../redux/authorization/auth-selectors';
 
 export const DailyCalorieIntake = ({ data, onClose }) => {
-  /* const isLoggedIn = useSelector(getIsLoggedIn); */
+  const isLoggedIn = useSelector(getIsLoggedIn);
   const navigate = useNavigate();
-  /*  const dispatch = useDispatch(); */
 
   const onClick = () => {
-    console.log('Start losing weight clicked');
     onClose();
-    navigate('/registration');
+    if (isLoggedIn) {
+      navigate('/diary');
+    } else {
+      navigate('/registration');
+    }
   };
 
   return (
@@ -35,13 +34,17 @@ export const DailyCalorieIntake = ({ data, onClose }) => {
       <p className="daily-calorie-text">Продукти, які вам краще не їсти</p>
 
       <ul className="daily-calorie-list">
-        {data.products.map((product, index) => {
-          return (
-            <li key={product}>
-              <span>{index + 1}.</span>
-              <span>{product}</span>
-            </li>
-          );
+        {data.notAllowedProducts.map((product, index) => {
+          if (index > 4) {
+            return null;
+          } else {
+            return (
+              <li key={product._id}>
+                <span>{index + 1}.</span>
+                <span>{product.title.ua}</span>
+              </li>
+            );
+          }
         })}
       </ul>
 

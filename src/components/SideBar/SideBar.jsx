@@ -1,5 +1,5 @@
-/* import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react'; */
+import { useSelector /* , useDispatch  */ } from 'react-redux';
+/* import { useEffect } from 'react'; */
 
 /* 
 import { toast } from 'react-toastify';
@@ -7,6 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
  */
 import ReactTypingEffect from 'react-typing-effect';
+
+import { authSelectors } from '../../redux/authorization';
 
 import arrayRandom from '../../utility/arrayRandom';
 
@@ -23,23 +25,24 @@ import {
 } from './SideBar.styled';
 
 const SideBar = () => {
-  const array = [
-    'молоко',
-    'кава',
-    'чай',
-    'гречка',
-    'хліб',
-    'масло',
-    'крупа',
-    'ячмінь',
-  ];
+  const calories = useSelector(authSelectors.getUserDataCalories);
+  const dataBedProducts = useSelector(authSelectors.getNotAllowedProducts);
+  /* console.log(dataBedProducts); */
 
-  const random = arrayRandom(array);
-  /* console.log('result:', random); */
-  /* const arraySlice = random.slice(0, 7); //////Обрізає масив до 7 значень
-  console.log(arraySlice); */
-  const arrayString = [random.join(', ')];
-  /*  console.log(arrayString); */
+  let arrayString = [];
+
+  if (dataBedProducts.length > 0) {
+    ///////Витягує з масива властивість title//////////////////////
+    const array = dataBedProducts.map(({ title }) => title.ua);
+
+    ///////Функція перебирання рандомних значень масива//////
+    const random = arrayRandom(array);
+    /* console.log(random); */
+
+    arrayString = [random.join(', ')];
+  }
+  /* console.log(arrayString); */
+  const isCalories = calories === '0';
 
   return (
     <>
@@ -47,26 +50,26 @@ const SideBar = () => {
         <Wrapper>
           <SummaryContainer>
             <SummaryText>Відомості за {'06 / 12 / 2002'}</SummaryText>
-            {true ? (
+            {!isCalories ? (
               <ListStyle>
                 <ListItemStyle>
                   Залишилось
-                  <TextStyle>{1404 + ' kcal'}</TextStyle>
+                  <TextStyle>{0 + ' ккал'}</TextStyle>
                 </ListItemStyle>
 
                 <ListItemStyle>
                   Спожито
-                  <TextStyle>{1004 + ' kcal'}</TextStyle>
+                  <TextStyle>{0 + ' ккал'}</TextStyle>
                 </ListItemStyle>
 
                 <ListItemStyle>
                   Добова норма
-                  <TextStyle>{3000 + ' kcal'}</TextStyle>
+                  <TextStyle>{calories + ' ккал'}</TextStyle>
                 </ListItemStyle>
 
                 <ListItemStyle>
                   Відсоток від норми
-                  <TextStyle>{4 + ' %'}</TextStyle>
+                  <TextStyle>{0 + ' %'}</TextStyle>
                 </ListItemStyle>
               </ListStyle>
             ) : (
@@ -93,7 +96,7 @@ const SideBar = () => {
           <FoodContainer>
             <SummaryText>Не рекомендовані продукти для вас</SummaryText>
 
-            {true ? (
+            {!isCalories ? (
               <ProductStyle>
                 <ReactTypingEffect
                   typingDelay={1000}

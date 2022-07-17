@@ -1,4 +1,6 @@
 import React from 'react';
+// import { useEffect } from 'react';
+
 import { createPortal } from 'react-dom';
 import { Overlay, ModalContent } from './burger.styled';
 

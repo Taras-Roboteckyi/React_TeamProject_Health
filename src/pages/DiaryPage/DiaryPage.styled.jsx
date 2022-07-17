@@ -13,10 +13,6 @@ export const Wrapper = styled.div`
 
 export const DivUserMenu = styled.div`
   text-align: end;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin: 0 auto;
-  max-width: 480px;
   background-color: #eff1f3;
 `;
 

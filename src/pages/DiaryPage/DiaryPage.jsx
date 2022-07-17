@@ -7,6 +7,10 @@ import uk from 'date-fns/locale/uk';
 import { useDebounce } from 'use-debounce';
 import 'react-datepicker/dist/react-datepicker.css';
 import { fetchProductSearch } from '../../services/fetchProductSeach';
+import {
+  useFetchUserDayInfoQuery,
+  useAddProductMutation,
+} from '../../redux/rtkSliceForDiaryPage/userDayInfoSlice';
 import { useWindowWidth } from '@react-hook/window-size';
 import { BsPlusLg } from 'react-icons/bs';
 import { UserMenu } from '../../components/userMenu';
@@ -26,17 +30,29 @@ export const DiaryPage = () => {
   const [date, setDate] = useState(new Date());
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [productName, setProductName] = useState('');
+  const [debouncedProductName] = useDebounce(productName, 600);
   const [productWeight, setProductWeight] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [debouncedErrorMsg] = useDebounce(errorMsg, 1000);
   const [isSearchingProduct, setIsSearchingProduct] = useState(false);
   const [productsVariants, setProductsVariants] = useState([]);
 
+  const {
+    data: products,
+    isError: errorUserDayInfo,
+    isFetching,
+  } = useFetchUserDayInfoQuery(format(date, 'yyyy-MM-dd'));
+
+  console.log(products?.data?.result);
+
+  const [createProduct, { isLoading, isError: errorAddProduct }] =
+    useAddProductMutation();
+
   const windowWidth = useWindowWidth();
   registerLocale('uk', uk); // для укр мови в календарі
 
   const isAlreadyInProdVariants = productsVariants.some(
-    prod => prod.title.ua === productName,
+    prod => prod.title.ua === debouncedProductName,
   );
 
   const isCurrentDay =
@@ -48,21 +64,20 @@ export const DiaryPage = () => {
 
   useEffect(() => {
     setErrorMsg('');
-    if (!productName) {
+    if (!debouncedProductName) {
       return;
     }
     if (isAlreadyInProdVariants) {
       return;
     }
     setIsSearchingProduct(true);
-    fetchProductSearch(productName).then(searchData => {
+    fetchProductSearch(debouncedProductName).then(searchData => {
       typeof searchData === 'string'
         ? setErrorMsg(searchData)
         : setProductsVariants(searchData);
       setIsSearchingProduct(false);
-      console.log(searchData);
     });
-  }, [isAlreadyInProdVariants, productName]);
+  }, [isAlreadyInProdVariants, debouncedProductName]);
 
   useEffect(() => {
     debouncedErrorMsg && toast.error(debouncedErrorMsg);
@@ -79,21 +94,32 @@ export const DiaryPage = () => {
   };
 
   const handleSubmit = () => {
-    /*   const curProd = productsVariants.find(
-       prod => prod.title.ua === productName,
-     );
-     const productId = curProd._id;
-     const weight = productWeight;
-     const dateIsFormatting = format(date, 'dd/MM/yyyy');
-     dispatch(addEatenProduct({ dateIsFormatting, productId, weight }));
-      isModalOpen && onHandleCliсk(); */
+    // const curProd = productsVariants.find(
+    //   prod => prod.title.ua === productName,
+    // );
+    // const productId = curProd._id;
+    const dateIsFormatting = format(date, 'yyyy-MM-dd');
+    const sendObj = {
+      date: dateIsFormatting,
+      productTitle: productName,
+      productWeight,
+    };
+    console.log(sendObj);
+
+    createProduct(sendObj);
+    toast.success('Успішно доданий!');
+    setProductName('');
+    setProductWeight('');
+    isOpenModal && toggleModal();
   };
 
   return (
     <main>
       {windowWidth < 768 && (
         <DivUserMenu>
-          <UserMenu />
+          <Container>
+            <UserMenu />
+          </Container>
         </DivUserMenu>
       )}
       <Wrapper>
@@ -104,6 +130,7 @@ export const DiaryPage = () => {
               dateFormat="dd.MM.yyyy"
               selected={date}
               onChange={setDate}
+              maxDate={new Date()}
               className={'calendar'}
             />
             <GoCalendar size={20} fill={'#9B9FAA'} className="calendar_icon" />
@@ -122,7 +149,14 @@ export const DiaryPage = () => {
             />
           )}
 
-          <DiaryProductsList isCurrentDay={isCurrentDay} />
+          {products?.data?.result.length !== 0 ? (
+            <DiaryProductsList
+              isCurrentDay={isCurrentDay}
+              eatenProductsList={products?.data?.result}
+            />
+          ) : (
+            <p>Дані за цей період відсутні!</p>
+          )}
         </Container>
 
         {isCurrentDay && windowWidth < 768 && (

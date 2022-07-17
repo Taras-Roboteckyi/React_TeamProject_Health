@@ -1,14 +1,11 @@
 import PropTypes from 'prop-types';
-
 import { useFormik } from 'formik';
 import { Section } from './DailyCaloriesForm.Styled';
 import { DailyButton } from './DailyButton.Styled';
 import { useState } from 'react';
 import * as Yup from 'yup';
 
-
 export const DailyCaloriesForm = ({ onFormSubmit }) => {
-  /*  const isLoggedIn = useSelector(getIsLoggedIn); */
   const [isLabelCheked, setIsLabelCheked] = useState({
     one: true,
     two: false,
@@ -73,8 +70,7 @@ export const DailyCaloriesForm = ({ onFormSubmit }) => {
       bloodType: '1',
     },
     validationSchema,
-    onSubmit: async values => {
-     
+    onSubmit: values => {
       onFormSubmit(values);
     },
   });

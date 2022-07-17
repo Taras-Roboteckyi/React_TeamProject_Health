@@ -20,7 +20,7 @@ export const RegistrationForm = () => {
       .required("Це поле обов'язкове!"),
     email: Yup.string()
       .matches(
-        /* /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, */
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, //eslint-disable-line
         'Неналежна назва ел. пошти',
       )
       .min(3, 'Має містити мінімум 3 символи!')
@@ -45,7 +45,6 @@ export const RegistrationForm = () => {
     validationSchema,
     onSubmit: async values => {
       await dispatch(authOperations.register(values));
-      /* navigate('/diary'); */
     },
   });
 

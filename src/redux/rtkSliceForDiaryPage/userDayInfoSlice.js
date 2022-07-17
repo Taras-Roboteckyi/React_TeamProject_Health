@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const userDayInfoApi = createApi({
   reducerPath: 'userDayInfoApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://health-projectbackend.herokuapp.com',
+    baseUrl: 'https://health-projectbackend.herokuapp.com/api',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
 
@@ -16,21 +16,22 @@ export const userDayInfoApi = createApi({
   tagTypes: ['userDayInfo'],
   endpoints: builder => ({
     fetchUserDayInfo: builder.query({
-      query: day => `/contacts/${day}`,
+      query: day => `/diary/${day}`,
       providesTags: ['userDayInfo'],
     }),
     addProduct: builder.mutation({
-      query: newContact => ({
-        url: `/contacts`,
+      query: prodObj => ({
+        url: `/diary/add`,
         method: 'POST',
-        body: newContact,
+        body: prodObj,
       }),
       invalidatesTags: ['userDayInfo'],
     }),
     deleteProduct: builder.mutation({
-      query: contactId => ({
-        url: `/contacts/${contactId}`,
+      query: prodObj => ({
+        url: `/diary/remove`,
         method: 'DELETE',
+        body: prodObj,
       }),
       invalidatesTags: ['userDayInfo'],
     }),
