@@ -43,7 +43,7 @@ export const DiaryPage = () => {
     isFetching,
   } = useFetchUserDayInfoQuery(format(date, 'yyyy-MM-dd'));
 
-  console.log(products);
+  console.log(products?.data?.result);
 
   const [createProduct, { isLoading, isError: errorAddProduct }] =
     useAddProductMutation();
@@ -52,7 +52,7 @@ export const DiaryPage = () => {
   registerLocale('uk', uk); // для укр мови в календарі
 
   const isAlreadyInProdVariants = productsVariants.some(
-    prod => prod.title.ua === productName,
+    prod => prod.title.ua === debouncedProductName,
   );
 
   const isCurrentDay =
@@ -149,7 +149,14 @@ export const DiaryPage = () => {
             />
           )}
 
-          <DiaryProductsList isCurrentDay={isCurrentDay} />
+          {products?.data?.result.length !== 0 ? (
+            <DiaryProductsList
+              isCurrentDay={isCurrentDay}
+              eatenProductsList={products?.data?.result}
+            />
+          ) : (
+            <p>Дані за цей період відсутні!</p>
+          )}
         </Container>
 
         {isCurrentDay && windowWidth < 768 && (

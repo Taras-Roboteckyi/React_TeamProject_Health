@@ -28,10 +28,10 @@ export const userDayInfoApi = createApi({
       invalidatesTags: ['userDayInfo'],
     }),
     deleteProduct: builder.mutation({
-      query: productId => ({
+      query: prodObj => ({
         url: `/diary/remove`,
         method: 'DELETE',
-        body: productId,
+        body: prodObj,
       }),
       invalidatesTags: ['userDayInfo'],
     }),
