@@ -39,24 +39,20 @@ const SideBar = () => {
   const dataBedProducts = useSelector(authSelectors.getNotAllowedProducts);
   /* console.log(dataBedProducts); */
 
-  ///////Витягує з масива властивість title//////////////////////
-  const filterArray = dataBedProducts.map(({ title }) => {
-    const array = title.ua;
+  let arrayString = [];
 
-    return array;
-  });
+  if (dataBedProducts.length > 0) {
+    ///////Витягує з масива властивість title//////////////////////
+    const array = dataBedProducts.map(({ title }) => title.ua);
 
-  //Функція перебирання рандомних значень масива
-  const random = arrayRandom(array);
-  /* console.log(random); */
+    ///////Функція перебирання рандомних значень масива//////
+    const random = arrayRandom(array);
+    /* console.log(random); */
 
+    arrayString = [random.join(', ')];
+  }
+  /* console.log(arrayString); */
   const isCalories = calories === '0';
-
-  /* console.log('result:', random); */
-  /* const arraySlice = random.slice(0, 7); //////Обрізає масив до 7 значень
-  console.log(arraySlice); */
-  const arrayString = [random.join(', ')];
-  /*  console.log(arrayString); */
 
   return (
     <>

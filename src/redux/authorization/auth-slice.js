@@ -45,6 +45,8 @@ const authSlice = createSlice({
       state.token = null;
       state.isLoggedIn = false;
       state.isReducerSpinner = false;
+      state.userData = null;
+      state.notAllowedProducts = [];
     },
     [authOperations.logOut.rejected](state) {
       state.isReducerSpinner = false;
