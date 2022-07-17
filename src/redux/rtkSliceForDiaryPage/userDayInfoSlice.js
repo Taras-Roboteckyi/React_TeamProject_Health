@@ -16,21 +16,22 @@ export const userDayInfoApi = createApi({
   tagTypes: ['userDayInfo'],
   endpoints: builder => ({
     fetchUserDayInfo: builder.query({
-      query: day => `/contacts/${day}`,
+      query: day => `diary/${day}`,
       providesTags: ['userDayInfo'],
     }),
     addProduct: builder.mutation({
-      query: newContact => ({
-        url: `/contacts`,
+      query: newProduct => ({
+        url: `diary/add`,
         method: 'POST',
-        body: newContact,
+        body: newProduct,
       }),
       invalidatesTags: ['userDayInfo'],
     }),
     deleteProduct: builder.mutation({
-      query: contactId => ({
-        url: `/contacts/${contactId}`,
+      query: productId => ({
+        url: `diary/remove`,
         method: 'DELETE',
+        body: productId,
       }),
       invalidatesTags: ['userDayInfo'],
     }),
