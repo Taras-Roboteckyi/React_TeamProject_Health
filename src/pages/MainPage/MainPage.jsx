@@ -23,7 +23,6 @@ export const MainPage = () => {
 
   const onFormSubmit = async data => {
     toggleLoader();
-    toggleModal();
     try {
       const response = await axios({
         method: 'post',
@@ -32,9 +31,11 @@ export const MainPage = () => {
       });
       setModalData(response.data);
       toggleLoader();
+      toggleModal();
     } catch (error) {
       console.log(error);
       toast.error('Щось пішло не так');
+      toggleLoader();
     }
   };
 
@@ -45,14 +46,11 @@ export const MainPage = () => {
         <DailyCaloriesForm onFormSubmit={onFormSubmit} />
         {isOpenModal && (
           <Modal onClose={toggleModal}>
-            {isLoading ? (
-              <AppLoader />
-            ) : (
-              <DailyCalorieIntake data={modalData} onClose={toggleModal} />
-            )}
+            <DailyCalorieIntake data={modalData} onClose={toggleModal} />
           </Modal>
         )}
       </Container>
+      {isLoading && <AppLoader />}
     </main>
   );
 };
