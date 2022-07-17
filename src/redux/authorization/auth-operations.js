@@ -22,7 +22,7 @@ const register = createAsyncThunk(
       const dataLogin = await axios.post('auth/login', { email, password });
       /* console.log(credentials);
       console.log(data); */
-      console.log(dataRegisration);
+      /* console.log(dataRegisration); */
 
       const data = {
         dataReg: dataRegisration.data,
@@ -102,11 +102,36 @@ const fetchCurrentUser = createAsyncThunk(
   },
 );
 
+const fetchCalculatorUser = createAsyncThunk(
+  'calc/fetchCalculatorUser',
+  async (credentials, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const idUser = state.auth.user.id;
+    /* console.log(idUser); */
+    if (idUser === null) {
+      return thunkAPI.rejectWithValue();
+    }
+
+    /* token.set(persistedToken); */
+    try {
+      const { data } = await axios.post(`users/user/${idUser}`, credentials);
+      /* console.log(data); */
+
+      toast.success('Ваша добова норма перерахована');
+      return data;
+    } catch (error) {
+      console.log(error.message);
+      toast.error('Проблеми зєднання з сервером');
+    }
+  },
+);
+
 const operations = {
   register,
   logOut,
   logIn,
   fetchCurrentUser,
+  fetchCalculatorUser,
 };
 
 export default operations;

@@ -34,7 +34,7 @@ export const DailyCalorieIntake = ({ data, onClose }) => {
       <p className="daily-calorie-text">Продукти, які вам краще не їсти</p>
 
       <ul className="daily-calorie-list">
-        {data?.notAllowedProducts.map((product, index) => {
+        {data.notAllowedProducts.map((product, index) => {
           return (
             <li key={product._id}>
               <span>{index + 1}.</span>
