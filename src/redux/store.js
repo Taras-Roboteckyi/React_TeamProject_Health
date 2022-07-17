@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import authReducer from './authorization/auth-slice';
+import calcReducer from './calculator/calc-slice';
 import {
   persistStore,
   persistReducer,
@@ -20,7 +21,10 @@ const authPersistConfig = {
 
 ////////Store///////////////////
 const store = configureStore({
-  reducer: { auth: persistReducer(authPersistConfig, authReducer) },
+  reducer: {
+    auth: persistReducer(authPersistConfig, authReducer),
+    calc: calcReducer,
+  },
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware({
       serializableCheck: {

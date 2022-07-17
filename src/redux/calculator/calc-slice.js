@@ -1,42 +1,45 @@
 import { createSlice } from '@reduxjs/toolkit';
-import authOperations from './auth-operations';
+import calcOperations from './calc-operations';
 
 const initialState = {
-  user: { name: null, email: null, id: null },
-  token: null,
-  isLoggedIn: false,
-  isFetchingCurrentUser: false,
+  data: null,
+  /* user: { name: null, email: null, id: null }, */
+  /* token: null, */
+  /* isLoggedIn: false, */
+  /*  isFetchingCurrentUser: false, */
   isReducerSpinner: false,
-  userData: {
+  /*  userData: {
     height: null,
     age: null,
     currentWeight: null,
     desiredWeight: null,
     bloodType: null,
     calories: null,
-  },
+  }, */
 };
 
-const authSlice = createSlice({
-  name: 'auth',
+const calcSlice = createSlice({
+  name: 'calc',
   initialState,
   extraReducers: {
-    [authOperations.register.fulfilled](state, action) {
-      state.user = action.payload.dataReg.user;
-      state.token = action.payload.dataLog.token;
-      state.isLoggedIn = true;
-      state.userData = action.payload.dataLog.userData;
+    [calcOperations.fetchCalculatorUser.pending](state) {
+      state.isReducerSpinner = true;
     },
-    [authOperations.logIn.fulfilled](state, action) {
+    [calcOperations.fetchCalculatorUser.fulfilled](state, action) {
+      state.data = action.payload;
+      state.isReducerSpinner = false;
+    },
+    [calcOperations.fetchCalculatorUser.rejected](state) {
+      state.isReducerSpinner = false;
+    },
+    /* [authOperations.logIn.fulfilled](state, action) {
       state.user.name = action.payload.name;
       state.user.id = action.payload.id;
       state.token = action.payload.token;
       state.isLoggedIn = true;
       state.userData = action.payload.userData;
     },
-    [authOperations.logOut.pending](state) {
-      state.isReducerSpinner = true;
-    },
+
     [authOperations.logOut.fulfilled](state) {
       state.user = { name: null, email: null, id: null };
       state.token = null;
@@ -56,8 +59,8 @@ const authSlice = createSlice({
     },
     [authOperations.fetchCurrentUser.rejected](state) {
       state.isFetchingCurrentUser = false;
-    },
+    }, */
   },
 });
 
-export default authSlice.reducer;
+export default calcSlice.reducer;
