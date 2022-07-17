@@ -3,6 +3,7 @@ import storage from 'redux-persist/lib/storage';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { userDayInfoApi } from './rtkSliceForDiaryPage/userDayInfoSlice';
 import authReducer from './authorization/auth-slice';
+import calcReducer from './calculator/calc-slice';
 import {
   persistStore,
   persistReducer,
@@ -24,7 +25,10 @@ const authPersistConfig = {
 const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
+
     [userDayInfoApi.reducerPath]: userDayInfoApi.reducer,
+
+    calc: calcReducer,
   },
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware({

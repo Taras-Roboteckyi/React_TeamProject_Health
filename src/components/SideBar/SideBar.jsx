@@ -35,8 +35,8 @@ const SideBar = () => {
     'крупа',
     'ячмінь',
   ];
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-
+  const userData = useSelector(authSelectors.getUserDataCalories);
+  const isCalories = userData === '0';
   const random = arrayRandom(array);
   /* console.log('result:', random); */
   /* const arraySlice = random.slice(0, 7); //////Обрізає масив до 7 значень
@@ -50,7 +50,7 @@ const SideBar = () => {
         <Wrapper>
           <SummaryContainer>
             <SummaryText>Відомості за {'06 / 12 / 2002'}</SummaryText>
-            {isLoggedIn ? (
+            {!isCalories ? (
               <ListStyle>
                 <ListItemStyle>
                   Залишилось
@@ -96,7 +96,7 @@ const SideBar = () => {
           <FoodContainer>
             <SummaryText>Не рекомендовані продукти для вас</SummaryText>
 
-            {isLoggedIn ? (
+            {!isCalories ? (
               <ProductStyle>
                 <ReactTypingEffect
                   typingDelay={1000}
