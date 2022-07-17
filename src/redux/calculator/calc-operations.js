@@ -91,6 +91,7 @@ const fetchCalculatorUser = createAsyncThunk(
     try {
       const { data } = await axios.post(`users/user/${idUser}`, credentials);
       console.log(data);
+
       toast.success('Ваша добова норма перерахована');
       return data;
     } catch (error) {

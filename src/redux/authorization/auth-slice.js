@@ -15,6 +15,8 @@ const initialState = {
     bloodType: null,
     calories: null,
   },
+  notAllowedProducts: [],
+  products: [],
 };
 
 const authSlice = createSlice({
@@ -33,6 +35,7 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.isLoggedIn = true;
       state.userData = action.payload.userData;
+      state.notAllowedProducts = [...action.payload.notAllowedProducts];
     },
     [authOperations.logOut.pending](state) {
       state.isReducerSpinner = true;
@@ -50,12 +53,29 @@ const authSlice = createSlice({
       state.isFetchingCurrentUser = true;
     },
     [authOperations.fetchCurrentUser.fulfilled](state, action) {
-      state.user = action.payload;
+      state.user.name = action.payload.name;
+      state.user.email = action.payload.email;
+      state.user.id = action.payload.id;
       state.isLoggedIn = true;
       state.isFetchingCurrentUser = false;
+      state.userData = action.payload.userData;
+      state.notAllowedProducts = [...action.payload.notAllowedProducts];
     },
     [authOperations.fetchCurrentUser.rejected](state) {
       state.isFetchingCurrentUser = false;
+    },
+
+    /////////////Калькулятор//////////////
+    [authOperations.fetchCalculatorUser.pending](state) {
+      state.isReducerSpinner = true;
+    },
+    [authOperations.fetchCalculatorUser.fulfilled](state, action) {
+      state.userData.calories = action.payload.calories;
+      state.notAllowedProducts = [...action.payload.notAllowedProducts];
+      state.isReducerSpinner = false;
+    },
+    [authOperations.fetchCalculatorUser.rejected](state) {
+      state.isReducerSpinner = false;
     },
   },
 });
