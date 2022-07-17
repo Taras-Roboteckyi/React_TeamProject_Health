@@ -122,9 +122,16 @@ export const Section = styled.section`
       color: ${prop => prop.theme.colors.$orange};
       cursor: pointer;
 
+      align-self: center;
+      transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        border 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
       &:hover {
         background: ${prop => prop.theme.colors.$orange};
         color: ${prop => prop.theme.colors.$white};
+        box-shadow: 0 8px 43px rgb(255 107 1 / 60%);
       }
     }
 
@@ -149,9 +156,16 @@ export const Section = styled.section`
       color: ${prop => prop.theme.colors.$white};
       cursor: pointer;
 
+      align-self: center;
+      transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        border 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
       &:hover {
         background: ${prop => prop.theme.colors.$white};
         color: ${prop => prop.theme.colors.$orange};
+        box-shadow: 0 8px 43px rgb(255 107 1 / 60%);
       }
     }
   }
