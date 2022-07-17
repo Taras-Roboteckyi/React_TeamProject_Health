@@ -1,7 +1,7 @@
 const VERDANA = `'Verdana'`;
 const GOTHAM_PRO = `'Gotham Pro'`;
 
-export const constants = {
+export const lightTheme = {
   fonts: {
     verdana: VERDANA,
     gothamPro: GOTHAM_PRO,
@@ -36,5 +36,17 @@ export const constants = {
     desktop: '1280px',
     tablet: '768px',
     mobile: '320px',
+  },
+};
+
+export const darkTheme = {
+  colors: {
+    $white: '#212121',
+    $orange: '#264061',
+    $blue: '#264061',
+    $lightGrey: '#4d4949',
+    $grey: '#9B9FAA',
+    $black: '#FFFFFF',
+    borderColor: '#E0E0E0',
   },
 };

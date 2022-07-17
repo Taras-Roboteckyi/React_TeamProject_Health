@@ -28,7 +28,7 @@ export const Sign = styled(NavLink)`
     border-left: 2px solid ${({ theme: { colors } }) => colors.borderColor};
   }
   &.active {
-    color: #212121;
+    color: ${({ theme: { colors } }) => colors.$black};
 
     transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -50,7 +50,7 @@ export const Link = styled(NavLink)`
     margin-left: 16px;
   }
   &.active {
-    color: #212121;
+    color: ${({ theme: { colors } }) => colors.$black};
 
     transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1);
   }
