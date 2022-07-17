@@ -28,16 +28,30 @@ const SideBar = () => {
   const array = [
     'молоко',
     'кава',
-    'чай',
+    'чай rkmjdbq',
     'гречка',
     'хліб',
     'масло',
     'крупа',
     'ячмінь',
   ];
-  const userData = useSelector(authSelectors.getUserDataCalories);
-  const isCalories = userData === '0';
+  const calories = useSelector(authSelectors.getUserDataCalories);
+  const dataBedProducts = useSelector(authSelectors.getNotAllowedProducts);
+  /* console.log(dataBedProducts); */
+
+  ///////Витягує з масива властивість title//////////////////////
+  const filterArray = dataBedProducts.map(({ title }) => {
+    const array = title.ua;
+
+    return array;
+  });
+
+  //Функція перебирання рандомних значень масива
   const random = arrayRandom(array);
+  /* console.log(random); */
+
+  const isCalories = calories === '0';
+
   /* console.log('result:', random); */
   /* const arraySlice = random.slice(0, 7); //////Обрізає масив до 7 значень
   console.log(arraySlice); */
@@ -54,22 +68,22 @@ const SideBar = () => {
               <ListStyle>
                 <ListItemStyle>
                   Залишилось
-                  <TextStyle>{1404 + ' ккал'}</TextStyle>
+                  <TextStyle>{0 + ' ккал'}</TextStyle>
                 </ListItemStyle>
 
                 <ListItemStyle>
                   Спожито
-                  <TextStyle>{1004 + ' ккал'}</TextStyle>
+                  <TextStyle>{0 + ' ккал'}</TextStyle>
                 </ListItemStyle>
 
                 <ListItemStyle>
                   Добова норма
-                  <TextStyle>{3000 + ' ккал'}</TextStyle>
+                  <TextStyle>{calories + ' ккал'}</TextStyle>
                 </ListItemStyle>
 
                 <ListItemStyle>
                   Відсоток від норми
-                  <TextStyle>{4 + ' %'}</TextStyle>
+                  <TextStyle>{0 + ' %'}</TextStyle>
                 </ListItemStyle>
               </ListStyle>
             ) : (
