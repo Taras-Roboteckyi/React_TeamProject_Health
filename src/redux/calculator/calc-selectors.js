@@ -2,19 +2,18 @@
 
 export const getUserName = state => state.auth.user?.name;
 
-export const getIsFetchingCurrent = state => state.auth.isFetchingCurrentUser;
+export const getIsFetchingCurrent = state => state.auth.isFetchingCurrentUser; */
 
-export const getIsReducerSpinner = state => state.auth.isReducerSpinner;
+export const getIsReducerSpinner = state => state.calc.isReducerSpinner;
 
-export const getUserDataCalories = state => state.auth.userData.calories;
+/* export const getUserDataCalories = state => state.auth.userData.calories; */
 
-const authSelectors = {
-  getIsLoggedIn,
+const calcSelectors = {
+  /*  getIsLoggedIn,
   getUserName,
-  getIsFetchingCurrent,
+  getIsFetchingCurrent, */
   getIsReducerSpinner,
-  getUserDataCalories,
+  /* getUserDataCalories, */
 };
 
-export default authSelectors;
- */
+export default calcSelectors;
