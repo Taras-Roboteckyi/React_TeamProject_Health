@@ -25,16 +25,6 @@ import {
 } from './SideBar.styled';
 
 const SideBar = () => {
-  const array = [
-    'молоко',
-    'кава',
-    'чай rkmjdbq',
-    'гречка',
-    'хліб',
-    'масло',
-    'крупа',
-    'ячмінь',
-  ];
   const calories = useSelector(authSelectors.getUserDataCalories);
   const dataBedProducts = useSelector(authSelectors.getNotAllowedProducts);
   /* console.log(dataBedProducts); */
