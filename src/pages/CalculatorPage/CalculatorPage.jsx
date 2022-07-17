@@ -1,3 +1,4 @@
+import { useDispatch /* , useSelector */ } from 'react-redux';
 import React, { useState } from 'react';
 import { useWindowWidth } from '@react-hook/window-size';
 import { Container } from '../../components/container';
@@ -7,10 +8,12 @@ import Modal from '../../components/modal/Modal';
 import SideBar from '../../components/SideBar/SideBar';
 import { StyledWrapper, DivUserMenu } from './CalculatorPage.styled';
 import { UserMenu } from '../../components/userMenu';
+import { calcSlice } from '../../redux/calculator';
 
 export const CalculatorPage = () => {
   const [modalData, setModalData] = useState({});
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const dispatch = useDispatch();
 
   const windowWidth = useWindowWidth();
 
@@ -21,6 +24,7 @@ export const CalculatorPage = () => {
   const onFormSubmit = data => {
     setModalData(data);
     toggleModal();
+    dispatch(calcSlice.fetchCalculatorUser());
   };
 
   return (
