@@ -20,11 +20,13 @@ import {
   CalendarStyles,
   ButtonOpenModalForm,
   DivUserMenu,
+  Parag,
 } from './DiaryPage.styled';
 import { DiaryAddProductForm } from '../../components/diaryAddProductForm';
 import { DiaryProductsList } from '../../components/diaryProductsList/DiaryProductsList';
 import { ModalForDiaryPage } from '../../components/modalForDiaryPage/modalForDiaryPage';
 import { Container } from '../../components/container/Container';
+// import { useSelector } from 'react-redux';
 
 export const DiaryPage = () => {
   const [date, setDate] = useState(new Date());
@@ -43,7 +45,8 @@ export const DiaryPage = () => {
     isFetching,
   } = useFetchUserDayInfoQuery(format(date, 'yyyy-MM-dd'));
 
-  console.log(products?.data?.result);
+  // const a = useSelector(state => state.auth.user);
+  // console.log(a);
 
   const [createProduct, { isLoading, isError: errorAddProduct }] =
     useAddProductMutation();
@@ -104,10 +107,9 @@ export const DiaryPage = () => {
       productTitle: productName,
       productWeight,
     };
-    console.log(sendObj);
 
     createProduct(sendObj);
-    toast.success('Успішно доданий!');
+    !errorUserDayInfo && toast.success('Успішно доданий!');
     setProductName('');
     setProductWeight('');
     isOpenModal && toggleModal();
@@ -155,7 +157,7 @@ export const DiaryPage = () => {
               eatenProductsList={products?.data?.result}
             />
           ) : (
-            <p>Дані за цей період відсутні!</p>
+            <Parag>Дані за цей день відсутні!</Parag>
           )}
         </Container>
 

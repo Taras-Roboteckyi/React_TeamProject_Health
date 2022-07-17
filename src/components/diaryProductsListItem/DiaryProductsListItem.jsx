@@ -17,7 +17,7 @@ export const DiaryProductsListItem = ({ product, isCurrentDay }) => {
         <td>
           {isCurrentDay && (
             <button type="button" onClick={() => deleteProduct(delObj)}>
-              <IoCloseSharp size={24} fill="#9B9FAA" />
+              <IoCloseSharp size={24} fill="inherrit" />
             </button>
           )}
         </td>
