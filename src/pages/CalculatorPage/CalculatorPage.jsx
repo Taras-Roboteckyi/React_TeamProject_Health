@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useState } from 'react';
 import { useWindowWidth } from '@react-hook/window-size';
@@ -16,21 +15,18 @@ export const CalculatorPage = () => {
   const [modalData, setModalData] = useState({});
   const [isOpenModal, setIsOpenModal] = useState(false);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const reducerSpinner = useSelector(authSelectors.getIsReducerSpinner);
-  /* console.log(reducerSpinner); */
   const windowWidth = useWindowWidth();
 
   const toggleModal = () => {
     setIsOpenModal(prevValue => !prevValue);
   };
 
-  const onFormSubmit = data => {
-    setModalData(data);
+  const onFormSubmit = async data => {
+    const result = await dispatch(authOperations.fetchCalculatorUser(data));
+    setModalData(result.payload);
     toggleModal();
-    dispatch(authOperations.fetchCalculatorUser(data));
-    navigate('/diary');
   };
 
   return (
@@ -45,11 +41,11 @@ export const CalculatorPage = () => {
       <Container>
         <StyledWrapper>
           <DailyCaloriesForm onFormSubmit={onFormSubmit} />
-          {/* {isOpenModal && (
+          {isOpenModal && (
             <Modal onClose={toggleModal}>
               <DailyCalorieIntake data={modalData} onClose={toggleModal} />
             </Modal>
-          )} */}
+          )}
         </StyledWrapper>
       </Container>
       <SideBar />
