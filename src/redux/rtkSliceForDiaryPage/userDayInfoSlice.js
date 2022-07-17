@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const userDayInfoApi = createApi({
   reducerPath: 'userDayInfoApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://health-projectbackend.herokuapp.com',
+    baseUrl: 'https://health-projectbackend.herokuapp.com/api',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
 
