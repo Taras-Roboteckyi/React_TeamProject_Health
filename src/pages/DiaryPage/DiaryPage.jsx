@@ -7,10 +7,10 @@ import uk from 'date-fns/locale/uk';
 import { useDebounce } from 'use-debounce';
 import 'react-datepicker/dist/react-datepicker.css';
 import { fetchProductSearch } from '../../services/fetchProductSeach';
-// import {
-//   useFetchUserDayInfoQuery,
-//   useAddProductMutation,
-// } from '../../redux/rtkSliceForDiaryPage/userDayInfoSlice';
+import {
+  useFetchUserDayInfoQuery,
+  useAddProductMutation,
+} from '../../redux/rtkSliceForDiaryPage/userDayInfoSlice';
 import { useWindowWidth } from '@react-hook/window-size';
 import { BsPlusLg } from 'react-icons/bs';
 import { UserMenu } from '../../components/userMenu';
@@ -37,15 +37,16 @@ export const DiaryPage = () => {
   const [isSearchingProduct, setIsSearchingProduct] = useState(false);
   const [productsVariants, setProductsVariants] = useState([]);
 
-  // const {
-  //   data: products,
-  //   isError: errorUserDayInfo,
-  //   isFetching,
-  // } = useFetchUserDayInfoQuery(format(date, 'dd/MM/yyyy'), {
-  //   refetchOnMountOrArgChange: true,
-  // });
-  // const [createProduct, { isLoading, isError: errorAddProduct }] =
-  //   useAddProductMutation();
+  const {
+    data: products,
+    isError: errorUserDayInfo,
+    isFetching,
+  } = useFetchUserDayInfoQuery(format(date, 'yyyy-MM-dd'));
+
+  console.log(products);
+
+  const [createProduct, { isLoading, isError: errorAddProduct }] =
+    useAddProductMutation();
 
   const windowWidth = useWindowWidth();
   registerLocale('uk', uk); // для укр мови в календарі
@@ -97,12 +98,19 @@ export const DiaryPage = () => {
     //   prod => prod.title.ua === productName,
     // );
     // const productId = curProd._id;
-    // const dateIsFormatting = format(date, 'dd/MM/yyyy');
-    // createProduct({ dateIsFormatting, productName, productWeight });
-    // toast.success('Успішно доданий!');
-    // setProductName('');
-    // setProductWeight('');
-    // isOpenModal && toggleModal();
+    const dateIsFormatting = format(date, 'yyyy-MM-dd');
+    const sendObj = {
+      date: dateIsFormatting,
+      productTitle: productName,
+      productWeight,
+    };
+    console.log(sendObj);
+
+    createProduct(sendObj);
+    toast.success('Успішно доданий!');
+    setProductName('');
+    setProductWeight('');
+    isOpenModal && toggleModal();
   };
 
   return (
