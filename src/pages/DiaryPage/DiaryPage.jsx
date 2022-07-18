@@ -1,4 +1,5 @@
 import { GoCalendar } from 'react-icons/go';
+import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import toast from 'react-hot-toast';
@@ -27,6 +28,7 @@ import { DiaryProductsList } from '../../components/diaryProductsList/DiaryProdu
 import { ModalForDiaryPage } from '../../components/modalForDiaryPage/modalForDiaryPage';
 import { Container } from '../../components/container/Container';
 import AppLoader from '../../components/Loader/Loader';
+import { authSelectors } from '../../redux/authorization';
 
 export const DiaryPage = () => {
   const [date, setDate] = useState(new Date());
@@ -50,6 +52,8 @@ export const DiaryPage = () => {
   const [createProduct, { isLoading }] = useAddProductMutation();
 
   const eatenProductsList = products?.data?.result;
+
+  const calories = useSelector(authSelectors.getUserDataCalories);
 
   const totalConsumed = eatenProductsList?.reduce((total, product) => {
     return total + product.productCalories;
@@ -141,7 +145,10 @@ export const DiaryPage = () => {
         </Container>
 
         <Container>
-          {isCurrentDay && windowWidth > 767 && (
+          {calories <= totalConsumed && (
+            <Parag>Ви спожили денну норму продуктів за цей день!!!</Parag>
+          )}
+          {calories > totalConsumed && isCurrentDay && windowWidth > 767 && (
             <DiaryAddProductForm
               productName={productName}
               productWeight={productWeight}
@@ -166,7 +173,7 @@ export const DiaryPage = () => {
           )}
         </Container>
 
-        {isCurrentDay && windowWidth < 768 && (
+        {calories > totalConsumed && isCurrentDay && windowWidth < 768 && (
           <ButtonOpenModalForm type="button" onClick={toggleModal}>
             <BsPlusLg size={14} />
           </ButtonOpenModalForm>
