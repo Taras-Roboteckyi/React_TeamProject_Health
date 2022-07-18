@@ -47,6 +47,13 @@ export const DiaryPage = () => {
 
   const [createProduct, { isLoading }] = useAddProductMutation();
 
+  const eatenProductsList = products?.data?.result;
+  console.log(eatenProductsList);
+
+  const totalConsumed = eatenProductsList?.reduce((total, product) => {
+    return total + product.productCalories;
+  }, 0);
+
   const windowWidth = useWindowWidth();
   registerLocale('uk', uk); // для укр мови в календарі
 
@@ -93,10 +100,6 @@ export const DiaryPage = () => {
   };
 
   const handleSubmit = () => {
-    // const curProd = productsVariants.find(
-    //   prod => prod.title.ua === productName,
-    // );
-    // const productId = curProd._id;
     const dateIsFormatting = format(date, 'yyyy-MM-dd');
     const sendObj = {
       date: dateIsFormatting,
@@ -152,7 +155,7 @@ export const DiaryPage = () => {
           {products?.data?.result.length !== 0 ? (
             <DiaryProductsList
               isCurrentDay={isCurrentDay}
-              eatenProductsList={products?.data?.result}
+              eatenProductsList={eatenProductsList}
             />
           ) : (
             <Parag>Дані за цей день відсутні!</Parag>
@@ -182,7 +185,7 @@ export const DiaryPage = () => {
           </ModalForDiaryPage>
         )}
 
-        <SideBar date={format(date, 'dd/MM/yyyy')} />
+        <SideBar date={format(date, 'dd/MM/yyyy')} consumed={totalConsumed} />
       </Wrapper>
     </main>
   );

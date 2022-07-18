@@ -11,6 +11,7 @@ import { UserMenu } from '../../components/userMenu';
 import { authOperations, authSelectors } from '../../redux/authorization';
 import AppLoader from '../../components/Loader/Loader';
 import { format } from 'date-fns';
+import { useFetchUserDayInfoQuery } from '../../redux/rtkSliceForDiaryPage/userDayInfoSlice';
 
 export const CalculatorPage = () => {
   const [modalData, setModalData] = useState({});
@@ -18,6 +19,15 @@ export const CalculatorPage = () => {
   const dispatch = useDispatch();
 
   const date = format(new Date(), 'dd/MM/yyyy');
+  const { data: products } = useFetchUserDayInfoQuery(
+    format(new Date(), 'yyyy-MM-dd'),
+  );
+
+  const eatenProductsList = products?.data?.result;
+
+  const totalConsumed = eatenProductsList?.reduce((total, product) => {
+    return total + product.productCalories;
+  }, 0);
 
   const reducerSpinner = useSelector(authSelectors.getIsReducerSpinner);
   const windowWidth = useWindowWidth();
@@ -51,7 +61,7 @@ export const CalculatorPage = () => {
           )}
         </StyledWrapper>
       </Container>
-      <SideBar date={date} />
+      <SideBar date={date} consumed={totalConsumed} />
       {reducerSpinner && <AppLoader />}
     </main>
   );
