@@ -105,7 +105,7 @@ export const DiaryPage = () => {
     };
 
     createProduct(sendObj);
-    !errorUserDayInfo && toast.success('Успішно доданий!');
+    !errorUserDayInfo && toast.success('Ви успішно додали продукт!');
     setProductName('');
     setProductWeight('');
     isOpenModal && toggleModal();
@@ -156,6 +156,10 @@ export const DiaryPage = () => {
             />
           ) : (
             <Parag>Дані за цей день відсутні!</Parag>
+          )}
+
+          {!isCurrentDay && (
+            <Parag>Ви не можете змінювати свій раціон за цей день!</Parag>
           )}
         </Container>
 
