@@ -4,7 +4,7 @@ import { IoCloseSharp } from 'react-icons/io5';
 import { Tr } from './DiaryProductsListItem.styled';
 
 export const DiaryProductsListItem = ({ product, isCurrentDay }) => {
-  const [deleteProduct, { isLoading: isDeleting }] = useDeleteProductMutation();
+  const [deleteProduct] = useDeleteProductMutation();
 
   const delObj = { date: product.date, productTitle: product.productTitle };
 
@@ -17,7 +17,7 @@ export const DiaryProductsListItem = ({ product, isCurrentDay }) => {
         <td>
           {isCurrentDay && (
             <button type="button" onClick={() => deleteProduct(delObj)}>
-              <IoCloseSharp size={24} fill="#9B9FAA" />
+              <IoCloseSharp size={24} fill="inherrit" />
             </button>
           )}
         </td>

@@ -10,11 +10,14 @@ import { StyledWrapper, DivUserMenu } from './CalculatorPage.styled';
 import { UserMenu } from '../../components/userMenu';
 import { authOperations, authSelectors } from '../../redux/authorization';
 import AppLoader from '../../components/Loader/Loader';
+import { format } from 'date-fns';
 
 export const CalculatorPage = () => {
   const [modalData, setModalData] = useState({});
   const [isOpenModal, setIsOpenModal] = useState(false);
   const dispatch = useDispatch();
+
+  const date = format(new Date(), 'dd/MM/yyyy');
 
   const reducerSpinner = useSelector(authSelectors.getIsReducerSpinner);
   const windowWidth = useWindowWidth();
@@ -48,7 +51,7 @@ export const CalculatorPage = () => {
           )}
         </StyledWrapper>
       </Container>
-      <SideBar />
+      <SideBar date={date} />
       {reducerSpinner && <AppLoader />}
     </main>
   );
