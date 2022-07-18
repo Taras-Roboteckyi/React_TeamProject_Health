@@ -43,7 +43,9 @@ export const DiaryPage = () => {
     data: products,
     isError: errorUserDayInfo,
     isFetching,
-  } = useFetchUserDayInfoQuery(format(date, 'yyyy-MM-dd'));
+  } = useFetchUserDayInfoQuery(format(date, 'yyyy-MM-dd'), {
+    refetchOnMountOrArgChange: true,
+  });
 
   const [createProduct, { isLoading }] = useAddProductMutation();
 

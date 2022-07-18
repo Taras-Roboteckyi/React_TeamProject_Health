@@ -21,6 +21,7 @@ export const CalculatorPage = () => {
   const date = format(new Date(), 'dd/MM/yyyy');
   const { data: products } = useFetchUserDayInfoQuery(
     format(new Date(), 'yyyy-MM-dd'),
+    { refetchOnMountOrArgChange: true },
   );
 
   const eatenProductsList = products?.data?.result;
