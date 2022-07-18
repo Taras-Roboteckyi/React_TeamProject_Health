@@ -29,6 +29,7 @@ export const CalendarStyles = styled.label`
     font-size: 18px;
     line-height: 22px;
     border: none;
+    background: transparent;
     width: 140px;
     outline: none;
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {

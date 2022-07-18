@@ -8,7 +8,7 @@ export const Tr = styled.tr`
   line-height: 17px;
   letter-spacing: 0.04em;
 
-  color: #212121;
+  color: ${({ theme: { colors } }) => colors.$black};
 
   td:not(:last-child) {
     border-bottom: 2px solid ${prop => prop.theme.colors.borderColor};

@@ -15,6 +15,7 @@ export const lightTheme = {
   colors: {
     $white: '#FFFFFF',
     $orange: '#FC842D',
+    $lightOrange: '#ff6b08',
     $blue: '#264061',
     $lightGrey: '#F0F1F3',
     $grey: '#9B9FAA',
@@ -27,6 +28,7 @@ export const lightTheme = {
   options: {
     radius: '30px',
     buttonShadow: `0px 4px 10px rgba(252, 132, 45, 0.5)`,
+    buttonShadowHover: `0 8px 43px rgb(255 107 1 / 60%)`,
     dropShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
     gradient:
       ' linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, #FFFFFF 42.19%)',
@@ -43,10 +45,20 @@ export const darkTheme = {
   colors: {
     $white: '#212121',
     $orange: '#264061',
+    $lightOrange: '#1d60b8',
     $blue: '#264061',
     $lightGrey: '#4d4949',
     $grey: '#9B9FAA',
     $black: '#FFFFFF',
-    borderColor: '#E0E0E0',
+    borderColor: '#403f3f',
+  },
+
+  options: {
+    radius: '30px',
+    buttonShadow: `0px 4px 10px rgba(38, 64, 97, 0.5)`,
+    buttonShadowHover: `0 8px 43px rgb(255 107 1 / 60%)`,
+    dropShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
+    gradient:
+      ' linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, #FFFFFF 42.19%)',
   },
 };

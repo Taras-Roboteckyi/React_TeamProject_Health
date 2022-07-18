@@ -109,7 +109,7 @@ export const Section = styled.section`
       align-items: center;
 
       background: ${prop => prop.theme.colors.$white};
-      box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+      box-shadow: ${({ theme: { options } }) => options.buttonShadow};
       border: 2px solid ${prop => prop.theme.colors.$orange};
       border-radius: 30px;
 
@@ -129,9 +129,9 @@ export const Section = styled.section`
         box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
       &:hover {
-        background: ${prop => prop.theme.colors.$orange};
+        background: ${prop => prop.theme.colors.$lightOrange};
         color: ${prop => prop.theme.colors.$white};
-        box-shadow: 0 8px 43px rgb(255 107 1 / 60%);
+        box-shadow: ${({ theme: { options } }) => options.buttonShadowHover};
       }
     }
 
@@ -143,7 +143,7 @@ export const Section = styled.section`
       align-items: center;
 
       background: ${prop => prop.theme.colors.$orange};
-      box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+      box-shadow: ${({ theme: { options } }) => options.buttonShadow};
       border: 2px solid ${prop => prop.theme.colors.$orange};
       border-radius: 30px;
 
@@ -163,9 +163,9 @@ export const Section = styled.section`
         box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
       &:hover {
-        background: ${prop => prop.theme.colors.$white};
-        color: ${prop => prop.theme.colors.$orange};
-        box-shadow: 0 8px 43px rgb(255 107 1 / 60%);
+        background: ${prop => prop.theme.colors.$lightOrange};
+        color: ${prop => prop.theme.colors.$white};
+        box-shadow: ${({ theme: { options } }) => options.buttonShadowHover};
       }
     }
   }

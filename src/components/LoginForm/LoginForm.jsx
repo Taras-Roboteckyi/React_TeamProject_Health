@@ -16,7 +16,10 @@ export const LoginForm = () => {
 
   const validationSchema = Yup.object({
     email: Yup.string()
-      .email('Неналежна назва ел. пошти')
+      .matches(
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, //eslint-disable-line
+        'Неналежна назва ел. пошти',
+      )
       .min(3, 'Занадто короткий!')
       .max(254, 'Занадто довгий!')
       .required(`Це поле є обов'язковим!`),
