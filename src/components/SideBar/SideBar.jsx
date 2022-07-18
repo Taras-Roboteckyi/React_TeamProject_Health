@@ -1,11 +1,6 @@
 import { useSelector /* , useDispatch  */ } from 'react-redux';
 /* import { useEffect } from 'react'; */
 
-/* 
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
- */
 import ReactTypingEffect from 'react-typing-effect';
 
 import { authSelectors } from '../../redux/authorization';
