@@ -48,7 +48,6 @@ export const DiaryPage = () => {
   const [createProduct, { isLoading }] = useAddProductMutation();
 
   const eatenProductsList = products?.data?.result;
-  console.log(eatenProductsList);
 
   const totalConsumed = eatenProductsList?.reduce((total, product) => {
     return total + product.productCalories;
@@ -92,7 +91,6 @@ export const DiaryPage = () => {
 
   const handleChange = ({ name, value }) => {
     if (name === 'productWeight' && value > 99999) {
-      /*  setErrorMsg('Значення ваги продукту має бути від 0 до 999г'); */
       return;
     }
     name === 'productName' && setProductName(value);
