@@ -70,6 +70,6 @@ export const ButtonOpenModalForm = styled.button`
 `;
 
 export const Parag = styled.p`
-  color: red;
+  color: ${prop => prop.theme.colors.$orange};
   margin-bottom: 40px;
 `;
