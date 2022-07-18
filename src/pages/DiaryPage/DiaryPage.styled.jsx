@@ -68,3 +68,8 @@ export const ButtonOpenModalForm = styled.button`
     border: none;
   }
 `;
+
+export const Parag = styled.p`
+  color: red;
+  margin-bottom: 40px;
+`;

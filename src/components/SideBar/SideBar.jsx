@@ -24,7 +24,7 @@ import {
   Wrapper,
 } from './SideBar.styled';
 
-const SideBar = () => {
+const SideBar = ({ date }) => {
   const calories = useSelector(authSelectors.getUserDataCalories);
   const dataBedProducts = useSelector(authSelectors.getNotAllowedProducts);
   /* console.log(dataBedProducts); */
@@ -49,7 +49,7 @@ const SideBar = () => {
       <Section>
         <Wrapper>
           <SummaryContainer>
-            <SummaryText>Відомості за {'06 / 12 / 2002'}</SummaryText>
+            <SummaryText>Відомості за {date}</SummaryText>
             {!isCalories ? (
               <ListStyle>
                 <ListItemStyle>
