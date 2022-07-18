@@ -178,7 +178,7 @@ export const DiaryPage = () => {
           </ModalForDiaryPage>
         )}
 
-        <SideBar />
+        <SideBar date={format(date, 'dd/MM/yyyy')} />
       </Wrapper>
     </main>
   );
