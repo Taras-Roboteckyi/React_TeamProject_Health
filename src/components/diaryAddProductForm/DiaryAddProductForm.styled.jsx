@@ -14,6 +14,7 @@ export const ProductFormStyled = styled.form`
     border: none;
     border-bottom: 2px solid ${prop => prop.theme.colors.borderColor};
     font-family: ${({ theme: { fonts } }) => fonts.verdana};
+    color: ${prop => prop.theme.colors.$black};
     font-style: normal;
     font-weight: 700;
     font-size: 14px;

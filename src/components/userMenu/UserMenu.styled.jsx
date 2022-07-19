@@ -5,12 +5,14 @@ export const ContainerTextStyled = styled.div`
 
   font-size: 14px;
   line-height: 13px;
+  background: ${({ theme: { colors } }) => colors.$mobileGrey};
 
   p {
     display: inline-block;
     margin: 0;
     padding: 8px 15px 8px 0;
 
+    color: black;
     border-right: 2px solid ${({ theme: { colors } }) => colors.borderColor};
   }
 

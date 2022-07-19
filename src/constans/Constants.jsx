@@ -18,6 +18,7 @@ export const lightTheme = {
     $lightOrange: '#ff6b08',
     $blue: '#264061',
     $lightGrey: '#F0F1F3',
+    $mobileGrey: '#EFF1F3',
     $grey: '#9B9FAA',
     $black: '#212121',
     borderColor: '#E0E0E0',
@@ -44,10 +45,11 @@ export const lightTheme = {
 export const darkTheme = {
   colors: {
     $white: '#5e4d51',
-    $orange: '#264061',
-    $lightOrange: '#1d60b8',
+    $orange: '#FC842D',
+    $lightOrange: '#ff6b08',
     $blue: '#264061',
     $lightGrey: '#4d4949',
+    $mobileGrey: '#EFF1F3',
     $grey: '#9B9FAA',
     $black: '#FFFFFF',
     borderColor: '#403f3f',

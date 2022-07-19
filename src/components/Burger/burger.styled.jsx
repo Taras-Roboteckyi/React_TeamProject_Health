@@ -35,7 +35,7 @@ export const Button = styled.button`
   margin-top: 15px;
   margin-left: 53px;
   margin-right: 20px;
-  background-color: #fff;
+  background-color: ${({ theme: { colors } }) => colors.$white};
   border: 0px;
 
   @media (min-width: 768px) {
