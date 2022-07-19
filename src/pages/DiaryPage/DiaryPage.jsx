@@ -1,4 +1,5 @@
 import { GoCalendar } from 'react-icons/go';
+import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import toast from 'react-hot-toast';
@@ -27,6 +28,7 @@ import { DiaryProductsList } from '../../components/diaryProductsList/DiaryProdu
 import { ModalForDiaryPage } from '../../components/modalForDiaryPage/modalForDiaryPage';
 import { Container } from '../../components/container/Container';
 import AppLoader from '../../components/Loader/Loader';
+import { authSelectors } from '../../redux/authorization';
 
 export const DiaryPage = () => {
   const [date, setDate] = useState(new Date());
@@ -43,9 +45,19 @@ export const DiaryPage = () => {
     data: products,
     isError: errorUserDayInfo,
     isFetching,
-  } = useFetchUserDayInfoQuery(format(date, 'yyyy-MM-dd'));
+  } = useFetchUserDayInfoQuery(format(date, 'yyyy-MM-dd'), {
+    refetchOnMountOrArgChange: true,
+  });
 
   const [createProduct, { isLoading }] = useAddProductMutation();
+
+  const eatenProductsList = products?.data?.result;
+
+  const calories = useSelector(authSelectors.getUserDataCalories);
+
+  const totalConsumed = eatenProductsList?.reduce((total, product) => {
+    return total + product.productCalories;
+  }, 0);
 
   const windowWidth = useWindowWidth();
   registerLocale('uk', uk); // для укр мови в календарі
@@ -85,7 +97,6 @@ export const DiaryPage = () => {
 
   const handleChange = ({ name, value }) => {
     if (name === 'productWeight' && value > 99999) {
-      /*  setErrorMsg('Значення ваги продукту має бути від 0 до 999г'); */
       return;
     }
     name === 'productName' && setProductName(value);
@@ -93,10 +104,6 @@ export const DiaryPage = () => {
   };
 
   const handleSubmit = () => {
-    // const curProd = productsVariants.find(
-    //   prod => prod.title.ua === productName,
-    // );
-    // const productId = curProd._id;
     const dateIsFormatting = format(date, 'yyyy-MM-dd');
     const sendObj = {
       date: dateIsFormatting,
@@ -138,6 +145,14 @@ export const DiaryPage = () => {
         </Container>
 
         <Container>
+          {calories === '0' && (
+            <Parag>
+              Розрахуйте свою добову норму калорій на сторінці калькулятора.
+            </Parag>
+          )}
+          {calories !== '0' && calories <= totalConsumed && (
+            <Parag>Ви спожили добову норму продуктів за цей день!!!</Parag>
+          )}
           {isCurrentDay && windowWidth > 767 && (
             <DiaryAddProductForm
               productName={productName}
@@ -152,7 +167,7 @@ export const DiaryPage = () => {
           {products?.data?.result.length !== 0 ? (
             <DiaryProductsList
               isCurrentDay={isCurrentDay}
-              eatenProductsList={products?.data?.result}
+              eatenProductsList={eatenProductsList}
             />
           ) : (
             <Parag>Дані за цей день відсутні!</Parag>
@@ -182,7 +197,7 @@ export const DiaryPage = () => {
           </ModalForDiaryPage>
         )}
 
-        <SideBar date={format(date, 'dd/MM/yyyy')} />
+        <SideBar date={format(date, 'dd/MM/yyyy')} consumed={totalConsumed} />
       </Wrapper>
     </main>
   );

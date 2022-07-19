@@ -13,7 +13,7 @@ export const DiaryProductsListItem = ({ product, isCurrentDay }) => {
     <>
       <Tr>
         <td className="widthTitle">{product.productTitle}</td>
-        <td className="widthGramGram">{/* {product.weight} */}1000 г</td>
+        <td className="widthGramGram">{product.productWeight} г</td>
         <td className="widthGramKcal">{product.productCalories} ккал</td>
         <td>
           {isCurrentDay && (

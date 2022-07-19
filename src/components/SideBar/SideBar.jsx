@@ -1,11 +1,6 @@
 import { useSelector /* , useDispatch  */ } from 'react-redux';
 /* import { useEffect } from 'react'; */
 
-/* 
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
- */
 import ReactTypingEffect from 'react-typing-effect';
 
 import { authSelectors } from '../../redux/authorization';
@@ -24,12 +19,14 @@ import {
   Wrapper,
 } from './SideBar.styled';
 
-const SideBar = ({ date }) => {
+const SideBar = ({ date, consumed = 0 }) => {
   const calories = useSelector(authSelectors.getUserDataCalories);
   const dataBedProducts = useSelector(authSelectors.getNotAllowedProducts);
   /* console.log(dataBedProducts); */
 
   let arrayString = [];
+  const left = calories - consumed;
+  const procent = (consumed * 100) / calories;
 
   if (dataBedProducts.length > 0) {
     ///////Витягує з масива властивість title//////////////////////
@@ -54,12 +51,12 @@ const SideBar = ({ date }) => {
               <ListStyle>
                 <ListItemStyle>
                   Залишилось
-                  <TextStyle>{0 + ' ккал'}</TextStyle>
+                  <TextStyle>{calories > consumed ? left : 0} ккал</TextStyle>
                 </ListItemStyle>
 
                 <ListItemStyle>
                   Спожито
-                  <TextStyle>{0 + ' ккал'}</TextStyle>
+                  <TextStyle>{consumed} ккал</TextStyle>
                 </ListItemStyle>
 
                 <ListItemStyle>
@@ -69,7 +66,9 @@ const SideBar = ({ date }) => {
 
                 <ListItemStyle>
                   Відсоток від норми
-                  <TextStyle>{0 + ' %'}</TextStyle>
+                  <TextStyle>
+                    {calories > consumed ? Math.round(procent) : 100} %
+                  </TextStyle>
                 </ListItemStyle>
               </ListStyle>
             ) : (
@@ -80,7 +79,7 @@ const SideBar = ({ date }) => {
                 </ListItemStyle>
                 <ListItemStyle>
                   Спожито
-                  <TextStyle>0 ккал</TextStyle>
+                  <TextStyle>{consumed} ккал</TextStyle>
                 </ListItemStyle>
                 <ListItemStyle>
                   Добова норма
