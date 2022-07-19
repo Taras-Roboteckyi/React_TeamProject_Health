@@ -38,9 +38,11 @@ export const CalculatorPage = () => {
   };
 
   const onFormSubmit = async data => {
-    const result = await dispatch(authOperations.fetchCalculatorUser(data));
-    setModalData(result.payload);
-    toggleModal();
+    const response = await dispatch(authOperations.fetchCalculatorUser(data));
+    if (response?.payload) {
+      setModalData(response.payload);
+      toggleModal();
+    }
   };
 
   return (

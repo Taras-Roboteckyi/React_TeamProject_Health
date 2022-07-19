@@ -1,23 +1,31 @@
 import styled from 'styled-components';
 
 export const DailyButton = styled.button`
-  background: #fc842d;
-  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-  border-radius: 30px;
-  border: 1px solid ${prop => prop.theme.colors.$orange};
   padding: 13px 25px;
-
-  font-family: ${prop => prop.theme.fonts.$verdana};
-  font-style: normal;
+  font-family: ${({ theme: { fonts } }) => fonts.verdana};
   font-weight: 700;
   font-size: 14px;
-  line-height: 1.21;
-  color: ${prop => prop.theme.colors.$white};
-
+  line-height: ${({ theme: { lineHeight } }) => lineHeight.verdana};
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 0.04em;
+  background: ${({ theme: { colors } }) => colors.$orange};
+  color: ${({ theme: { colors } }) => colors.$white};
+  box-shadow: ${({ theme: { options } }) => options.buttonShadow};
+  border: 2px solid #fc842d;
+  border-radius: ${({ theme: { options } }) => options.radius};
   cursor: pointer;
+  align-self: center;
+  transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    border 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    background: ${prop => prop.theme.colors.$white};
-    color: ${prop => prop.theme.colors.$orange};
+    background: #ff6b08;
+    border-radius: #ff6b08;
+    color: ${prop => prop.theme.colors.$white};
+    box-shadow: 0 8px 43px rgb(255 107 1 / 60%);
   }
 `;
