@@ -145,10 +145,15 @@ export const DiaryPage = () => {
         </Container>
 
         <Container>
-          {calories <= totalConsumed && (
-            <Parag>Ви спожили денну норму продуктів за цей день!!!</Parag>
+          {calories === '0' && (
+            <Parag>
+              Розрахуйте свою добову норму калорій на сторінці калькулятора.
+            </Parag>
           )}
-          {calories > totalConsumed && isCurrentDay && windowWidth > 767 && (
+          {calories !== '0' && calories <= totalConsumed && (
+            <Parag>Ви спожили добову норму продуктів за цей день!!!</Parag>
+          )}
+          {isCurrentDay && windowWidth > 767 && (
             <DiaryAddProductForm
               productName={productName}
               productWeight={productWeight}
@@ -173,7 +178,7 @@ export const DiaryPage = () => {
           )}
         </Container>
 
-        {calories > totalConsumed && isCurrentDay && windowWidth < 768 && (
+        {isCurrentDay && windowWidth < 768 && (
           <ButtonOpenModalForm type="button" onClick={toggleModal}>
             <BsPlusLg size={14} />
           </ButtonOpenModalForm>

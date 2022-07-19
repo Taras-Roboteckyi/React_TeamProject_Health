@@ -79,7 +79,7 @@ const SideBar = ({ date, consumed = 0 }) => {
                 </ListItemStyle>
                 <ListItemStyle>
                   Спожито
-                  <TextStyle>0 ккал</TextStyle>
+                  <TextStyle>{consumed} ккал</TextStyle>
                 </ListItemStyle>
                 <ListItemStyle>
                   Добова норма
