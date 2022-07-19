@@ -96,6 +96,7 @@ export const DiaryPage = () => {
 
   const handleChange = ({ name, value }) => {
     if ((name === 'productWeight' && value > 99999) || value === '0') {
+      setErrorMsg('Вага не може бути 0 грам');
       return;
     }
     name === 'productName' && setProductName(value);
