@@ -38,8 +38,10 @@ export const Tr = styled.tr`
     border: none;
     cursor: pointer;
     line-height: 0;
+    fill: #9b9faa;
     &:hover {
       transform: scale(1.2);
+      fill: ${prop => prop.theme.colors.$orange};
     }
   }
 `;

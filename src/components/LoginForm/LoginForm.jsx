@@ -4,7 +4,15 @@ import { useNavigate } from 'react-router';
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Section, H2, Input, InputError, BoxButtons, LoginBtn, RegisterBtn } from './LoginForm.styled';
+import {
+  Section,
+  H2,
+  Input,
+  InputError,
+  BoxButtons,
+  LoginBtn,
+  RegisterBtn,
+} from './LoginForm.styled';
 
 export const LoginForm = () => {
   const navigate = useNavigate();

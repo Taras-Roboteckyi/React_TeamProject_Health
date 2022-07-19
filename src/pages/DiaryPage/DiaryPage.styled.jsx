@@ -69,3 +69,8 @@ export const ButtonOpenModalForm = styled.button`
     border: none;
   }
 `;
+
+export const Parag = styled.p`
+  color: ${prop => prop.theme.colors.$orange};
+  margin-bottom: 40px;
+`;

@@ -78,23 +78,25 @@ axios.defaults.baseURL = 'https://health-projectbackend.herokuapp.com/api/';
 });
  */
 const fetchCalculatorUser = createAsyncThunk(
-  'calc/user',
-  async (_, thunkAPI) => {
+  'calc/fetchCalculatorUser',
+  async (credentials, thunkAPI) => {
     const state = thunkAPI.getState();
     const idUser = state.auth.user.id;
-    console.log(idUser);
+    /* console.log(idUser); */
     if (idUser === null) {
       return thunkAPI.rejectWithValue();
     }
 
     /* token.set(persistedToken); */
     try {
-      const { data } = await axios.post(`users/user/${idUser}`);
+      const { data } = await axios.post(`users/user/${idUser}`, credentials);
       console.log(data);
+
+      toast.success('Ваша добова норма перерахована');
       return data;
     } catch (error) {
       console.log(error.message);
-      toast.error(error.message);
+      toast.error('Проблеми зєднання з сервером');
     }
   },
 );
