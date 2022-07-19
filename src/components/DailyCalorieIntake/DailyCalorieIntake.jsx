@@ -35,7 +35,7 @@ export const DailyCalorieIntake = ({ data, onClose }) => {
 
       <ul className="daily-calorie-list">
         {data.notAllowedProducts.map((product, index) => {
-          if (index > 4) {
+          if (index > 3) {
             return null;
           } else {
             return (

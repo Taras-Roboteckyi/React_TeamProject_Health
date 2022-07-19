@@ -23,17 +23,18 @@ export const Section = styled.section`
   }
 
   .form-title {
+    font-family: ${({ theme: { fonts } }) => fonts.$gothamPro};
+    font-weight: 700;
+    font-style: normal;
+    font-size: 14px;
+    line-height: ${({ theme: { lineHeight } }) => lineHeight.gothamProHeight};
     text-transform: uppercase;
     text-align: center;
-    color: ${prop => prop.theme.colors.$orange};
-
+    color: ${({ theme: { colors } }) => colors.$orange};
     margin-bottom: 60px;
 
     @media screen and (min-width: 768px) {
       text-align: start;
-
-      font-family: ${prop => prop.theme.fonts.$gothamPro};
-      line-height: 0.92;
     }
   }
 
@@ -108,20 +109,19 @@ export const Section = styled.section`
       justify-content: center;
       align-items: center;
 
-      background: ${prop => prop.theme.colors.$white};
-      box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-      border: 2px solid ${prop => prop.theme.colors.$orange};
-      border-radius: 30px;
-
-      font-style: normal;
+      font-family: ${({ theme: { fonts } }) => fonts.verdana};
       font-weight: 700;
       font-size: 14px;
-      line-height: 17px;
+      line-height: ${({ theme: { lineHeight } }) => lineHeight.verdana};
+      align-items: center;
+      text-align: center;
       letter-spacing: 0.04em;
-
-      color: ${prop => prop.theme.colors.$orange};
+      background: ${({ theme: { colors } }) => colors.$white};
+      color: ${({ theme: { colors } }) => colors.$orange};
+      box-shadow: ${({ theme: { options } }) => options.buttonShadow};
+      border: 2px solid #fc842d;
+      border-radius: ${({ theme: { options } }) => options.radius};
       cursor: pointer;
-
       align-self: center;
       transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
         border 0.5s cubic-bezier(0.4, 0, 0.2, 1),
@@ -129,7 +129,8 @@ export const Section = styled.section`
         box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
       &:hover {
-        background: ${prop => prop.theme.colors.$orange};
+        background: #ff6b08;
+        border-radius: #ff6b08;
         color: ${prop => prop.theme.colors.$white};
         box-shadow: 0 8px 43px rgb(255 107 1 / 60%);
       }
@@ -142,20 +143,17 @@ export const Section = styled.section`
       justify-content: center;
       align-items: center;
 
-      background: ${prop => prop.theme.colors.$orange};
-      box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-      border: 2px solid ${prop => prop.theme.colors.$orange};
-      border-radius: 30px;
-
-      font-style: normal;
+      font-family: ${({ theme: { fonts } }) => fonts.verdana};
       font-weight: 700;
       font-size: 14px;
-      line-height: 17px;
+      line-height: ${({ theme: { lineHeight } }) => lineHeight.verdana};
       letter-spacing: 0.04em;
-
-      color: ${prop => prop.theme.colors.$white};
+      background: ${({ theme: { colors } }) => colors.$orange};
+      color: ${({ theme: { colors } }) => colors.$white};
+      box-shadow: ${({ theme: { options } }) => options.buttonShadow};
+      border: 2px solid #fc842d;
+      border-radius: ${({ theme: { options } }) => options.radius};
       cursor: pointer;
-
       align-self: center;
       transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
         border 0.5s cubic-bezier(0.4, 0, 0.2, 1),
@@ -163,8 +161,9 @@ export const Section = styled.section`
         box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
       &:hover {
-        background: ${prop => prop.theme.colors.$white};
-        color: ${prop => prop.theme.colors.$orange};
+        background: #ff6b08;
+        border-radius: #ff6b08;
+        color: ${prop => prop.theme.colors.$white};
         box-shadow: 0 8px 43px rgb(255 107 1 / 60%);
       }
     }

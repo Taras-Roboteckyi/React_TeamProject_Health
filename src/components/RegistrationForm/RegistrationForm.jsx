@@ -50,7 +50,7 @@ export const RegistrationForm = () => {
 
   return (
     <Section>
-      <h3 className="form-title">Реєстрація</h3>
+      <h2 className="form-title">Реєстрація</h2>
 
       <form onSubmit={formik.handleSubmit} className="form">
         <input
