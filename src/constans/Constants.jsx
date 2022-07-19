@@ -43,7 +43,7 @@ export const lightTheme = {
 
 export const darkTheme = {
   colors: {
-    $white: '#212121',
+    $white: '#5e4d51',
     $orange: '#264061',
     $lightOrange: '#1d60b8',
     $blue: '#264061',
