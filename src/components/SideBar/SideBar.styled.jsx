@@ -27,9 +27,9 @@ export const Section = styled.section`
     background-position: right;
     background-image: url(${main_bg_desktop});
     /* background-image: none; */
-    padding: 300px 140px 200px 100px;
+    padding: 350px 140px 200px 100px;
     width: 520px;
-    height: 900px;
+    height: 1050px;
     position: absolute;
     right: 0;
     top: 0;
