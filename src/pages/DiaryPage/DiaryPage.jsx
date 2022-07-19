@@ -116,6 +116,12 @@ export const DiaryPage = () => {
     setProductName('');
     setProductWeight('');
     isOpenModal && toggleModal();
+
+    calories !== '0' &&
+      calories <= totalConsumed &&
+      toast('Ви уже спожили добову норму продуктів за цей день!', {
+        icon: '👏',
+      });
   };
 
   return (
