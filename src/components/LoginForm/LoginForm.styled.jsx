@@ -109,7 +109,7 @@ export const LoginBtn = styled.button`
   background: ${({ theme: { colors } }) => colors.$orange};
   color: ${({ theme: { colors } }) => colors.$white};
   box-shadow: ${({ theme: { options } }) => options.buttonShadow};
-  border: 2px solid #fc842d;
+  border: 2px solid ${({ theme: { colors } }) => colors.$orange};
   border-radius: ${({ theme: { options } }) => options.radius};
   cursor: pointer;
   align-self: center;
@@ -120,10 +120,10 @@ export const LoginBtn = styled.button`
     box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    background: #ff6b08;
-    border-radius: #ff6b08;
+    background: ${prop => prop.theme.colors.$lightOrange};
+    border-radius: ${prop => prop.theme.colors.$lightOrange};
     color: ${prop => prop.theme.colors.$white};
-    box-shadow: 0 8px 43px rgb(255 107 1 / 60%);
+    box-shadow: ${({ theme: { options } }) => options.buttonShadowHover};
   }
 `;
 
@@ -141,7 +141,7 @@ export const RegisterBtn = styled.button`
   background: ${({ theme: { colors } }) => colors.$white};
   color: ${({ theme: { colors } }) => colors.$orange};
   box-shadow: ${({ theme: { options } }) => options.buttonShadow};
-  border: 2px solid #fc842d;
+  border: 2px solid ${({ theme: { colors } }) => colors.$orange};
   border-radius: ${({ theme: { options } }) => options.radius};
   cursor: pointer;
   align-self: center;
@@ -152,9 +152,9 @@ export const RegisterBtn = styled.button`
     box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    background: #ff6b08;
-    border-radius: #ff6b08;
+    background: ${prop => prop.theme.colors.$lightOrange};
+    border-radius: ${prop => prop.theme.colors.$lightOrange};
     color: ${prop => prop.theme.colors.$white};
-    box-shadow: 0 8px 43px rgb(255 107 1 / 60%);
+    box-shadow: ${({ theme: { options } }) => options.buttonShadowHover};
   }
 `;
