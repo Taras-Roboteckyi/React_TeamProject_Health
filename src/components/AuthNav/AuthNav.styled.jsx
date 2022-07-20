@@ -71,7 +71,6 @@ export const Cont = styled.div`
     width: auto;
   }
   @media (min-width: 1280px) {
-    /* margin-right: 600px; */
   }
 `;
 

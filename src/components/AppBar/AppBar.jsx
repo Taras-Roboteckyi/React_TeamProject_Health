@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-/* import { Link } from 'react-router-dom'; */
 import Navigation from '../Navigation/Navigation';
 import UserMenu from '../userMenu/UserMenu';
 import AuthNav from '../AuthNav/AuthNav';

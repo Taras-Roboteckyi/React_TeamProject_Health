@@ -1,5 +1,4 @@
-import { useSelector /* , useDispatch  */ } from 'react-redux';
-/* import { useEffect } from 'react'; */
+import { useSelector } from 'react-redux';
 
 import ReactTypingEffect from 'react-typing-effect';
 
@@ -22,7 +21,6 @@ import {
 const SideBar = ({ date, consumed = 0 }) => {
   const calories = useSelector(authSelectors.getUserDataCalories);
   const dataBedProducts = useSelector(authSelectors.getNotAllowedProducts);
-  /* console.log(dataBedProducts); */
 
   let arrayString = [];
   const left = calories - consumed;
@@ -34,11 +32,10 @@ const SideBar = ({ date, consumed = 0 }) => {
 
     ///////Функція перебирання рандомних значень масива//////
     const random = arrayRandom(array);
-    /* console.log(random); */
 
     arrayString = [random.join(', ')];
   }
-  /* console.log(arrayString); */
+
   const isCalories = calories === '0';
 
   return (
@@ -107,8 +104,6 @@ const SideBar = ({ date, consumed = 0 }) => {
                 Тут відображатимуться продукти які не рекомендовані для вас
               </TextStyle>
             )}
-
-            {/* <BgImageStyled /> */}
           </FoodContainer>
         </Wrapper>
       </Section>

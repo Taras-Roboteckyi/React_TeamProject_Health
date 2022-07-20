@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { useWindowWidth } from '@react-hook/window-size';
 import { useSelector } from 'react-redux';
 import { Logo, Con, LogoImage } from './Navigation.styled';

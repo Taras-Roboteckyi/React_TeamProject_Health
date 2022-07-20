@@ -44,7 +44,6 @@ function App() {
                     <MainPage />
                   </PublicRoute>
                 }
-                /* element={<MainPage />} */
               />
               <Route
                 path="registration"
@@ -53,7 +52,6 @@ function App() {
                     <RegistrationPage />
                   </PublicRoute>
                 }
-                /* element={<RegistrationPage />} */
               />
               <Route
                 path="signin"
@@ -62,7 +60,6 @@ function App() {
                     <LoginPage />
                   </PublicRoute>
                 }
-                /*  element={<LoginPage />} */
               />
               <Route
                 path="diary"
@@ -71,7 +68,6 @@ function App() {
                     <DiaryPage />
                   </PrivateRoute>
                 }
-                /* element={<DiaryPage />} */
               />
               <Route
                 path="calculator"
@@ -80,7 +76,6 @@ function App() {
                     <CalculatorPage />
                   </PrivateRoute>
                 }
-                /* element={<CalculatorPage />} */
               />
             </Route>
 

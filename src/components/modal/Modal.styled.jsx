@@ -53,8 +53,6 @@ export const StyledCloseMobileButton = styled.button`
   padding-left: 20px;
   height: 40px;
   width: 100vw;
-
-  /* min-width: 320px; */
   border: none;
   background: ${props => props.theme.colors.$lightGrey};
   cursor: pointer;

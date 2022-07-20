@@ -21,7 +21,6 @@ const productsSlice = createSlice({
     [deleteProduct.fulfilled](state, { payload }) {
       state.dailyRate = { ...payload.dailyRate };
       state.eatenProducts.filter(({ id }) => {
-        //console.log(id);
         return id !== payload.id;
       });
     },
