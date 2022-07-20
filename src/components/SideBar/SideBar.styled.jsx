@@ -11,7 +11,6 @@ export const Section = styled.section`
     background-repeat: no-repeat;
     background-position: bottom right;
     background-image: url(${main_bg_tablet});
-    /* position: absolute; */
     padding: 80px 20px 80px 20px;
     width: 100%;
     height: 100%;
@@ -20,13 +19,10 @@ export const Section = styled.section`
     z-index: -1;
   }
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
-    /* background: url(${main_bg_desktop}) right no-repeat; */
-
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: right;
     background-image: url(${main_bg_desktop});
-    /* background-image: none; */
     padding: 320px 140px 200px 100px;
     width: 520px;
     height: 1000px;
@@ -34,13 +30,11 @@ export const Section = styled.section`
     right: 0;
     top: 0;
     z-index: -2;
-    /* background-color: ${props => props.theme.colors.$lightGrey}; */
   }
 `;
 
 export const Wrapper = styled.div`
   margin: 0 auto;
-  /* padding-left: 20px; */
   padding-right: 20px;
   max-width: 480px;
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
@@ -67,14 +61,7 @@ export const SummaryText = styled.p`
   margin-bottom: 25px;
 `;
 
-export const ListStyle = styled.ul`
-  /* list-style: none; */
-  /* padding-left: 0px; */
-  /*  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center; */
-`;
+export const ListStyle = styled.ul``;
 
 export const ListItemStyle = styled.li`
   display: flex;
@@ -93,7 +80,6 @@ export const ListItemStyle = styled.li`
 export const TextStyle = styled.p`
   font-size: 14px;
   line-height: 1.6;
-  /* line-height: ${props => props.theme.lineHeight.verdanaHeight}; */
   color: ${props => props.theme.colors.$grey};
 `;
 
@@ -118,6 +104,5 @@ export const ProductStyle = styled.span`
 `;
 
 export const FoodContainer = styled.div`
-  /*  padding-bottom: 80px; */
   width: 270px;
 `;

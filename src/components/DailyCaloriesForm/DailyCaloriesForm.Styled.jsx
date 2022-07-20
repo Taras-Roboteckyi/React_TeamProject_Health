@@ -10,7 +10,6 @@ export const Section = styled.section`
   }
 
   @media screen and (min-width: 1280px) {
-    /* padding-top: 140px; */
     padding-top: 0px;
   }
 
@@ -86,7 +85,6 @@ export const Section = styled.section`
 
     .form-input-error {
       width: 240px;
-      /* word-break: break-all; */
       color: red;
       font-size: 12px;
     }
