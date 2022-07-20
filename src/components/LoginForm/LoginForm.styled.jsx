@@ -71,7 +71,6 @@ export const Input = styled.input`
 
 export const InputError = styled.div`
   width: 280px;
-  word-break: break-all;
   color: red;
   font-size: 12px;
 
