@@ -66,9 +66,7 @@ const SideBar = ({ date, consumed = 0 }) => {
 
                 <ListItemStyle>
                   Відсоток від норми
-                  <TextStyle>
-                    {calories > consumed ? Math.round(procent) : 100} %
-                  </TextStyle>
+                  <TextStyle>{Math.round(procent)} %</TextStyle>
                 </ListItemStyle>
               </ListStyle>
             ) : (
