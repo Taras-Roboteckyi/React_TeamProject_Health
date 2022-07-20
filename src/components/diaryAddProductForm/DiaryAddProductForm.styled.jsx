@@ -20,6 +20,7 @@ export const ProductFormStyled = styled.form`
     line-height: 17px;
     letter-spacing: 0.04em;
     width: 280px;
+    background: transparent;
     ::placeholder {
       color: ${prop => prop.theme.colors.$grey};
     }

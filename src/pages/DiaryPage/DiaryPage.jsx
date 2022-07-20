@@ -41,13 +41,12 @@ export const DiaryPage = () => {
   const [isSearchingProduct, setIsSearchingProduct] = useState(false);
   const [productsVariants, setProductsVariants] = useState([]);
 
-  const {
-    data: products,
-    isError: errorUserDayInfo,
-    isFetching,
-  } = useFetchUserDayInfoQuery(format(date, 'yyyy-MM-dd'), {
-    refetchOnMountOrArgChange: true,
-  });
+  const { data: products, isFetching } = useFetchUserDayInfoQuery(
+    format(date, 'yyyy-MM-dd'),
+    {
+      refetchOnMountOrArgChange: true,
+    },
+  );
 
   const [createProduct, { isLoading }] = useAddProductMutation();
 
@@ -96,7 +95,8 @@ export const DiaryPage = () => {
   }, [debouncedErrorMsg]);
 
   const handleChange = ({ name, value }) => {
-    if (name === 'productWeight' && value > 99999) {
+    if ((name === 'productWeight' && value > 99999) || value === '0') {
+      setErrorMsg('Вага не може бути 0 грам');
       return;
     }
     name === 'productName' && setProductName(value);
@@ -111,11 +111,31 @@ export const DiaryPage = () => {
       productWeight,
     };
 
-    createProduct(sendObj);
-    !errorUserDayInfo && toast.success('Ви успішно додали продукт!');
-    setProductName('');
-    setProductWeight('');
-    isOpenModal && toggleModal();
+    const isExistContact = productsVariants.find(
+      product =>
+        product.title.ua.toLocaleLowerCase() ===
+        productName.toLocaleLowerCase(),
+    );
+
+    if (!isExistContact) {
+      toast('Невірне введення. Такого продукту немає в базі.', {
+        duration: 2000,
+      });
+      setProductName('');
+      setProductWeight('');
+      return;
+    } else {
+      createProduct(sendObj);
+      setProductName('');
+      setProductWeight('');
+      isOpenModal && toggleModal();
+      toast.success('Ви успішно додали продукт!');
+      calories !== '0' &&
+        calories <= totalConsumed &&
+        toast('Ви уже спожили добову норму продуктів за цей день!', {
+          icon: '👏',
+        });
+    }
   };
 
   return (
