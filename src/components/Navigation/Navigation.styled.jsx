@@ -42,12 +42,11 @@ export const Logo = styled(NavLink)`
   }
 `;
 export const LogoImage = styled.img`
-  max-width: 100%;
   /* @media (max-width: 767px) {
     height: 44px;
   }
   @media (max-width: 1279px) {
-    
+    max-width: 100%;
     margin-right: 40px;
   } */
 `;
