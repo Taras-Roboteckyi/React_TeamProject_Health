@@ -32,11 +32,13 @@ export const Con = styled.nav`
 export const Logo = styled(NavLink)`
   max-width: 100%;
   @media (max-width: 767px) {
-    height: 44px;
+    height: 44px;  
   }
   @media (max-width: 1279px) {
     /*  margin-left: 32px; */
     margin-right: 40px;
+    display: flex;
+    align-items: center;
   }
 `;
 export const LogoImage = styled.img`
@@ -49,3 +51,7 @@ export const LogoImage = styled.img`
     margin-right: 40px;
   } */
 `;
+
+export const ToggleButton = styled.button`
+  margin-left: 20px;
+`

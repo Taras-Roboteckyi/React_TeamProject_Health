@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-/* import { Link } from 'react-router-dom'; */
 import Navigation from '../Navigation/Navigation';
 import UserMenu from '../userMenu/UserMenu';
 import AuthNav from '../AuthNav/AuthNav';
@@ -10,7 +9,7 @@ import { Container } from '../container';
 import { useWindowWidth } from '@react-hook/window-size';
 import { BurgerInfo } from '../Burger/burgerInfo';
 
-export default function AppBar() {
+export default function AppBar({toggleTheme,isDarkTheme}) {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   const windowWidth = useWindowWidth();
 
@@ -18,7 +17,7 @@ export default function AppBar() {
     <Header>
       <Container>
         <Wrapper>
-          <Navigation />
+          <Navigation toggleTheme={toggleTheme} isDarkTheme={isDarkTheme}/>
           {isLoggedIn ? (
             <>
               {windowWidth >= 1280 && (
