@@ -1,10 +1,10 @@
 import AppBar from '../AppBar/AppBar';
 import { Outlet } from 'react-router-dom';
 
-export const Layout = () => {
+export const Layout = ({toggleTheme,isDarkTheme}) => {
   return (
     <>
-      <AppBar />
+      <AppBar toggleTheme={toggleTheme} isDarkTheme={isDarkTheme}/>
 
       <Outlet />
     </>

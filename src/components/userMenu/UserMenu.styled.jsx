@@ -5,7 +5,7 @@ export const ContainerTextStyled = styled.div`
 
   font-size: 14px;
   line-height: 13px;
-  background: ${({ theme: { colors } }) => colors.$mobileGrey};
+
 
   p {
     display: inline-block;

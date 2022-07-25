@@ -42,15 +42,11 @@ function App() {
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
       <GlobalStyle />
       <>
-        <button onClick={toggleTheme}>
-          {isDarkTheme ?
-            <span aria-label="Light mode" role="img">🌞</span> :
-            <span aria-label="Dark mode" role="img">🌜</span>}
-        </button>
+        
         {!isFetchingCurrentUser && ( //Щоб не моргав інтерфейс при переході на перезагрузку
           <Suspense fallback={<AppLoader />}>
             <Routes>
-              <Route path="/" element={<Layout />}>
+              <Route path="/" element={<Layout toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />}>
                 <Route
                   index
                   element={

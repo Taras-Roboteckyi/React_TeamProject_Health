@@ -2,13 +2,13 @@ import React from 'react';
 
 import { useWindowWidth } from '@react-hook/window-size';
 import { useSelector } from 'react-redux';
-import { Logo, Con, LogoImage } from './Navigation.styled';
+import { Logo, Con, LogoImage, ToggleButton } from './Navigation.styled';
 import { authSelectors } from '../../redux/authorization';
 import LogoDesktop from '../../images/logoDesktop.svg';
 import LogoTablet from '../../images/logoTablet.svg';
 import LogoMobile from '../../images/logoMobile.svg';
 
-const Navigation = () => {
+const Navigation = ({toggleTheme,isDarkTheme}) => {
   const windowWidth = useWindowWidth();
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
@@ -33,6 +33,11 @@ const Navigation = () => {
             )}
           </>
         )}
+        <ToggleButton onClick={toggleTheme}>
+          {isDarkTheme ?
+            <span aria-label="Light mode" role="img">🌞</span> :
+            <span aria-label="Dark mode" role="img">🌜</span>}
+        </ToggleButton>
       </Logo>
     </Con>
   );
